@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tki_app/config/assets/app_colors.dart';
+import 'package:tki_app/config/l10n/l10n.dart';
 import 'package:tki_app/config/routes/app_router.dart';
 
 void main() {
@@ -13,6 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Flutter Demo',
+      localizationsDelegates: L10n.allDelegates,
+      supportedLocales: L10n.allLanguages,
       theme: ThemeData(
         colorScheme: AppColors.colorScheme,
         useMaterial3: true,
