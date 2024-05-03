@@ -21,9 +21,12 @@ class AppSize {
   /// Large size (24.0)
   static const double l = 24.0;
 
-  /// Extra large size (32.0)
-  static const double xl = 32.0;
+  /// Extra large size (36.0)
+  static const double xl = 36.0;
 
-  /// Double extra large size (40.0)
-  static const double xxl = 40.0;
+  /// Extra large to double extra large size (40.0)
+  static const double xll = 40.0;
+
+  /// Double extra large size (48.0)
+  static const double xxl = 48.0;
 }
