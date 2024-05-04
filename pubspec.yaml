@@ -39,7 +39,9 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   freezed_annotation: ^2.4.1
+  get_it: ^7.7.0
   go_router: ^14.0.2
+  injectable: ^2.4.1
   intl: ^0.18.1
   json_annotation: ^4.9.0
   provider: ^6.1.2
@@ -51,6 +53,7 @@ dev_dependencies:
     sdk: flutter
   freezed: ^2.5.2
   go_router_builder: ^2.3.0
+  injectable_generator: ^2.6.1
   json_serializable: ^6.8.0
 
 # For information on the generic Dart part of this file, see the
