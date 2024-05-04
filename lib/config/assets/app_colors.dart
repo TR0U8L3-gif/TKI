@@ -34,5 +34,19 @@ class AppColors {
     },
   );
 
-  static ColorScheme get colorScheme => ColorScheme.fromSeed(seedColor: gray);
+  static ColorScheme get colorScheme => ColorScheme.fromSeed(seedColor: gray, brightness: Brightness.light);
+
+  static ThemeData get theme => ThemeData(
+    colorScheme: colorScheme,
+    useMaterial3: true,
+  ).copyWith(
+    textTheme: ThemeData().textTheme.apply(
+      bodyColor: gray[50],
+    ),
+    appBarTheme: AppBarTheme(
+      backgroundColor: gray[700],
+      foregroundColor: gray[50],
+      centerTitle: true,
+    ),
+  );
 }

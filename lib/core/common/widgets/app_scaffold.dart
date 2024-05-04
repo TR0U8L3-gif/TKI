@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:tki_app/config/assets/app_colors.dart';
 
 class AppScaffold extends StatelessWidget {
   const AppScaffold({
@@ -73,7 +74,7 @@ class AppScaffold extends StatelessWidget {
       onEndDrawerChanged: onEndDrawerChanged,
       bottomNavigationBar: bottomNavigationBar,
       bottomSheet: bottomSheet,
-      backgroundColor: backgroundColor,
+      backgroundColor: backgroundColor ?? AppColors.gray[400],
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       primary: primary,
       drawerDragStartBehavior: drawerDragStartBehavior,

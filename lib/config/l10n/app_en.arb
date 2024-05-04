@@ -5,7 +5,13 @@
   "assessmentHistory": "Assessment History",
   "tkiQuestionsSet": "TKI Questions Set",
   "language": "Language",
-  "english": "English",
-  "polish": "Polish",
-  "spanish": "Spanish"
+  "languageName": "{language, select, en{English} pl{Polish} es{Spanish} other{Language unknown}}",
+  "@languageName": {
+    "description": "A languageName message",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  }
 }

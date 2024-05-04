@@ -1,4 +1,5 @@
 import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:tki_app/config/assets/app_assets.dart';
 import 'package:tki_app/config/assets/app_colors.dart';
@@ -7,6 +8,7 @@ import 'package:tki_app/core/common/widgets/app_button.dart';
 import 'package:tki_app/core/common/widgets/app_scaffold.dart';
 import 'package:tki_app/core/extensions/context_extension.dart';
 import 'package:tki_app/core/extensions/l10n_extension.dart';
+import 'package:tki_app/src/language/presentation/pages/languages_page.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -19,7 +21,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      backgroundColor: AppColors.gray[400],
       body: Padding(
         padding: const EdgeInsets.all(AppSize.s),
         child: Align(
@@ -74,7 +75,7 @@ class HomePage extends StatelessWidget {
                       shadowColorOnPressed: AppColors.purpleDark,
                     ),
                     AppButton(
-                      onPressed: () => context.changeLanguage('pl'),
+                      onPressed: () => context.router.pushNamed(LanguagesPage.routeName),
                       text: context.l10n.language,
                       height: _height,
                       width: context.width * _widthFactor,
