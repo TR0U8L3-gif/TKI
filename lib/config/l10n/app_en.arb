@@ -1,6 +1,11 @@
 {
   "helloWorld": "Hello World!",
-  "@helloWorld": {
-    "description": "The conventional newborn programmer greeting"
-  }
+  "tkiAssessment": "TKI Assessment",
+  "interpretationReport": "Interpretation Report",
+  "assessmentHistory": "Assessment History",
+  "tkiQuestionsSet": "TKI Questions Set",
+  "language": "Language",
+  "english": "English",
+  "polish": "Polish",
+  "spanish": "Spanish"
 }

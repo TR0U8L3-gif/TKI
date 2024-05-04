@@ -5,7 +5,7 @@ import 'package:tki_app/core/common/widgets/hover.dart';
 import 'package:tki_app/core/extensions/context_extension.dart';
 
 const double _defaultHeight = AppSize.xxl;
-const double _opacity = 0.48;
+const double _opacity = 0.36;
 
 class AppButton extends HookWidget {
   const AppButton({

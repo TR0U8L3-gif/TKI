@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tki_app/config/assets/app_colors.dart';
 import 'package:tki_app/config/l10n/l10n.dart';
 import 'package:tki_app/config/routes/app_router.dart';
+import 'package:tki_app/core/common/providers/language_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,15 +14,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Flutter Demo',
-      localizationsDelegates: L10n.allDelegates,
-      supportedLocales: L10n.allLanguages,
-      theme: ThemeData(
-        colorScheme: AppColors.colorScheme,
-        useMaterial3: true,
+    return ChangeNotifierProvider(
+      create: (_) => LanguageProvider(),
+      child: Consumer<LanguageProvider>(
+        builder: (context, l10n, child) {
+          return MaterialApp.router(
+            title: 'Flutter Demo',
+            localizationsDelegates: L10n.allDelegates,
+            supportedLocales: L10n.allLanguages,
+            locale: l10n.currentLanguage,
+            theme: ThemeData(
+              colorScheme: AppColors.colorScheme,
+              useMaterial3: true,
+            ),
+            routerConfig: router,
+          );
+        }
       ),
-      routerConfig: router,
     );
   }
 }

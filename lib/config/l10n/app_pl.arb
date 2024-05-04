@@ -1,6 +1,11 @@
 {
   "helloWorld": "Witaj świecie!",
-  "@helloWorld": {
-    "description": "Konwencjonalne powitanie początkującego programisty"
-  }
+  "tkiAssessment": "Test TKI",
+  "interpretationReport": "Raport interpretacyjny",
+  "assessmentHistory": "Historia ocen",
+  "tkiQuestionsSet": "Zestawy pytań TKI",
+  "language": "Język",
+  "english": "Angielski",
+  "polish": "Polski",
+  "spanish": "Hiszpański"
 }

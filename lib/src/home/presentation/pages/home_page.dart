@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tki_app/config/assets/app_assets.dart';
 import 'package:tki_app/config/assets/app_colors.dart';
 import 'package:tki_app/config/assets/app_size.dart';
+import 'package:tki_app/core/common/providers/language_provider.dart';
 import 'package:tki_app/core/common/widgets/app_button.dart';
 import 'package:tki_app/core/common/widgets/app_scaffold.dart';
 import 'package:tki_app/core/extensions/context_extension.dart';
+import 'package:tki_app/core/extensions/l10n_extension.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -24,13 +27,13 @@ class HomePage extends StatelessWidget {
                 flex: 3,
                 child: Align(child: Image.asset(Assets.iconsTkiName)),
               ),
-               Flexible(
+              Flexible(
                 flex: 4,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     AppButton(
-                      text: "TKI Assessment",
+                      text: AppLocalizations.of(context)!.tkiAssessment,
                       height: _height,
                       width: context.width * _widthFactor,
                       color: AppColors.yellow,
@@ -39,7 +42,7 @@ class HomePage extends StatelessWidget {
                       shadowColorOnPressed: AppColors.yellowDark,
                     ),
                     AppButton(
-                      text: "Interpretation Report",
+                      text: context.l10n.interpretationReport,
                       height: _height,
                       width: context.width * _widthFactor,
                       color: AppColors.orange,
@@ -48,7 +51,8 @@ class HomePage extends StatelessWidget {
                       shadowColorOnPressed: AppColors.orangeDark,
                     ),
                     AppButton(
-                      text: "Assessment History",
+                      onPressed: () => context.changeLanguage('es'),
+                      text: context.l10n.assessmentHistory,
                       height: _height,
                       width: context.width * _widthFactor,
                       color: AppColors.red,
@@ -57,7 +61,8 @@ class HomePage extends StatelessWidget {
                       shadowColorOnPressed: AppColors.redDark,
                     ),
                     AppButton(
-                      text: "TKI Questions Sets",
+                      onPressed: () => context.changeLanguage('en'),
+                      text: context.l10n.tkiQuestionsSet,
                       height: _height,
                       width: context.width * _widthFactor,
                       color: AppColors.purple,
@@ -66,7 +71,8 @@ class HomePage extends StatelessWidget {
                       shadowColorOnPressed: AppColors.purpleDark,
                     ),
                     AppButton(
-                      text: "Language",
+                      onPressed: () => context.changeLanguage('pl'),
+                      text: context.l10n.language,
                       height: _height,
                       width: context.width * _widthFactor,
                       color: AppColors.blue,
