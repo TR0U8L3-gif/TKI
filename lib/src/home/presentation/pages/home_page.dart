@@ -1,18 +1,21 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tki_app/config/assets/app_assets.dart';
 import 'package:tki_app/config/assets/app_colors.dart';
 import 'package:tki_app/config/assets/app_size.dart';
-import 'package:tki_app/core/common/providers/language_provider.dart';
 import 'package:tki_app/core/common/widgets/app_button.dart';
 import 'package:tki_app/core/common/widgets/app_scaffold.dart';
 import 'package:tki_app/core/extensions/context_extension.dart';
 import 'package:tki_app/core/extensions/l10n_extension.dart';
 
+@RoutePage()
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  static const String routeName = '/';
   static const double _height = 56.0;
   static const double _widthFactor = 0.8;
+  
   @override
   Widget build(BuildContext context) {
     return AppScaffold(

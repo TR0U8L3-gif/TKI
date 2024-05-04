@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       create: (_) => locator<LanguageProvider>(),
       child: Consumer<LanguageProvider>(builder: (context, l10n, child) {
         return MaterialApp.router(
-          title: 'Flutter Demo',
+          title: 'Thomas-Kilmann Conflict Mode Instrument',
           localizationsDelegates: L10n.allDelegates,
           supportedLocales: L10n.allLanguages,
           locale: l10n.currentLanguage,
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
             colorScheme: AppColors.colorScheme,
             useMaterial3: true,
           ),
-          routerConfig: router,
+          routerConfig: locator<AppRouter>().config(),
         );
       }),
     );
