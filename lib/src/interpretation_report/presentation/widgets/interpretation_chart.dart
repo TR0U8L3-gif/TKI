@@ -17,7 +17,7 @@ class InterpretationChart extends StatelessWidget {
             ? constraints.maxWidth
             : constraints.maxHeight;
           const borderWidth = AppSize.s;
-          const gap = AppSize.xxs;
+          const gap = AppSize.s2;
           final boxWidth = (side - (borderWidth * 4)) / 2;
           final boxHeight = (side - (borderWidth * 6 + gap * 2)) / 3;
         return SizedBox(

@@ -27,7 +27,6 @@ class InterpretationSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: AppSize.s),
         SizedBox(
           height: AppSize.xxl,
           child: Stack(
@@ -72,20 +71,26 @@ class InterpretationSlider extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: AppSize.m),
-        RichText(
-          textAlign: TextAlign.center,
-          text: TextSpan(
-            style: const TextStyle(fontSize: AppSize.mm),
-            children: [
-              TextSpan(
-                text: '$name ',
-                style: const TextStyle(fontWeight: FontWeight.bold),
+        const SizedBox(height: AppSize.s),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: AppSize.s),
+          child: Opacity(
+            opacity: AppSize.fraction(AppSize.xxxl),
+            child: RichText(
+              textAlign: TextAlign.center,
+              text: TextSpan(
+                style: const TextStyle(fontSize: AppSize.m),
+                children: [
+                  TextSpan(
+                    text: '$name ',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(
+                    text: description,
+                  ),
+                ]
               ),
-              TextSpan(
-                text: description,
-              ),
-            ]
+            ),
           ),
         ),
       ],

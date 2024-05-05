@@ -6,6 +6,7 @@ import 'package:tki_app/core/common/widgets/app_scaffold.dart';
 import 'package:tki_app/core/extensions/l10n_extension.dart';
 import 'package:tki_app/src/interpretation_report/presentation/widgets/interpretation_chart.dart';
 import 'package:tki_app/src/interpretation_report/presentation/widgets/interpretation_slider.dart';
+import 'package:tki_app/src/interpretation_report/presentation/widgets/interpretation_text.dart';
 
 @RoutePage()
 class InterpretationReportPage extends StatelessWidget {
@@ -20,12 +21,18 @@ class InterpretationReportPage extends StatelessWidget {
         title: Text(context.l10n.interpretationReport),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(AppSize.l),
+        padding: const EdgeInsets.symmetric(horizontal: AppSize.l),
         child: Align(
           child: SingleChildScrollView(
             child: Column(
               children: [
+                const SizedBox(height: AppSize.l),
+                Text(context.l10n.interpretationReportTitle, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: AppSize.l),),
+                const SizedBox(height: AppSize.s),
+                Text(context.l10n.interpretationReportDescription, style: const TextStyle(fontSize: AppSize.m), textAlign: TextAlign.justify,),
+                const SizedBox(height: AppSize.m),
                 const InterpretationChart(),
+                const SizedBox(height: AppSize.l),
                 InterpretationSlider(
                   name: context.l10n.assertiveness,
                   description: context.l10n.assertivenessDescription,
@@ -35,6 +42,7 @@ class InterpretationReportPage extends StatelessWidget {
                   rightColor: AppColors.yellow,
                   leftColor: AppColors.purple,
                 ),
+                const SizedBox(height: AppSize.xl),
                 InterpretationSlider(
                   name: context.l10n.cooperativeness,
                   description: context.l10n.cooperativenessDescription,
@@ -44,6 +52,37 @@ class InterpretationReportPage extends StatelessWidget {
                   rightColor: AppColors.blue,
                   leftColor: AppColors.purple,
                 ),
+                const SizedBox(height: AppSize.xl),
+                InterpretationText(
+                  title: context.l10n.competing,
+                  description: context.l10n.competingDefinition,
+                  color: AppColors.yellow,
+                ),
+                const SizedBox(height: AppSize.m),
+                InterpretationText(
+                  title: context.l10n.collaborating,
+                  description: context.l10n.collaboratingDefinition,
+                  color: AppColors.orange,
+                ),
+                const SizedBox(height: AppSize.m),
+                InterpretationText(
+                  title: context.l10n.compromising,
+                  description: context.l10n.compromisingDefinition,
+                  color: AppColors.red,
+                ),
+                const SizedBox(height: AppSize.m),
+                InterpretationText(
+                  title: context.l10n.avoiding,
+                  description: context.l10n.avoidingDefinition,
+                  color: AppColors.purple,
+                ),
+                const SizedBox(height: AppSize.m),
+                InterpretationText(
+                  title: context.l10n.accommodating,
+                  description: context.l10n.accommodatingDefinition,
+                  color: AppColors.blue,
+                ),
+                const SizedBox(height: AppSize.xl),
               ],
             ),
           ),
