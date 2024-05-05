@@ -4,9 +4,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tki_app/config/assets/app_colors.dart';
 import 'package:tki_app/config/assets/app_size.dart';
-import 'package:tki_app/core/common/providers/language_provider.dart';
 import 'package:tki_app/core/common/widgets/app_text.dart';
 import 'package:tki_app/core/constants/constants.dart';
+import 'package:tki_app/src/language/presentation/bloc/language_bloc.dart';
 
 class LanguageListTile extends StatelessWidget {
   const LanguageListTile({
@@ -94,6 +94,6 @@ class LanguageListTile extends StatelessWidget {
   }
 
   bool _isSelected(BuildContext context) =>
-      context.watch<LanguageProvider>().currentLanguage.languageCode ==
+      context.watch<LanguageBloc>().state.currentLanguage.languageCode ==
       languageCode;
 }

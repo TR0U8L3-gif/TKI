@@ -11,7 +11,7 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../core/common/providers/language_provider.dart' as _i4;
+import '../../src/language/presentation/bloc/language_bloc.dart' as _i4;
 import '../routes/app_router.dart' as _i3;
 
 extension GetItInjectableX on _i1.GetIt {
@@ -26,7 +26,7 @@ extension GetItInjectableX on _i1.GetIt {
       environmentFilter,
     );
     gh.singleton<_i3.AppRouter>(() => _i3.AppRouter());
-    gh.singleton<_i4.LanguageProvider>(() => _i4.LanguageProvider());
+    gh.singleton<_i4.LanguageBloc>(() => _i4.LanguageBloc());
     return this;
   }
 }
