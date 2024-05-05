@@ -5,8 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tki_app/config/assets/app_colors.dart';
 import 'package:tki_app/config/assets/app_size.dart';
 import 'package:tki_app/core/common/providers/language_provider.dart';
-import 'package:tki_app/core/constants/constanst.dart';
-import 'package:tki_app/core/extensions/l10n_extension.dart';
+import 'package:tki_app/core/common/widgets/app_text.dart';
+import 'package:tki_app/core/constants/constants.dart';
 
 class LanguageListTile extends StatelessWidget {
   const LanguageListTile({
@@ -38,7 +38,9 @@ class LanguageListTile extends StatelessWidget {
               padding: padding,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(AppSize.m),
-                  color: _isSelected(context) ? AppColors.gray[600] : AppColors.gray[500]),
+                  color: _isSelected(context)
+                      ? AppColors.gray[600]
+                      : AppColors.gray[500]),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -63,7 +65,7 @@ class LanguageListTile extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        TextSingleLine(
                           language,
                           style: const TextStyle(
                             fontSize: AppSize.l,
@@ -71,7 +73,7 @@ class LanguageListTile extends StatelessWidget {
                             height: kTextLineHeight,
                           ),
                         ),
-                        Text(
+                        TextSingleLine(
                           languageCode,
                           style: const TextStyle(
                             fontSize: AppSize.ml,
@@ -92,5 +94,6 @@ class LanguageListTile extends StatelessWidget {
   }
 
   bool _isSelected(BuildContext context) =>
-      context.watch<LanguageProvider>().currentLanguage.languageCode == languageCode;
+      context.watch<LanguageProvider>().currentLanguage.languageCode ==
+      languageCode;
 }

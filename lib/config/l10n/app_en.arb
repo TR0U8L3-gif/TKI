@@ -13,5 +13,23 @@
         "type": "String"
       }
     }
-  }
+  },
+  "competing": "Competing",
+  "collaborating": "Collaborating",
+  "compromising": "Compromising",
+  "avoiding": "Avoiding",
+  "accommodating": "Accommodating",
+  "competingDescription": "Assertive and uncooperative",
+  "collaboratingDescription": "Assertive and cooperative",
+  "compromisingDescription": "Intermediate in assertiveness and cooperativeness",
+  "avoidingDescription": "Unassertive and uncooperative",
+  "accommodatingDescription": "Unassertive and cooperative",
+  "assertiveness": "Assertiveness",
+  "cooperativeness": "Cooperativeness",
+  "unassertive": "Unassertive",
+  "assertive": "Assertive",
+  "uncooperative": "Uncooperative",
+  "cooperative": "Cooperative",
+  "assertivenessDescription": "is how much members try to satisfy their own concerns.",
+  "cooperativenessDescription": "is how much members try to satisfy the other's concerns."
 }

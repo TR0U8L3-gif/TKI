@@ -13,5 +13,23 @@
         "type": "String"
       }
     }
-  }
+  },
+  "competing": "Competir",
+  "collaborating": "Colaborar",
+  "compromising": "Comprometerse",
+  "avoiding": "Evitar",
+  "accommodating": "Acomodar",
+  "competingDescription": "Asertivo y no cooperativo",
+  "collaboratingDescription": "Asertivo y cooperativo",
+  "compromisingDescription": "Intermedio en asertividad y cooperación",
+  "avoidingDescription": "No asertivo y no cooperativo",
+  "accommodatingDescription": "No asertivo y cooperativo",
+  "assertiveness": "Asertividad",
+  "cooperativeness": "Cooperación",
+  "unassertive": "No asertivo",
+  "assertive": "Asertivo",
+  "uncooperative": "No cooperativo",
+  "cooperative": "Cooperativo",
+  "assertivenessDescription": "es cuánto los miembros intentan satisfacer sus propias preocupaciones.",
+  "cooperativenessDescription": "es cuánto los miembros intentan satisfacer las preocupaciones de los demás."
 }

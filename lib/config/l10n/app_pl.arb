@@ -13,5 +13,23 @@
         "type": "String"
       }
     }
-  }
+  },
+  "competing": "Konkurencyjny",
+  "collaborating": "Współpracujący",
+  "compromising": "Kompromisowy",
+  "avoiding": "Unikający",
+  "accommodating": "Dostosowujący się",
+  "competingDescription": "Asertywny i niewspółpracujący",
+  "collaboratingDescription": "Asertywny i współpracujący",
+  "compromisingDescription": "Pośredni w asertywności i współpracowaniu",
+  "avoidingDescription": "Nieasertywny i niewspółpracujący",
+  "accommodatingDescription": "Nieasertywny i współpracujący",
+  "assertiveness": "Asertywność",
+  "cooperativeness": "Współpracowniczość",
+  "unassertive": "Nieasertywny",
+  "assertive": "Asertywny",
+  "uncooperative": "Niewspółpracujący",
+  "cooperative": "Współpracujący",
+  "assertivenessDescription": "to stopień, w jakim członkowie starają się zaspokoić swoje własne potrzeby.",
+  "cooperativenessDescription": "to stopień, w jakim członkowie starają się zaspokoić potrzeby drugiej strony."
 }
