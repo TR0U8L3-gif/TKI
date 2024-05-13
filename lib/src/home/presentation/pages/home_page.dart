@@ -10,6 +10,7 @@ import 'package:tki_app/core/extensions/context_extension.dart';
 import 'package:tki_app/core/extensions/l10n_extension.dart';
 import 'package:tki_app/src/interpretation_report/presentation/pages/interpretation_report_page.dart';
 import 'package:tki_app/src/language/presentation/pages/languages_page.dart';
+import 'package:tki_app/src/tki_questions_set/presentation/pages/questions_set_page.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -18,7 +19,7 @@ class HomePage extends StatelessWidget {
   static const String routeName = '/';
   static const double _height = 56.0;
   static const double _widthFactor = 0.8;
-  
+
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -47,7 +48,8 @@ class HomePage extends StatelessWidget {
                       shadowColorOnPressed: AppColors.yellowDark,
                     ),
                     AppButton(
-                      onPressed: () => context.router.pushNamed(InterpretationReportPage.routeName),
+                      onPressed: () => context.router
+                          .pushNamed(InterpretationReportPage.routeName),
                       text: context.l10n.interpretationReport,
                       height: _height,
                       width: context.width * _widthFactor,
@@ -66,6 +68,8 @@ class HomePage extends StatelessWidget {
                       shadowColorOnPressed: AppColors.redDark,
                     ),
                     AppButton(
+                      onPressed: () =>
+                          context.router.pushNamed(QuestionsSetPage.routeName),
                       text: context.l10n.tkiQuestionsSet,
                       height: _height,
                       width: context.width * _widthFactor,
@@ -75,7 +79,8 @@ class HomePage extends StatelessWidget {
                       shadowColorOnPressed: AppColors.purpleDark,
                     ),
                     AppButton(
-                      onPressed: () => context.router.pushNamed(LanguagesPage.routeName),
+                      onPressed: () =>
+                          context.router.pushNamed(LanguagesPage.routeName),
                       text: context.l10n.language,
                       height: _height,
                       width: context.width * _widthFactor,

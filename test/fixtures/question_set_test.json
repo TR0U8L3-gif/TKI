@@ -1,0 +1,19 @@
+{
+  "language": "pl",
+  "title": "Kwestionariusz Thomasa-Kilmanna",
+  "imageUrl": "null",
+  "questions": [
+    {
+      "firstType": "d",
+      "firstQuestion": "Jestem zazwyczaj stanowczy w realizacji własnych celów",
+      "secondType": "e",
+      "secondQuestion": "Próbuje z każdą sprawą wychodzić na zewnątrz i stawiać sprawy otwarcie"
+    },
+    {
+      "firstType": "e",
+      "firstQuestion": "Wykładam zawsze swoje karty na stół i zachęcam drugą stronę do uczynienia tego samego",
+      "secondType": "d",
+      "secondQuestion": "Gdy powstaje konflikt zawsze próbuje wygrać swój interes"
+    }
+  ]
+}
