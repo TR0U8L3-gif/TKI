@@ -1,5 +1,5 @@
 import 'package:fpdart/fpdart.dart';
-import 'package:tki_app/core/error/failures.dart';
+import 'package:tki_app/core/utils/error/failures.dart';
 
 abstract class UseCase<Type,Params> {
   Future<Either<Failure, Type>> call(Params params);

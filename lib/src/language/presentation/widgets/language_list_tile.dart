@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tki_app/config/assets/app_colors.dart';
 import 'package:tki_app/config/assets/app_size.dart';
 import 'package:tki_app/core/common/widgets/app_text.dart';
-import 'package:tki_app/core/constants/constants.dart';
+import 'package:tki_app/core/utils/constants.dart';
 import 'package:tki_app/src/language/presentation/bloc/language_bloc.dart';
 
 class LanguageListTile extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tki_app/src/tki_questions_set/domain/entities/question.dart';
+import 'package:tki_app/src/tki_questions_set/data/models/question.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
 

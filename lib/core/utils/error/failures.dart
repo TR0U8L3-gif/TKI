@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tki_app/core/error/exceptions.dart';
+import 'package:tki_app/core/utils/error/exceptions.dart';
 
 part 'failures.freezed.dart';
 

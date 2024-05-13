@@ -1,4 +1,3 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:tki_app/config/assets/app_assets.dart';
@@ -39,7 +38,7 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     AppButton(
-                      text: AppLocalizations.of(context)!.tkiAssessment,
+                      text: AppLocalizations.of(context).tkiAssessment,
                       height: _height,
                       width: context.width * _widthFactor,
                       color: AppColors.yellow,

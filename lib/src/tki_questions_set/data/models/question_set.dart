@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tki_app/src/tki_questions_set/domain/entities/question.dart';
+import 'package:tki_app/src/tki_questions_set/data/models/question.dart';
 
 part 'question_set.freezed.dart';
 part 'question_set.g.dart';
