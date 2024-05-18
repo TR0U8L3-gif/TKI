@@ -19,6 +19,11 @@ class Failure with _$Failure {
     required dynamic statusCode,
   }) = CacheFailure;
 
+  const factory Failure.unknownFailure({
+    required String message,
+    required dynamic statusCode,
+  }) = UnknownFailure;
+
   static Failure fromException(AppException exception) {
     return exception.when(
       serverException: (message, statusCode) =>

@@ -22,18 +22,22 @@ mixin _$Failure {
   TResult when<TResult extends Object?>({
     required TResult Function(String message, dynamic statusCode) serverFailure,
     required TResult Function(String message, dynamic statusCode) cacheFailure,
+    required TResult Function(String message, dynamic statusCode)
+        unknownFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message, dynamic statusCode)? serverFailure,
     TResult? Function(String message, dynamic statusCode)? cacheFailure,
+    TResult? Function(String message, dynamic statusCode)? unknownFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message, dynamic statusCode)? serverFailure,
     TResult Function(String message, dynamic statusCode)? cacheFailure,
+    TResult Function(String message, dynamic statusCode)? unknownFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -41,18 +45,21 @@ mixin _$Failure {
   TResult map<TResult extends Object?>({
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(CacheFailure value) cacheFailure,
+    required TResult Function(UnknownFailure value) unknownFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(CacheFailure value)? cacheFailure,
+    TResult? Function(UnknownFailure value)? unknownFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ServerFailure value)? serverFailure,
     TResult Function(CacheFailure value)? cacheFailure,
+    TResult Function(UnknownFailure value)? unknownFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -178,6 +185,8 @@ class _$ServerFailureImpl extends ServerFailure {
   TResult when<TResult extends Object?>({
     required TResult Function(String message, dynamic statusCode) serverFailure,
     required TResult Function(String message, dynamic statusCode) cacheFailure,
+    required TResult Function(String message, dynamic statusCode)
+        unknownFailure,
   }) {
     return serverFailure(message, statusCode);
   }
@@ -187,6 +196,7 @@ class _$ServerFailureImpl extends ServerFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message, dynamic statusCode)? serverFailure,
     TResult? Function(String message, dynamic statusCode)? cacheFailure,
+    TResult? Function(String message, dynamic statusCode)? unknownFailure,
   }) {
     return serverFailure?.call(message, statusCode);
   }
@@ -196,6 +206,7 @@ class _$ServerFailureImpl extends ServerFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message, dynamic statusCode)? serverFailure,
     TResult Function(String message, dynamic statusCode)? cacheFailure,
+    TResult Function(String message, dynamic statusCode)? unknownFailure,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
@@ -209,6 +220,7 @@ class _$ServerFailureImpl extends ServerFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(CacheFailure value) cacheFailure,
+    required TResult Function(UnknownFailure value) unknownFailure,
   }) {
     return serverFailure(this);
   }
@@ -218,6 +230,7 @@ class _$ServerFailureImpl extends ServerFailure {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(CacheFailure value)? cacheFailure,
+    TResult? Function(UnknownFailure value)? unknownFailure,
   }) {
     return serverFailure?.call(this);
   }
@@ -227,6 +240,7 @@ class _$ServerFailureImpl extends ServerFailure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ServerFailure value)? serverFailure,
     TResult Function(CacheFailure value)? cacheFailure,
+    TResult Function(UnknownFailure value)? unknownFailure,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
@@ -332,6 +346,8 @@ class _$CacheFailureImpl extends CacheFailure {
   TResult when<TResult extends Object?>({
     required TResult Function(String message, dynamic statusCode) serverFailure,
     required TResult Function(String message, dynamic statusCode) cacheFailure,
+    required TResult Function(String message, dynamic statusCode)
+        unknownFailure,
   }) {
     return cacheFailure(message, statusCode);
   }
@@ -341,6 +357,7 @@ class _$CacheFailureImpl extends CacheFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message, dynamic statusCode)? serverFailure,
     TResult? Function(String message, dynamic statusCode)? cacheFailure,
+    TResult? Function(String message, dynamic statusCode)? unknownFailure,
   }) {
     return cacheFailure?.call(message, statusCode);
   }
@@ -350,6 +367,7 @@ class _$CacheFailureImpl extends CacheFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message, dynamic statusCode)? serverFailure,
     TResult Function(String message, dynamic statusCode)? cacheFailure,
+    TResult Function(String message, dynamic statusCode)? unknownFailure,
     required TResult orElse(),
   }) {
     if (cacheFailure != null) {
@@ -363,6 +381,7 @@ class _$CacheFailureImpl extends CacheFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(ServerFailure value) serverFailure,
     required TResult Function(CacheFailure value) cacheFailure,
+    required TResult Function(UnknownFailure value) unknownFailure,
   }) {
     return cacheFailure(this);
   }
@@ -372,6 +391,7 @@ class _$CacheFailureImpl extends CacheFailure {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ServerFailure value)? serverFailure,
     TResult? Function(CacheFailure value)? cacheFailure,
+    TResult? Function(UnknownFailure value)? unknownFailure,
   }) {
     return cacheFailure?.call(this);
   }
@@ -381,6 +401,7 @@ class _$CacheFailureImpl extends CacheFailure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ServerFailure value)? serverFailure,
     TResult Function(CacheFailure value)? cacheFailure,
+    TResult Function(UnknownFailure value)? unknownFailure,
     required TResult orElse(),
   }) {
     if (cacheFailure != null) {
@@ -403,5 +424,166 @@ abstract class CacheFailure extends Failure {
   @override
   @JsonKey(ignore: true)
   _$$CacheFailureImplCopyWith<_$CacheFailureImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UnknownFailureImplCopyWith<$Res>
+    implements $FailureCopyWith<$Res> {
+  factory _$$UnknownFailureImplCopyWith(_$UnknownFailureImpl value,
+          $Res Function(_$UnknownFailureImpl) then) =
+      __$$UnknownFailureImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String message, dynamic statusCode});
+}
+
+/// @nodoc
+class __$$UnknownFailureImplCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res, _$UnknownFailureImpl>
+    implements _$$UnknownFailureImplCopyWith<$Res> {
+  __$$UnknownFailureImplCopyWithImpl(
+      _$UnknownFailureImpl _value, $Res Function(_$UnknownFailureImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+    Object? statusCode = freezed,
+  }) {
+    return _then(_$UnknownFailureImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      statusCode: freezed == statusCode
+          ? _value.statusCode
+          : statusCode // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UnknownFailureImpl extends UnknownFailure {
+  const _$UnknownFailureImpl({required this.message, required this.statusCode})
+      : super._();
+
+  @override
+  final String message;
+  @override
+  final dynamic statusCode;
+
+  @override
+  String toString() {
+    return 'Failure.unknownFailure(message: $message, statusCode: $statusCode)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UnknownFailureImpl &&
+            (identical(other.message, message) || other.message == message) &&
+            const DeepCollectionEquality()
+                .equals(other.statusCode, statusCode));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, message, const DeepCollectionEquality().hash(statusCode));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UnknownFailureImplCopyWith<_$UnknownFailureImpl> get copyWith =>
+      __$$UnknownFailureImplCopyWithImpl<_$UnknownFailureImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String message, dynamic statusCode) serverFailure,
+    required TResult Function(String message, dynamic statusCode) cacheFailure,
+    required TResult Function(String message, dynamic statusCode)
+        unknownFailure,
+  }) {
+    return unknownFailure(message, statusCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String message, dynamic statusCode)? serverFailure,
+    TResult? Function(String message, dynamic statusCode)? cacheFailure,
+    TResult? Function(String message, dynamic statusCode)? unknownFailure,
+  }) {
+    return unknownFailure?.call(message, statusCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message, dynamic statusCode)? serverFailure,
+    TResult Function(String message, dynamic statusCode)? cacheFailure,
+    TResult Function(String message, dynamic statusCode)? unknownFailure,
+    required TResult orElse(),
+  }) {
+    if (unknownFailure != null) {
+      return unknownFailure(message, statusCode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerFailure value) serverFailure,
+    required TResult Function(CacheFailure value) cacheFailure,
+    required TResult Function(UnknownFailure value) unknownFailure,
+  }) {
+    return unknownFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ServerFailure value)? serverFailure,
+    TResult? Function(CacheFailure value)? cacheFailure,
+    TResult? Function(UnknownFailure value)? unknownFailure,
+  }) {
+    return unknownFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerFailure value)? serverFailure,
+    TResult Function(CacheFailure value)? cacheFailure,
+    TResult Function(UnknownFailure value)? unknownFailure,
+    required TResult orElse(),
+  }) {
+    if (unknownFailure != null) {
+      return unknownFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UnknownFailure extends Failure {
+  const factory UnknownFailure(
+      {required final String message,
+      required final dynamic statusCode}) = _$UnknownFailureImpl;
+  const UnknownFailure._() : super._();
+
+  @override
+  String get message;
+  @override
+  dynamic get statusCode;
+  @override
+  @JsonKey(ignore: true)
+  _$$UnknownFailureImplCopyWith<_$UnknownFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

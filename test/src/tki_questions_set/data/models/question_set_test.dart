@@ -1,16 +1,19 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tki_app/core/helpers/fixture_reader.dart';
 import 'package:tki_app/src/tki_questions_set/data/models/question.dart';
 import 'package:tki_app/src/tki_questions_set/data/models/question_set.dart';
 
-import '../../../../fixtures/fixture_reader.dart';
 
 void main() {
   group('QuestionSet', () {
     const language = 'pl';
+    const path = 'test/core/common/fixtures/';
     const title = 'Kwestionariusz Thomasa-Kilmanna';
     const imageUrl = 'null';
+    
+    final reader = FixtureReader();
     final questions = [
       Question(
         firstType: 'd',
@@ -29,7 +32,7 @@ void main() {
       ),
     ];
 
-    final questionSetJson = FixtureReader.fixture('question_set_test.json');
+    final questionSetJson = reader.fixture('${path}question_set_test.json');
 
     final questionSet = QuestionSet(
       language: language,

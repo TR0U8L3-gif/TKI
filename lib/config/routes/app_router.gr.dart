@@ -43,7 +43,7 @@ abstract class $AppRouter extends _i5.RootStackRouter {
     QuestionsSetRoute.name: (routeData) {
       return _i5.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.QuestionsSetPage(),
+        child: _i5.WrappedRoute(child: const _i4.QuestionsSetPage()),
       );
     },
   };
