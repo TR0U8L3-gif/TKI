@@ -5,6 +5,7 @@
   "assessmentHistory": "Assessment History",
   "tkiQuestionsSet": "TKI Questions Set",
   "language": "Language",
+  "languageCode": "Language code",
   "languageName": "{language, select, en{English} pl{Polish} es{Spanish} other{Language unknown}}",
   "@languageName": {
     "description": "A languageName message",

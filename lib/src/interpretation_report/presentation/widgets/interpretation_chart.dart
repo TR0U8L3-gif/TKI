@@ -4,6 +4,7 @@ import 'package:tki_app/config/assets/app_colors.dart';
 import 'package:tki_app/config/assets/app_size.dart';
 import 'package:tki_app/core/common/widgets/app_text.dart';
 import 'package:tki_app/core/extensions/l10n_extension.dart';
+import 'package:tki_app/core/extensions/num_extension.dart';
 
 class InterpretationChart extends StatelessWidget {
   const InterpretationChart({super.key});
@@ -99,7 +100,7 @@ class InterpretationChart extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        color: AppColors.gray[300]?.withOpacity(0.64),
+        color: AppColors.grey300.withOpacity(AppSize.l.fraction),
         border: Border.all(
           color: color,
           width: borderWidth,

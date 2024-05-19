@@ -5,6 +5,7 @@
   "assessmentHistory": "Historia ocen",
   "tkiQuestionsSet": "Zestawy pytań TKI",
   "language": "Język",
+  "languageCode": "Kod języka",
   "languageName": "{language, select, en{Angielski} pl{Polski} es{Hiszpański} other{Język nieznany}}",
   "@languageName": {
     "description": "A languageName message",

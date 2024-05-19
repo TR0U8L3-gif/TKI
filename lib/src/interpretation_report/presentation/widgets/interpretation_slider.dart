@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tki_app/config/assets/app_size.dart';
 import 'package:tki_app/core/common/widgets/app_text.dart';
+import 'package:tki_app/core/extensions/num_extension.dart';
 
 class InterpretationSlider extends StatelessWidget {
   const InterpretationSlider({
@@ -75,7 +76,7 @@ class InterpretationSlider extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppSize.s),
           child: Opacity(
-            opacity: AppSize.fraction(AppSize.xxxl),
+            opacity: AppSize.xxxl.fraction,
             child: RichText(
               textAlign: TextAlign.center,
               text: TextSpan(

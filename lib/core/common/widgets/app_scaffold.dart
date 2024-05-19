@@ -1,6 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:tki_app/config/assets/app_colors.dart';
+import 'package:tki_app/config/assets/app_size.dart';
+import 'package:tki_app/core/extensions/context_extension.dart';
+import 'package:tki_app/core/extensions/num_extension.dart';
 
 class AppScaffold extends StatelessWidget {
   const AppScaffold({
@@ -29,6 +32,7 @@ class AppScaffold extends StatelessWidget {
     this.drawerEnableOpenDragGesture = true,
     this.endDrawerEnableOpenDragGesture = true,
     this.restorationId,
+    this.maxSize,
   });
 
   final PreferredSizeWidget? appBar;
@@ -55,13 +59,70 @@ class AppScaffold extends StatelessWidget {
   final bool drawerEnableOpenDragGesture;
   final bool endDrawerEnableOpenDragGesture;
   final String? restorationId;
+  final Size? maxSize;
 
   @override
   Widget build(BuildContext context) {
+    final size = maxSize ?? Size(600, context.height);
     return Scaffold(
       appBar: appBar,
       body: SafeArea(
-        child: body ?? const SizedBox.shrink(),
+        child: Stack(
+          children: [
+            Opacity(
+              opacity: AppSize.xxxl.fraction,
+              child: Container(
+                width: context.width,
+                height: context.height,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    stops: [
+                      0.2,
+                      0.5,
+                      0.8,
+                    ],
+                    colors: [AppColors.orange, AppColors.red, AppColors.purple],
+                  ),
+                ),
+              ),
+            ),
+            Opacity(
+              opacity: AppSize.xxxl.fraction,
+              child: Container(
+                width: context.width,
+                height: context.height,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.bottomRight,
+                    end: Alignment.topLeft,
+                    stops: [
+                      0.2,
+                      0.5,
+                      0.8,
+                    ],
+                    colors: [AppColors.blue, AppColors.red, AppColors.yellow],
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              width: context.width,
+              height: context.height,
+              decoration: BoxDecoration(
+               color: (backgroundColor ?? AppColors.grey900)
+                        .withOpacity(AppSize.xxxl80.fraction)
+              ),
+            ),
+            Align(
+              child: ConstrainedBox(
+                constraints: BoxConstraints.tight(size),
+                child: body ?? const SizedBox.shrink(),
+              ),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: floatingActionButton,
       floatingActionButtonLocation: floatingActionButtonLocation,

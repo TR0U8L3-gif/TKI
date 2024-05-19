@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tki_app/config/assets/app_colors.dart';
 import 'package:tki_app/config/assets/app_size.dart';
 import 'package:tki_app/core/common/widgets/app_text.dart';
-import 'package:tki_app/core/extensions/l10n_extension.dart';
+import 'package:tki_app/core/extensions/num_extension.dart';
 import 'package:tki_app/core/extensions/string_extension.dart';
 import 'package:tki_app/src/tki_questions_set/data/models/question_set.dart';
 
@@ -41,7 +41,7 @@ class QuestionSetListTile extends StatelessWidget {
                       height: AppSize.xxxl72,
                       decoration: BoxDecoration(
                         color: AppColors.gray[400]!
-                            .withOpacity(AppSize.fraction(AppSize.xxxl)),
+                            .withOpacity(AppSize.xxxl.fraction),
                         borderRadius: BorderRadius.circular(AppSize.m),
                       ),
                       child: questionSet.imageUrl?.isUrl ?? false

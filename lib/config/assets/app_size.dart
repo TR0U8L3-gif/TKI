@@ -54,9 +54,14 @@ class AppSize {
   /// Triple extra large size 96.0
   static const double xxxl96 = 96.0;
 
-  /// Returns the fraction of the value  
-  /// 
-  /// calculates: `value / 100`
-  static fraction(double value) => value / 100; 
-
+  /// Extra Small device size 380.0 (folded phone)
+  static const double deviceExtraSmall = 380.0;
+  /// Small device size 600.0 (phone)
+  static const double deviceSmall = 600.0;
+  /// Medium device size 904.0 (tablet)
+  static const double deviceMedium = 904.0;
+  /// Large device size 1240.0 (Laptop)
+  static const double deviceLarge = 1240.0;
+  /// Extra Large device size 1440.0 (Desktop)
+  static const double deviceExtraLarge = 1440.0;
 }
