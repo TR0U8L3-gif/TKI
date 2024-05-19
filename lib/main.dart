@@ -40,6 +40,7 @@ class MyApp extends StatelessWidget {
             locale: state.currentLanguage,
             theme: AppColors.theme,
             routerConfig: locator<AppRouter>().config(),
+            debugShowCheckedModeBanner: false,
           );
         },
       ),

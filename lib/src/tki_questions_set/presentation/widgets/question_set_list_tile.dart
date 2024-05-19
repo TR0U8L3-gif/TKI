@@ -1,8 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:tki_app/config/assets/app_colors.dart';
 import 'package:tki_app/config/assets/app_size.dart';
+import 'package:tki_app/config/routes/app_router.gr.dart';
 import 'package:tki_app/core/common/widgets/app_text.dart';
+import 'package:tki_app/core/extensions/l10n_extension.dart';
 import 'package:tki_app/core/extensions/num_extension.dart';
 import 'package:tki_app/core/extensions/string_extension.dart';
 import 'package:tki_app/src/tki_questions_set/data/models/question_set.dart';
@@ -16,21 +19,14 @@ class QuestionSetListTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(AppSize.s),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () =>
+            context.router.push(QuestionSetRoute(questionSet: questionSet)),
         child: Container(
             width: double.infinity,
             height: AppSize.xxxl96,
             decoration: BoxDecoration(
-              color: AppColors.gray[300],
+              color: AppColors.grey700.withOpacity(AppSize.xxl.fraction),
               borderRadius: BorderRadius.circular(AppSize.m),
-              boxShadow: [
-                BoxShadow(
-                  color: AppColors.gray[300]!.withOpacity(0.5),
-                  spreadRadius: AppSize.s2,
-                  blurRadius: AppSize.s4,
-                  offset: const Offset(0, AppSize.s2),
-                ),
-              ],
             ),
             padding: const EdgeInsets.all(AppSize.s),
             child: Row(
@@ -40,18 +36,24 @@ class QuestionSetListTile extends StatelessWidget {
                   child: Container(
                       height: AppSize.xxxl72,
                       decoration: BoxDecoration(
-                        color: AppColors.gray[400]!
-                            .withOpacity(AppSize.xxxl.fraction),
+                        color:
+                            AppColors.grey100.withOpacity(AppSize.xl.fraction),
                         borderRadius: BorderRadius.circular(AppSize.m),
                       ),
                       child: questionSet.imageUrl?.isUrl ?? false
-                          ? Image.network(
-                              questionSet.imageUrl!,
-                              fit: BoxFit.cover,
-                            )
-                          : Icon(
+                          ? Opacity(
+                              opacity: AppSize.xxxl80.fraction,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(AppSize.m),
+                                child: Image.network(
+                                  questionSet.imageUrl!,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                          )
+                          : const Icon(
                               Icons.auto_stories_outlined,
-                              color: AppColors.gray[500],
+                              color: AppColors.grey800,
                               size: AppSize.xxl56,
                             )),
                 ),
@@ -79,13 +81,13 @@ class QuestionSetListTile extends StatelessWidget {
                       Flexible(
                         flex: 1,
                         child: TextSingleLineSized(
-                          'context.l10n.numberOfQuestions: ${questionSet.questions.length}',
+                          '${context.l10n.numberOfQuestions}: ${questionSet.questions.length}',
                         ),
                       ),
                       Flexible(
                         flex: 1,
                         child: TextSingleLineSized(
-                          "context.l10n.languageCode: ${questionSet.language}",
+                          "${context.l10n.languageCode}: ${questionSet.language}",
                         ),
                       ),
                     ],

@@ -1,0 +1,187 @@
+{
+  "language": "pl",
+  "title": "Kwestionariusz Tomasa-Kilmanna",
+  "imageUrl": "null",
+  "questions": [
+    {
+      "firstType": "d",
+      "firstQuestion": "Jestem zazwyczaj stanowczy w realizacji własnych celów",
+      "secondType": "e",
+      "secondQuestion": "Próbuje z każdą sprawą wychodzić na zewnątrz i stawiać sprawy otwarcie"
+    },
+    {
+      "firstType": "e",
+      "firstQuestion": "Wykładam zawsze swoje karty na stół i zachęcam drugą stronę do uczynienia tego samego",
+      "secondType": "d",
+      "secondQuestion": "Gdy powstaje konflikt zawsze próbuje wygrać swój interes"
+    },
+    {
+        "firstType": "d",
+        "firstQuestion": "Raz zajętej pozycji bronię bardzo silnie",
+        "secondType": "e",
+        "secondQuestion": "Wolę nie używać perswazji, lecz wskazywać wprost na najlepsze rozwiązania problemu"
+      },
+    {
+      "firstType": "b",
+      "firstQuestion": "Wolę akceptować cudzy punkt widzenia niż narażać się na kłótnię",
+      "secondType": "a",
+      "secondQuestion": "Unikam ludzi ze zdecydowanymi poglądami"
+    },
+    {
+      "firstType": "a",
+      "firstQuestion": "Lubię współpracować z innymi i wspólnie rozpatrywać ich racje",
+      "secondType": "b",
+      "secondQuestion": "Czuję, że większość wypowiadanych myśli, również moich, jest niewiele warta jako argumenty"
+    },
+    {
+      "firstType": "b",
+      "firstQuestion": "Niekiedy poświęcam własny interes na rzecz interesów drugiej osoby",
+      "secondType": "a",
+      "secondQuestion": "Czuję, że przyczyny różnic zdań nie zawsze są tego warte, by się o nie spierać"
+    },
+    {
+      "firstType": "c",
+      "firstQuestion": "Próbuję szukać kompromisu w sytuacji trudnej",
+      "secondType": "d",
+      "secondQuestion": "Jestem zazwyczaj stanowczy w realizacji własnych celów"
+    },
+    {
+      "firstType": "d",
+      "firstQuestion": "Gdy powstaje konflikt zawsze próbuje wygrać swoje interesy",
+      "secondType": "c",
+      "secondQuestion": "Proponuje neutralny grunt podczas rozstrzygania konfliktów"
+    },
+    {
+      "firstType": "c",
+      "firstQuestion": "Lubię wychodzić naprzeciw drugiej osobie",
+      "secondType": "d",
+      "secondQuestion": "Raz zajętej pozycji bronię bardzo silnie"
+    },
+    {
+      "firstType": "a",
+      "firstQuestion": "Czuję, że przyczyny różnic zdań nie zawsze są tego warte, by się o nie spierać",
+      "secondType": "c",
+      "secondQuestion": "Próbuje szukać kompromisu w sytuacji trudnej"
+    },
+    {
+      "firstType": "c",
+      "firstQuestion": "Proponuję neutralny grunt podczas rozstrzygania konfliktów",
+      "secondType": "a",
+      "secondQuestion": "Unikam ludzi ze zdecydowanymi poglądami"
+    },
+    {
+      "firstType": "a",
+      "firstQuestion": "Czuję, że większość wypowiadanych myśli, również moich, jest niewiele warta jako argumenty",
+      "secondType": "c",
+      "secondQuestion": "Lubię wychodzić naprzeciw drugiej osobie"
+    },
+    {
+      "firstType": "d",
+      "firstQuestion": "Jestem zazwyczaj stanowczy w realizacji własnych celów",
+      "secondType": "b",
+      "secondQuestion": "Niekiedy poświęcam własny interes na rzecz interesów drugiej osoby"
+    },
+    {
+      "firstType": "b",
+      "firstQuestion": "Wolę akceptować cudzy punkt widzenia niż narażać się na kłótnię",
+      "secondType": "d",
+      "secondQuestion": "Gdy powstaje konflikt zawsze próbuje wygrać swoje interesy"
+    },
+    {
+      "firstType": "d",
+      "firstQuestion": "Raz zajętej pozycji bronię bardzo silnie",
+      "secondType": "b",
+      "secondQuestion": "Lubię współpracować z innymi i wspólnie rozpatrywać ich racje"
+    },
+    {
+      "firstType": "c",
+      "firstQuestion": "Próbuję szukać kompromisu w sytuacji trudnej",
+      "secondType": "b",
+      "secondQuestion": "Niekiedy poświęcam własny interes na rzecz interesów drugiej osoby"
+    },
+    {
+      "firstType": "b",
+      "firstQuestion": "Wolę akceptować cudzy punkt widzenia niż narażać się na kłótnię",
+      "secondType": "c",
+      "secondQuestion": "Proponuję neutralny grunt podczas rozstrzygania konfliktów"
+    },
+    {
+      "firstType": "c",
+      "firstQuestion": "Lubię wychodzić naprzeciw drugiej osobie",
+      "secondType": "b",
+      "secondQuestion": "Lubię współpracować z innymi i wspólnie rozpatrywać ich racje"
+    },
+    {
+      "firstType": "a",
+      "firstQuestion": "Czuję, że przyczyny różnic zdań nie zawsze są tego warte, by się o nie spierać",
+      "secondType": "d",
+      "secondQuestion": "Jestem zazwyczaj stanowczy w realizacji własnych celów"
+    },
+    {
+      "firstType": "d",
+      "firstQuestion": "Gdy powstaje konflikt zawsze próbuje wygrać swoje interesy ",
+      "secondType": "a",
+      "secondQuestion": "Unikam ludzi ze zdecydowanymi poglądami"
+    },
+    {
+      "firstType": "a",
+      "firstQuestion": "Czuję, że większość wypowiadanych myśli, również moich, jest niewiele warta jako argumenty",
+      "secondType": "d",
+      "secondQuestion": "Raz zajętej pozycji bronię bardzo silnie"
+    },
+    {
+      "firstType": "e",
+      "firstQuestion": "Próbuje z każdą sprawą wychodzić na zewnątrz i stawiać sprawy otwarcie",
+      "secondType": "a",
+      "secondQuestion": "Czuję, że przyczyny różnic zdań nie zawsze są tego warte, by się o nie spierać"
+    },
+    {
+      "firstType": "a",
+      "firstQuestion": "Unikam ludzi ze zdecydowanymi poglądami",
+      "secondType": "e",
+      "secondQuestion": "Wykładam zawsze swoje karty na stół i zachęcam drugą stronę do uczynienia tego samego"
+    },
+    {
+      "firstType": "e",
+      "firstQuestion": "Wolę nie używać perswazji, lecz wskazywać wprost na najlepsze rozwiązania problemu",
+      "secondType": "a",
+      "secondQuestion": "Czuję, że większość wypowiadanych myśli, również moich, jest niewiele warta jako argumenty"
+    },
+    {
+      "firstType": "e",
+      "firstQuestion": "Próbuje z każdą sprawą wychodzić na zewnątrz i stawiać sprawy otwarcie",
+      "secondType": "c",
+      "secondQuestion": "Próbuję szukać kompromisu w sytuacji trudnej"
+    },
+    {
+      "firstType": "e",
+      "firstQuestion": "Wykładam zawsze swoje karty na stół i zachęcam drugą stronę do uczynienia tego samego",
+      "secondType": "c",
+      "secondQuestion": "Proponuję neutralny grunt podczas rozstrzygania konfliktów"
+    },
+    {
+      "firstType": "e",
+      "firstQuestion": "Wolę nie używać perswazji, lecz wskazywać wprost na najlepsze rozwiązania problemu",
+      "secondType": "c",
+      "secondQuestion": "Lubię wychodzić naprzeciw drugiej osobie"
+    },
+    {
+      "firstType": "b",
+      "firstQuestion": "Niekiedy poświęcam własny interes na rzecz interesów drugiej osoby",
+      "secondType": "e",
+      "secondQuestion": "Próbuje z każdą sprawą wychodzić na zewnątrz i stawiać sprawy otwarcie"
+    },
+    {
+      "firstType": "e",
+      "firstQuestion": "Wykładam zawsze swoje karty na stół i zachęcam drugą stronę do uczynienia tego samego",
+      "secondType": "b",
+      "secondQuestion": "Wolę akceptować cudzy punkt widzenia niż narażać się na kłótnię"
+    },
+    {
+      "firstType": "b",
+      "firstQuestion": "Lubię współpracować z innymi i wspólnie rozpatrywać ich racje",
+      "secondType": "e",
+      "secondQuestion": "Wolę nie używać perswazji, lecz wskazywać wprost na najlepsze rozwiązania problemu"
+    }
+  ]
+}

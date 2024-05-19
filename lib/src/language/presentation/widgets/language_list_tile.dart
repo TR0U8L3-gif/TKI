@@ -42,9 +42,9 @@ class LanguageListTile extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(AppSize.m),
                   color: (_isSelected(context)
-                          ? AppColors.grey400
+                          ? AppColors.grey500
                           : AppColors.grey700)
-                      .withOpacity(AppSize.xxxl.fraction)),
+                      .withOpacity(AppSize.xxl.fraction)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [

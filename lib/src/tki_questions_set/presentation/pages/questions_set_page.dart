@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tki_app/config/assets/app_size.dart';
 import 'package:tki_app/config/locator/injection.dart';
@@ -8,9 +7,11 @@ import 'package:tki_app/core/common/widgets/app_scaffold.dart';
 import 'package:tki_app/core/common/widgets/app_text.dart';
 import 'package:tki_app/core/extensions/context_extension.dart';
 import 'package:tki_app/core/extensions/l10n_extension.dart';
+import 'package:tki_app/core/extensions/num_extension.dart';
 import 'package:tki_app/src/tki_questions_set/data/models/question_set.dart';
 import 'package:tki_app/src/tki_questions_set/presentation/bloc/tki_question_set_bloc.dart';
 import 'package:tki_app/src/tki_questions_set/presentation/widgets/question_set_list_tile.dart';
+import 'package:tki_app/src/tki_questions_set/presentation/widgets/question_set_list_tile_shimmer.dart';
 
 @RoutePage()
 class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
@@ -22,8 +23,8 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider(
       create: (_) => locator<TkiQuestionSetBloc>()
-        ..add(const GetFromFixturesEvent())
-        ..add(const GetFromDeviceEvent()),
+      ..add(const GetFromFixturesEvent())
+      ..add(const GetFromDeviceEvent()),
       child: this,
     );
   }
@@ -37,13 +38,20 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
       body: BlocConsumer<TkiQuestionSetBloc, TkiQuestionSetState>(
         listener: (_, state) => state.whenOrNull(
           error: (state, failure) => ScaffoldMessenger.of(context).showSnackBar(
+            //TODO: popup
             SnackBar(
               content: Text(failure.toString()),
             ),
           ),
         ),
         builder: (_, state) => state.when(
-          initial: _initialScreen,
+          initial: () => _idleScreen(
+            context,
+            true,
+            true,
+            [],
+            [],
+          ),
           idle: (
             isLoadingLocal,
             isLoadingRemote,
@@ -83,33 +91,36 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
   ) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: AppSize.s),
-      child: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: _textSpacer(
-              context: context,
-              icon: Icons.assignment,
-              text: "context.l10n.tkiQuestionsSetLocal",
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: AppSize.s2),
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: _textSpacer(
+                context: context,
+                icon: Icons.assignment,
+                text: context.l10n.tkiQuestionsSetLocal,
+              ),
             ),
-          ),
-          _questionSetWidget(
-            context: context,
-            questionSets: questionSetsLocal,
-            isLoading: isLoadingLocal,
-          ),
-          SliverToBoxAdapter(
-            child: _textSpacer(
+            _questionSetWidget(
               context: context,
-              icon: Icons.assignment_add,
-              text: "context.l10n.tkiQuestionsSetRemote",
+              questionSets: questionSetsLocal,
+              isLoading: isLoadingLocal,
             ),
-          ),
-          _questionSetWidget(
-            context: context,
-            questionSets: questionSetsRemote,
-            isLoading: isLoadingRemote,
-          ),
-        ],
+            SliverToBoxAdapter(
+              child: _textSpacer(
+                context: context,
+                icon: Icons.assignment_add,
+                text: context.l10n.tkiQuestionsSetRemote,
+              ),
+            ),
+            _questionSetWidget(
+              context: context,
+              questionSets: questionSetsRemote,
+              isLoading: isLoadingRemote,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -119,28 +130,33 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
     required List<QuestionSet> questionSets,
     required bool isLoading,
   }) {
-    if (isLoading) {
-      //implement shimmer
-      return const SliverToBoxAdapter(
-        child: CircularProgressIndicator(),
-      );
-    } else {
-      return questionSets.isNotEmpty
+    return SliverPadding(
+      padding: const EdgeInsets.symmetric(horizontal: AppSize.m),
+      sliver: isLoading
           ? SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
-                  final questionSet = questionSets[index];
-                  return QuestionSetListTile(
-                    questionSet: questionSet,
-                  );
+                  return const QuestionSetListTileShimmer();
                 },
-                childCount: questionSets.length,
+                childCount: AppSize.s4.toInt(),
               ),
             )
-          : SliverToBoxAdapter(
-              child: _textNoContent(context),
-            );
-    }
+          : questionSets.isNotEmpty
+              ? SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                      final questionSet = questionSets[index];
+                      return QuestionSetListTile(
+                        questionSet: questionSet,
+                      );
+                    },
+                    childCount: questionSets.length,
+                  ),
+                )
+              : SliverToBoxAdapter(
+                  child: _textNoContent(context),
+                ),
+    );
   }
 
   Widget _textSpacer({
@@ -150,7 +166,7 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
   }) {
     return Padding(
       padding: const EdgeInsets.only(
-          left: AppSize.m,
+          left: AppSize.l,
           top: AppSize.xl,
           bottom: AppSize.s,
           right: AppSize.zero),
@@ -160,19 +176,26 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
           color: context.theme.surface,
         ),
         const SizedBox(width: AppSize.s),
-        TextSingleLineSized(
-          text,
-          style: const TextStyle(
-              fontSize: AppSize.ml, fontWeight: FontWeight.w500),
+        Expanded(
+          child: TextSingleLineSized(
+            text,
+            style: const TextStyle(
+              fontSize: AppSize.ml,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
         ),
       ]),
     );
   }
 
   Widget _textNoContent(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(top: AppSize.s, bottom: AppSize.xl),
-      child: Align(child: Text("context.l10n.tkiQuestionsSetEmpty")),
+    return Opacity(
+      opacity: AppSize.xxxl72.fraction,
+      child: Padding(
+        padding: const EdgeInsets.only(top: AppSize.s, bottom: AppSize.xl),
+        child: Align(child: Text(context.l10n.noContent)),
+      ),
     );
   }
 }
