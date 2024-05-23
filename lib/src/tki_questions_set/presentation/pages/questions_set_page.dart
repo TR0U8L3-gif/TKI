@@ -5,9 +5,11 @@ import 'package:tki_app/config/assets/app_size.dart';
 import 'package:tki_app/config/locator/injection.dart';
 import 'package:tki_app/core/common/widgets/app_scaffold.dart';
 import 'package:tki_app/core/common/widgets/app_text.dart';
+import 'package:tki_app/core/common/widgets/app_toast.dart';
 import 'package:tki_app/core/extensions/context_extension.dart';
 import 'package:tki_app/core/extensions/l10n_extension.dart';
 import 'package:tki_app/core/extensions/num_extension.dart';
+import 'package:tki_app/core/helpers/messenger.dart';
 import 'package:tki_app/src/tki_questions_set/data/models/question_set.dart';
 import 'package:tki_app/src/tki_questions_set/presentation/bloc/tki_question_set_bloc.dart';
 import 'package:tki_app/src/tki_questions_set/presentation/widgets/question_set_list_tile.dart';
@@ -23,8 +25,8 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider(
       create: (_) => locator<TkiQuestionSetBloc>()
-      ..add(const GetFromFixturesEvent())
-      ..add(const GetFromDeviceEvent()),
+        ..add(const GetFromFixturesEvent())
+        ..add(const GetFromDeviceEvent()),
       child: this,
     );
   }
@@ -34,6 +36,17 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
     return AppScaffold(
       appBar: AppBar(
         title: Text(context.l10n.tkiQuestionsSet),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () {
+              Messenger.showInfoToast(context, "message");
+              Messenger.showSuccessToast(context, "message");
+              Messenger.showWarningToast(context, "message");
+              Messenger.showErrorToast(context, "message");
+            },
+          ),
+        ],
       ),
       body: BlocConsumer<TkiQuestionSetBloc, TkiQuestionSetState>(
         listener: (_, state) => state.whenOrNull(

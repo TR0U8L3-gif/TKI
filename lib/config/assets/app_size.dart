@@ -2,7 +2,9 @@ class AppSize {
   AppSize._();
 
   /// Zero size 0.0
-  static const double zero = 0;
+  static const double zero = 0.0;
+  /// Zero size 1.0
+  static const double one = 1.0;
   /// Small size 2.0
   static const double s2 = 2.0;
   /// Small size 4.0
@@ -64,4 +66,15 @@ class AppSize {
   static const double deviceLarge = 1240.0;
   /// Extra Large device size 1440.0 (Desktop)
   static const double deviceExtraLarge = 1440.0;
+
+  /// Extra Small duration 200 milliseconds
+  static const int durationExtraSmall = 200;
+  /// Small duration 400 milliseconds
+  static const int durationSmall = 400;
+  /// Medium duration 800 milliseconds 
+  static const int durationMedium = 800;
+  /// Large duration 2 seconds
+  static const int durationLarge = 2000;
+  /// Extra Large duration 5 seconds 
+  static const int durationExtraLarge = 5000;
 }
