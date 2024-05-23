@@ -4,20 +4,7 @@ import 'package:tki_app/config/assets/app_colors.dart';
 import 'package:tki_app/config/assets/app_size.dart';
 import 'package:tki_app/core/extensions/context_extension.dart';
 import 'package:tki_app/core/extensions/num_extension.dart';
-
-enum ToastType {
-  /// Indicates informational message.
-  info,
-
-  /// Represents confirmation or success message
-  success,
-
-  /// Indicates error message.
-  error,
-
-  /// Represents warning message
-  warning,
-}
+import 'package:tki_app/core/utils/enums.dart';
 
 /// {@template toast}
 /// Widget to display information for brief moment
@@ -51,6 +38,13 @@ class AppToast extends HookWidget {
     final showLogo = logo != null || showDefaultLogo;
     final isTaped = useState(false);
     final isVisible = useState(true);
+
+    useEffect(() {
+      print("start: " + DateTime.now().toString());
+      return () {
+            print("end: " + DateTime.now().toString());
+      };
+    }, const []);
 
     return Visibility(
       visible: isVisible.value,

@@ -3,17 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tki_app/config/assets/app_size.dart';
 import 'package:tki_app/core/common/widgets/app_toast.dart';
-
-
-//TODO(toast): imporve messages queue in future to delay messages or to stop showing them
-
-enum MessengerToastLength {
-  /// Show Short toast for 2 sec
-  short,
-
-  /// Show Long toast for 5 sec
-  long,
-}
+import 'package:tki_app/core/utils/enums.dart';
 
 class Messenger {
   /// Android API level 30 custom toast is deprecated.
@@ -33,7 +23,7 @@ class Messenger {
       Fimber.w('toast build context is not mounted');
       return;
     }
-
+    
     FToast()
       ..init(context)
       ..showToast(
@@ -48,6 +38,7 @@ class Messenger {
         fadeDuration: fadeDuration,
         isDismissable: isDismissible,
       );
+                  
   }
 
   static void showInfoToast(
