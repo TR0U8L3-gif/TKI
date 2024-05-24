@@ -43,14 +43,18 @@ class QuestionSetListTile extends StatelessWidget {
                       child: questionSet.imageUrl?.isUrl ?? false
                           ? Opacity(
                               opacity: AppSize.xxxl80.fraction,
-                            child: ClipRRect(
+                              child: ClipRRect(
                                 borderRadius: BorderRadius.circular(AppSize.m),
                                 child: Image.network(
                                   questionSet.imageUrl!,
                                   fit: BoxFit.cover,
+                                  errorBuilder: (_, __, ___) => const Icon(
+                                      Icons.broken_image_outlined,
+                                      color: AppColors.grey800,
+                                      size: AppSize.xxl56),
                                 ),
                               ),
-                          )
+                            )
                           : const Icon(
                               Icons.auto_stories_outlined,
                               color: AppColors.grey800,

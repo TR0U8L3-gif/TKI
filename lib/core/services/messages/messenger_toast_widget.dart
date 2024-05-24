@@ -1,22 +1,18 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:tki_app/config/assets/app_colors.dart';
-import 'package:tki_app/config/assets/app_size.dart';
-import 'package:tki_app/core/extensions/context_extension.dart';
-import 'package:tki_app/core/extensions/num_extension.dart';
-import 'package:tki_app/core/utils/enums.dart';
+part of 'messenger.dart';
 
 /// {@template toast}
 /// Widget to display information for brief moment
 /// {@endtemplate}
-class AppToast extends HookWidget {
+class MessengerToastWidget extends HookWidget {
   /// {@macro toast}
-  const AppToast({
+  const MessengerToastWidget({
     super.key,
     required this.message,
     required this.logo,
     required this.showDefaultLogo,
     required this.type,
+    this.onEnd,
+    this.onStart,
   });
 
   /// toast message
@@ -33,18 +29,14 @@ class AppToast extends HookWidget {
   /// unless `showDefaultLogo` is true
   final Widget? logo;
 
+  final VoidCallback? onEnd;
+  final VoidCallback? onStart;
+
   @override
   Widget build(BuildContext context) {
     final showLogo = logo != null || showDefaultLogo;
     final isTaped = useState(false);
     final isVisible = useState(true);
-
-    useEffect(() {
-      print("start: " + DateTime.now().toString());
-      return () {
-            print("end: " + DateTime.now().toString());
-      };
-    }, const []);
 
     return Visibility(
       visible: isVisible.value,
@@ -53,10 +45,13 @@ class AppToast extends HookWidget {
         duration: const Duration(milliseconds: AppSize.durationExtraSmall),
         onEnd: () => isVisible.value = false,
         child: GestureDetector(
-          onTap: () {
-            if(isTaped.value == false){
+          onTap: () async {
+            if (isTaped.value == false) {
+              onStart?.call();
               isTaped.value = true;
-              _dialogBuilder(context: context, type: type, message: message);
+              await _dialogBuilder(
+                  context: context, type: type, message: message);
+              onEnd?.call();
             }
           },
           child: Container(
@@ -140,19 +135,19 @@ class AppToast extends HookWidget {
               const SizedBox(width: AppSize.s),
               Text(
                 _getToastTitle(type),
-                style: TextStyle(color: _getToastColor(type, true), fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    color: _getToastColor(type, true),
+                    fontWeight: FontWeight.w500),
               ),
             ],
           ),
           content: Padding(
             padding: const EdgeInsets.only(bottom: AppSize.s),
-            child: Text(
-              message,
-              style: const TextStyle(
-                color: AppColors.grey50,
-                fontSize: AppSize.ml,
-              )
-            ),
+            child: Text(message,
+                style: const TextStyle(
+                  color: AppColors.grey50,
+                  fontSize: AppSize.ml,
+                )),
           ),
         );
       },

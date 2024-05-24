@@ -1,11 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tki_app/config/routes/app_router.gr.dart';
-import 'package:tki_app/core/extensions/string_extension.dart';
 import 'package:tki_app/src/home/presentation/pages/home_page.dart';
 import 'package:tki_app/src/interpretation_report/presentation/pages/interpretation_report_page.dart';
 import 'package:tki_app/src/language/presentation/pages/languages_page.dart';
-import 'package:tki_app/src/tki_questions_set/presentation/pages/question_set_page.dart';
 import 'package:tki_app/src/tki_questions_set/presentation/pages/questions_set_page.dart';
 
 @singleton
