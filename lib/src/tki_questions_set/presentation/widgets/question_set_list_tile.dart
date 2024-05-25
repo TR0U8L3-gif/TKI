@@ -8,6 +8,8 @@ import 'package:tki_app/core/common/widgets/app_text.dart';
 import 'package:tki_app/core/extensions/l10n_extension.dart';
 import 'package:tki_app/core/extensions/num_extension.dart';
 import 'package:tki_app/core/extensions/string_extension.dart';
+import 'package:tki_app/core/services/messages/messenger.dart';
+import 'package:tki_app/core/utils/error/errors.dart';
 import 'package:tki_app/src/tki_questions_set/data/models/question_set.dart';
 
 class QuestionSetListTile extends StatelessWidget {
@@ -48,10 +50,16 @@ class QuestionSetListTile extends StatelessWidget {
                                 child: Image.network(
                                   questionSet.imageUrl!,
                                   fit: BoxFit.cover,
-                                  errorBuilder: (_, __, ___) => const Icon(
-                                      Icons.broken_image_outlined,
-                                      color: AppColors.grey800,
-                                      size: AppSize.xxl56),
+                                  errorBuilder: (_, error, ___) {
+                                    MessengerManager().showErrorToast(
+                                        context,
+                                        questionSetImageLoadErrorMessage(questionSet, error),
+                                        toastLength: MessengerToastLength.short);
+                                    return const Icon(
+                                        Icons.broken_image_outlined,
+                                        color: AppColors.grey800,
+                                        size: AppSize.xxl56);
+                                  },
                                 ),
                               ),
                             )

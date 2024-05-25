@@ -24,8 +24,8 @@ class MessengerManager extends MessengerInterface {
   final MessengerInterface _messenger;
   final List<ShowToast> _queue;
   final StreamController<ShowToastEvent> _streamController;
-  final _history = <({int hex, DateTime date})>[];
-  final _historyData = <int, ({String message, ToastType type})>{};
+  final _history = <({int hex, int date})>[];
+  final _historyData = <int, ({String message, String type})>{};
   final _userReaction = 600;
   bool _isStopped;
   bool _isProcessing = false;
@@ -60,8 +60,8 @@ class MessengerManager extends MessengerInterface {
 
   void _addToastToHistory(ShowToast toast) {
     final key = Object.hash(toast.message, toast.type);
-    _history.add((hex: key, date: DateTime.now()));
-    _historyData[key] = (message: toast.message, type: toast.type);
+    _history.add((hex: key, date: DateTime.now().millisecondsSinceEpoch));
+    _historyData[key] = (message: toast.message, type: toast.type.name);
   }
 
   void _showToast(ShowToast toast) {
@@ -131,7 +131,8 @@ class MessengerManager extends MessengerInterface {
     for (var element in _history) {
       final data = _historyData[element.hex];
       if (data != null) {
-        result.add(ToastHistory(data.message, data.type, element.date));
+        result.add(
+            ToastHistory.fromRecord(data.message, data.type, element.date));
       }
     }
     return result;
@@ -237,6 +238,19 @@ class ToastHistory {
   final String message;
   final ToastType type;
   final DateTime time;
+
+  factory ToastHistory.fromRecord(
+    String message,
+    String type,
+    int time,
+  ) {
+    return ToastHistory(
+      message,
+      ToastType.values.firstWhere((element) => element.name == type,
+          orElse: () => ToastType.info),
+      DateTime.fromMillisecondsSinceEpoch(time),
+    );
+  }
 
   @override
   String toString() {

@@ -7,6 +7,7 @@ import 'package:tki_app/config/assets/app_colors.dart';
 import 'package:tki_app/config/assets/app_size.dart';
 import 'package:tki_app/core/extensions/context_extension.dart';
 import 'package:tki_app/core/extensions/num_extension.dart';
+import 'package:tki_app/core/extensions/string_extension.dart';
 
 part 'messenger_interface.dart';
 part 'messenger_manager.dart';

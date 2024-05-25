@@ -56,10 +56,10 @@ class MessengerToastWidget extends HookWidget {
           },
           child: Container(
             constraints: BoxConstraints(
-              maxWidth: context.width * AppSize.xxxl80.fraction,
+              maxWidth: (context.width * AppSize.xxxl80.fraction).smaller(AppSize.deviceSmall),
             ),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(24),
+              borderRadius: BorderRadius.circular(AppSize.l),
               color: AppColors.grey900,
               boxShadow: [
                 BoxShadow(
@@ -81,7 +81,8 @@ class MessengerToastWidget extends HookWidget {
                 child: showLogo
                     ? Row(
                         mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(right: AppSize.s),
@@ -155,7 +156,7 @@ class MessengerToastWidget extends HookWidget {
   }
 
   Widget _text() => Text(
-        message,
+        message.replaceNewLines,
         maxLines: 2,
         softWrap: true,
         overflow: TextOverflow.ellipsis,
