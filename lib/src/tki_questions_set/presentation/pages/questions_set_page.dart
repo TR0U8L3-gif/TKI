@@ -37,28 +37,18 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
         title: Text(context.l10n.tkiQuestionsSet),
         actions: [
           IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: () {
-              MessengerManager().showInfoToast(context, "message");
-              MessengerManager().showSuccessToast(context, "message");
-              MessengerManager().showWarningToast(context, "message");
-              MessengerManager().showErrorToast(context, "message");
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.history),
-            onPressed: () {
-              final history = MessengerManager().getHistory();
-              print(history);
-            },
+            icon: const Icon(Icons.add),
+            padding: const EdgeInsets.all(AppSize.m),
+            onPressed: () => context.read<TkiQuestionSetBloc>().add(const GetFromFileEvent()),
           ),
         ],
       ),
       body: BlocConsumer<TkiQuestionSetBloc, TkiQuestionSetState>(
         listener: (_, state) => state.whenOrNull(
-          error: (state, failure) => MessengerManager().showErrorToast(
+          error: (state, failure) => MessengerManager().showToastFromCode(
             context,
-            failure.errorMessage,
+            failure.message,
+            failure.statusCode,
             toastLength: MessengerToastLength.long,
           ),
         ),

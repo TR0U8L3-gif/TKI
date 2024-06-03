@@ -62,11 +62,19 @@ class AppColors {
             centerTitle: true,
             actionsIconTheme: IconThemeData(color: gray[50]),
             iconTheme: IconThemeData(color: gray[50]),
+            shape: ShapeBorder.lerp(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(AppSize.l),
+              ),
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(AppSize.l),
+              ),
+              AppSize.one,
+            ),
           ),
           scrollbarTheme: ScrollbarThemeData(
-            thumbColor: WidgetStateProperty.all(
-              grey400.withOpacity(AppSize.xl.fraction),
-            ),
-            thickness: WidgetStateProperty.all(AppSize.s)
-          ));
+              thumbColor: WidgetStateProperty.all(
+                grey400.withOpacity(AppSize.xl.fraction),
+              ),
+              thickness: WidgetStateProperty.all(AppSize.s)));
 }

@@ -27,13 +27,13 @@ class Failure with _$Failure {
   static Failure fromException(AppException exception) {
     return exception.when(
       serverException: (message, statusCode) =>
-          Failure.serverFailure(message: message, statusCode: statusCode),
+          Failure.serverFailure(message: message, statusCode: statusCode, ),
       cacheException: (message, statusCode) =>
-          Failure.cacheFailure(message: message, statusCode: statusCode),
+          Failure.cacheFailure(message: message, statusCode: statusCode,),
     );
   }
 
   String get errorMessage =>
-      '$statusCode ${statusCode is String ? '' : 'Error'}: $message';
+      '${statusCode is String ? statusCode : 'Error[$statusCode]'}: $message';
   
 }

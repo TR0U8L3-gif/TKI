@@ -4,4 +4,6 @@ part of 'tki_question_set_bloc.dart';
 class TkiQuestionSetEvent with _$TkiQuestionSetEvent {
   const factory TkiQuestionSetEvent.getQuestionSetsFromFixtures() = GetFromFixturesEvent;
   const factory TkiQuestionSetEvent.getQuestionSetsFromDevice() = GetFromDeviceEvent;
+  const factory TkiQuestionSetEvent.getQuestionSetFromFile() = GetFromFileEvent;
+
 }

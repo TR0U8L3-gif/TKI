@@ -65,9 +65,7 @@ class AppScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = maxSize ?? Size(600, context.height);
     return Scaffold(
-      appBar: appBar,
-      body: SafeArea(
-        child: Stack(
+      body: Stack(
           children: [
             Opacity(
               opacity: AppSize.xxxl.fraction,
@@ -117,13 +115,26 @@ class AppScaffold extends StatelessWidget {
             ),
             Align(
               child: ConstrainedBox(
-                constraints: BoxConstraints.tight(size),
-                child: body ?? const SizedBox.shrink(),
+                constraints: BoxConstraints.loose(Size(AppSize.deviceLarge, context.height)),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal:  AppSize.s),
+                  child: Scaffold(
+                    appBar: appBar,
+                    backgroundColor: Colors.transparent,
+                    body: SafeArea(
+                      child: Align(
+                        child: ConstrainedBox(
+                          constraints: BoxConstraints.tight(size),
+                          child: body ?? const SizedBox.shrink(),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
         ),
-      ),
       floatingActionButton: floatingActionButton,
       floatingActionButtonLocation: floatingActionButtonLocation,
       floatingActionButtonAnimator: floatingActionButtonAnimator,

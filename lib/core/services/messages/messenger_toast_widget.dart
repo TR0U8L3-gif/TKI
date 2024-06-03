@@ -156,8 +156,8 @@ class MessengerToastWidget extends HookWidget {
   }
 
   Widget _text() => Text(
-        message.replaceNewLines,
-        maxLines: 2,
+        _getToastHeader(message).replaceNewLines,
+        maxLines: 1,
         softWrap: true,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
@@ -190,5 +190,9 @@ class MessengerToastWidget extends HookWidget {
       case ToastType.success:
         return 'Success';
     }
+  }
+
+  String _getToastHeader(String message){
+    return message.split('\n\n').first;
   }
 }

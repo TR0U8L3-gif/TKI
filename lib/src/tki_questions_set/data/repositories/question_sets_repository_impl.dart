@@ -19,6 +19,11 @@ class QuestionSetsRepositoryImpl implements QuestionSetsRepository {
     return _getQuestionSets(() => localDataSource.getQuestionSetsFromFixtures());
   }
 
+  @override
+  ResultFuture<QuestionSet> getQuestionSetFromFile() {
+    return _getQuestionSets(() => localDataSource.getQuestionSetFromFile());
+  }
+
   ResultFuture<T> _getQuestionSets<T>(Future<T> Function() function) async {
     try {
       final questionSet = await function();
@@ -46,4 +51,5 @@ class QuestionSetsRepositoryImpl implements QuestionSetsRepository {
       );
     }
   }
+  
 }

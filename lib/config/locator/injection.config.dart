@@ -19,10 +19,12 @@ import '../../src/tki_questions_set/data/repositories/question_sets_repository_i
     as _i8;
 import '../../src/tki_questions_set/domain/repositories/question_sets_repository.dart'
     as _i7;
+import '../../src/tki_questions_set/domain/use_cases/get_question_set_from_file.dart'
+    as _i10;
 import '../../src/tki_questions_set/domain/use_cases/get_question_sets_from_fixture.dart'
     as _i9;
 import '../../src/tki_questions_set/presentation/bloc/tki_question_set_bloc.dart'
-    as _i10;
+    as _i11;
 import '../routes/app_router.dart' as _i3;
 
 extension GetItInjectableX on _i1.GetIt {
@@ -46,9 +48,15 @@ extension GetItInjectableX on _i1.GetIt {
         _i8.QuestionSetsRepositoryImpl(
             localDataSource: gh<_i6.QuestionSetsLocalDataSource>()));
     gh.lazySingleton<_i9.GetQuestionSetsFromFixtures>(() =>
-        _i9.GetQuestionSetsFromFixtures(gh<_i7.QuestionSetsRepository>()));
-    gh.factory<_i10.TkiQuestionSetBloc>(() => _i10.TkiQuestionSetBloc(
-        getQuestionSetsFromFixtures: gh<_i9.GetQuestionSetsFromFixtures>()));
+        _i9.GetQuestionSetsFromFixtures(
+            repository: gh<_i7.QuestionSetsRepository>()));
+    gh.lazySingleton<_i10.GetQuestionSetFromFile>(() =>
+        _i10.GetQuestionSetFromFile(
+            repository: gh<_i7.QuestionSetsRepository>()));
+    gh.factory<_i11.TkiQuestionSetBloc>(() => _i11.TkiQuestionSetBloc(
+          getQuestionSetsFromFixtures: gh<_i9.GetQuestionSetsFromFixtures>(),
+          getQuestionSetFromFile: gh<_i10.GetQuestionSetFromFile>(),
+        ));
     return this;
   }
 }

@@ -214,6 +214,39 @@ class MessengerManager extends MessengerInterface {
     ));
   }
 
+  void showToastFromCode(
+      BuildContext context, String message, dynamic statusCode,
+      {MessengerToastLength toastLength = MessengerToastLength.short,
+      bool showDefaultLogo = true,
+      Widget? logo,
+      VoidCallback? onStart,
+      VoidCallback? onEnd}) {
+    var type = ToastType.error;
+
+    if (statusCode is int) {
+      if (statusCode >= 100 && statusCode < 200) {
+        type = ToastType.info;
+      } else if (statusCode >= 200 && statusCode < 300) {
+        type = ToastType.success;
+      } else if (statusCode >= 300 && statusCode < 400) {
+        type = ToastType.warning;
+      } else {
+        type = ToastType.error;
+      }
+    }
+
+    addToast(ShowToast(
+      context,
+      message,
+      type: type,
+      toastLength: toastLength,
+      showDefaultLogo: showDefaultLogo,
+      logo: logo,
+      onStart: onStart,
+      onEnd: onEnd,
+    ));
+  }
+
   @override
   void killDisplayedToast() {
     _messenger.killDisplayedToast();

@@ -20,18 +20,21 @@ mixin _$TkiQuestionSetEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getQuestionSetsFromFixtures,
     required TResult Function() getQuestionSetsFromDevice,
+    required TResult Function() getQuestionSetFromFile,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getQuestionSetsFromFixtures,
     TResult? Function()? getQuestionSetsFromDevice,
+    TResult? Function()? getQuestionSetFromFile,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getQuestionSetsFromFixtures,
     TResult Function()? getQuestionSetsFromDevice,
+    TResult Function()? getQuestionSetFromFile,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -41,18 +44,21 @@ mixin _$TkiQuestionSetEvent {
         getQuestionSetsFromFixtures,
     required TResult Function(GetFromDeviceEvent value)
         getQuestionSetsFromDevice,
+    required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult? Function(GetFromDeviceEvent value)? getQuestionSetsFromDevice,
+    TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult Function(GetFromDeviceEvent value)? getQuestionSetsFromDevice,
+    TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -117,6 +123,7 @@ class _$GetFromFixturesEventImpl implements GetFromFixturesEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getQuestionSetsFromFixtures,
     required TResult Function() getQuestionSetsFromDevice,
+    required TResult Function() getQuestionSetFromFile,
   }) {
     return getQuestionSetsFromFixtures();
   }
@@ -126,6 +133,7 @@ class _$GetFromFixturesEventImpl implements GetFromFixturesEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getQuestionSetsFromFixtures,
     TResult? Function()? getQuestionSetsFromDevice,
+    TResult? Function()? getQuestionSetFromFile,
   }) {
     return getQuestionSetsFromFixtures?.call();
   }
@@ -135,6 +143,7 @@ class _$GetFromFixturesEventImpl implements GetFromFixturesEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getQuestionSetsFromFixtures,
     TResult Function()? getQuestionSetsFromDevice,
+    TResult Function()? getQuestionSetFromFile,
     required TResult orElse(),
   }) {
     if (getQuestionSetsFromFixtures != null) {
@@ -150,6 +159,7 @@ class _$GetFromFixturesEventImpl implements GetFromFixturesEvent {
         getQuestionSetsFromFixtures,
     required TResult Function(GetFromDeviceEvent value)
         getQuestionSetsFromDevice,
+    required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
   }) {
     return getQuestionSetsFromFixtures(this);
   }
@@ -159,6 +169,7 @@ class _$GetFromFixturesEventImpl implements GetFromFixturesEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult? Function(GetFromDeviceEvent value)? getQuestionSetsFromDevice,
+    TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
   }) {
     return getQuestionSetsFromFixtures?.call(this);
   }
@@ -168,6 +179,7 @@ class _$GetFromFixturesEventImpl implements GetFromFixturesEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult Function(GetFromDeviceEvent value)? getQuestionSetsFromDevice,
+    TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
     required TResult orElse(),
   }) {
     if (getQuestionSetsFromFixtures != null) {
@@ -221,6 +233,7 @@ class _$GetFromDeviceEventImpl implements GetFromDeviceEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getQuestionSetsFromFixtures,
     required TResult Function() getQuestionSetsFromDevice,
+    required TResult Function() getQuestionSetFromFile,
   }) {
     return getQuestionSetsFromDevice();
   }
@@ -230,6 +243,7 @@ class _$GetFromDeviceEventImpl implements GetFromDeviceEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getQuestionSetsFromFixtures,
     TResult? Function()? getQuestionSetsFromDevice,
+    TResult? Function()? getQuestionSetFromFile,
   }) {
     return getQuestionSetsFromDevice?.call();
   }
@@ -239,6 +253,7 @@ class _$GetFromDeviceEventImpl implements GetFromDeviceEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getQuestionSetsFromFixtures,
     TResult Function()? getQuestionSetsFromDevice,
+    TResult Function()? getQuestionSetFromFile,
     required TResult orElse(),
   }) {
     if (getQuestionSetsFromDevice != null) {
@@ -254,6 +269,7 @@ class _$GetFromDeviceEventImpl implements GetFromDeviceEvent {
         getQuestionSetsFromFixtures,
     required TResult Function(GetFromDeviceEvent value)
         getQuestionSetsFromDevice,
+    required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
   }) {
     return getQuestionSetsFromDevice(this);
   }
@@ -263,6 +279,7 @@ class _$GetFromDeviceEventImpl implements GetFromDeviceEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult? Function(GetFromDeviceEvent value)? getQuestionSetsFromDevice,
+    TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
   }) {
     return getQuestionSetsFromDevice?.call(this);
   }
@@ -272,6 +289,7 @@ class _$GetFromDeviceEventImpl implements GetFromDeviceEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult Function(GetFromDeviceEvent value)? getQuestionSetsFromDevice,
+    TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
     required TResult orElse(),
   }) {
     if (getQuestionSetsFromDevice != null) {
@@ -283,6 +301,116 @@ class _$GetFromDeviceEventImpl implements GetFromDeviceEvent {
 
 abstract class GetFromDeviceEvent implements TkiQuestionSetEvent {
   const factory GetFromDeviceEvent() = _$GetFromDeviceEventImpl;
+}
+
+/// @nodoc
+abstract class _$$GetFromFileEventImplCopyWith<$Res> {
+  factory _$$GetFromFileEventImplCopyWith(_$GetFromFileEventImpl value,
+          $Res Function(_$GetFromFileEventImpl) then) =
+      __$$GetFromFileEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetFromFileEventImplCopyWithImpl<$Res>
+    extends _$TkiQuestionSetEventCopyWithImpl<$Res, _$GetFromFileEventImpl>
+    implements _$$GetFromFileEventImplCopyWith<$Res> {
+  __$$GetFromFileEventImplCopyWithImpl(_$GetFromFileEventImpl _value,
+      $Res Function(_$GetFromFileEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetFromFileEventImpl implements GetFromFileEvent {
+  const _$GetFromFileEventImpl();
+
+  @override
+  String toString() {
+    return 'TkiQuestionSetEvent.getQuestionSetFromFile()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetFromFileEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getQuestionSetsFromFixtures,
+    required TResult Function() getQuestionSetsFromDevice,
+    required TResult Function() getQuestionSetFromFile,
+  }) {
+    return getQuestionSetFromFile();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getQuestionSetsFromFixtures,
+    TResult? Function()? getQuestionSetsFromDevice,
+    TResult? Function()? getQuestionSetFromFile,
+  }) {
+    return getQuestionSetFromFile?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getQuestionSetsFromFixtures,
+    TResult Function()? getQuestionSetsFromDevice,
+    TResult Function()? getQuestionSetFromFile,
+    required TResult orElse(),
+  }) {
+    if (getQuestionSetFromFile != null) {
+      return getQuestionSetFromFile();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetFromFixturesEvent value)
+        getQuestionSetsFromFixtures,
+    required TResult Function(GetFromDeviceEvent value)
+        getQuestionSetsFromDevice,
+    required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
+  }) {
+    return getQuestionSetFromFile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
+    TResult? Function(GetFromDeviceEvent value)? getQuestionSetsFromDevice,
+    TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
+  }) {
+    return getQuestionSetFromFile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
+    TResult Function(GetFromDeviceEvent value)? getQuestionSetsFromDevice,
+    TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
+    required TResult orElse(),
+  }) {
+    if (getQuestionSetFromFile != null) {
+      return getQuestionSetFromFile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetFromFileEvent implements TkiQuestionSetEvent {
+  const factory GetFromFileEvent() = _$GetFromFileEventImpl;
 }
 
 /// @nodoc

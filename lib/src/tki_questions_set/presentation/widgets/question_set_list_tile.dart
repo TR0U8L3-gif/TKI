@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tki_app/config/assets/app_colors.dart';
 import 'package:tki_app/config/assets/app_size.dart';
@@ -47,19 +48,20 @@ class QuestionSetListTile extends StatelessWidget {
                               opacity: AppSize.xxxl80.fraction,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(AppSize.m),
-                                child: Image.network(
-                                  questionSet.imageUrl!,
+                                child: CachedNetworkImage(
+                                  imageUrl: questionSet.imageUrl!,
                                   fit: BoxFit.cover,
-                                  errorBuilder: (_, error, ___) {
-                                    MessengerManager().showErrorToast(
-                                        context,
-                                        questionSetImageLoadErrorMessage(questionSet, error),
-                                        toastLength: MessengerToastLength.short);
-                                    return const Icon(
-                                        Icons.broken_image_outlined,
-                                        color: AppColors.grey800,
-                                        size: AppSize.xxl56);
-                                  },
+                                  errorListener: (error) => MessengerManager()
+                                      .showErrorToast(
+                                          context,
+                                          questionSetImageLoadErrorMessage(
+                                              questionSet, error),
+                                          toastLength:
+                                              MessengerToastLength.short),
+                                  errorWidget: (_, __, ___) => const Icon(
+                                      Icons.broken_image_outlined,
+                                      color: AppColors.grey800,
+                                      size: AppSize.xxl56),
                                 ),
                               ),
                             )

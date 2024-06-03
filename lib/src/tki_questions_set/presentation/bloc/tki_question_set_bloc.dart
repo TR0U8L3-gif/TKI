@@ -7,6 +7,7 @@ import 'package:tki_app/core/utils/error/failures.dart';
 import 'package:tki_app/core/utils/use_case/use_case.dart';
 import 'package:tki_app/src/tki_questions_set/data/models/question_set.dart';
 import 'package:tki_app/src/tki_questions_set/domain/use_cases/get_question_sets_from_fixture.dart';
+import 'package:tki_app/src/tki_questions_set/domain/use_cases/get_question_set_from_file.dart';
 
 part 'tki_question_set_event.dart';
 part 'tki_question_set_state.dart';
@@ -17,13 +18,17 @@ class TkiQuestionSetBloc
     extends Bloc<TkiQuestionSetEvent, TkiQuestionSetState> {
   TkiQuestionSetBloc({
     required GetQuestionSetsFromFixtures getQuestionSetsFromFixtures,
+    required GetQuestionSetFromFile getQuestionSetFromFile,
   })  : _getQuestionSetsFromFixtures = getQuestionSetsFromFixtures,
+        _getQuestionSetFromFile = getQuestionSetFromFile,
         super(const InitialState()) {
     on<GetFromFixturesEvent>(_fixtureHandler<GetFromFixturesEvent>);
     on<GetFromDeviceEvent>(_deviceHandler<GetFromDeviceEvent>);
+    on<GetFromFileEvent>(_fileHandler<GetFromFileEvent>);
   }
 
   final GetQuestionSetsFromFixtures _getQuestionSetsFromFixtures;
+  final GetQuestionSetFromFile _getQuestionSetFromFile;
   final List<QuestionSet> _questionSetsLocal = [];
   final List<QuestionSet> _questionSetsRemote = [];
 
@@ -53,6 +58,28 @@ class TkiQuestionSetBloc
 
   FutureOr<void> _deviceHandler<E>(
       E event, Emitter<TkiQuestionSetState> emit) {}
+
+  FutureOr<void> _fileHandler<E>(
+      E event, Emitter<TkiQuestionSetState> emit) async {
+    _emitLoadingState(
+      emitter: emit,
+      isLoadingLocal: false,
+      isLoadingRemote: true,
+    );
+    final result = await _getQuestionSetFromFile(NoParams());
+    result.fold(
+      (failure) {
+        _emitErrorState(
+          emitter: emit,
+          failure: failure,
+        );
+      },
+      (questionSet) => _emitLoadedState(
+        emitter: emit,
+        questionSetsRemote: List.from(_questionSetsRemote)..add(questionSet),
+      ),
+    );
+  }
 
   void _emitLoadingState({
     required Emitter<TkiQuestionSetState> emitter,
@@ -109,7 +136,8 @@ class TkiQuestionSetBloc
 
     emitter(
       ErrorState(
-        previousState: previousState as IdleState,
+        previousState: (previousState as IdleState)
+            .copyWith(isLoadingLocal: false, isLoadingRemote: false),
         failure: failure,
       ),
     );
