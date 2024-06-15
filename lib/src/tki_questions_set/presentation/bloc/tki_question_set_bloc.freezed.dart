@@ -19,6 +19,7 @@ mixin _$TkiQuestionSetEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getQuestionSetsFromMemory,
+    required TResult Function() getAllQuestionSets,
     required TResult Function() getQuestionSetsFromFixtures,
     required TResult Function() getQuestionSetFromFile,
     required TResult Function(QuestionSet questionSet) saveQuestionSet,
@@ -27,6 +28,7 @@ mixin _$TkiQuestionSetEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getQuestionSetsFromMemory,
+    TResult? Function()? getAllQuestionSets,
     TResult? Function()? getQuestionSetsFromFixtures,
     TResult? Function()? getQuestionSetFromFile,
     TResult? Function(QuestionSet questionSet)? saveQuestionSet,
@@ -35,6 +37,7 @@ mixin _$TkiQuestionSetEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getQuestionSetsFromMemory,
+    TResult Function()? getAllQuestionSets,
     TResult Function()? getQuestionSetsFromFixtures,
     TResult Function()? getQuestionSetFromFile,
     TResult Function(QuestionSet questionSet)? saveQuestionSet,
@@ -45,6 +48,7 @@ mixin _$TkiQuestionSetEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(GetFromMemoryEvent value)
         getQuestionSetsFromMemory,
+    required TResult Function(GetAllEvent value) getAllQuestionSets,
     required TResult Function(GetFromFixturesEvent value)
         getQuestionSetsFromFixtures,
     required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
@@ -54,6 +58,7 @@ mixin _$TkiQuestionSetEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult? Function(GetAllEvent value)? getAllQuestionSets,
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
@@ -62,6 +67,7 @@ mixin _$TkiQuestionSetEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult Function(GetAllEvent value)? getAllQuestionSets,
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
@@ -136,6 +142,7 @@ class _$GetFromMemoryEventImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getQuestionSetsFromMemory,
+    required TResult Function() getAllQuestionSets,
     required TResult Function() getQuestionSetsFromFixtures,
     required TResult Function() getQuestionSetFromFile,
     required TResult Function(QuestionSet questionSet) saveQuestionSet,
@@ -147,6 +154,7 @@ class _$GetFromMemoryEventImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getQuestionSetsFromMemory,
+    TResult? Function()? getAllQuestionSets,
     TResult? Function()? getQuestionSetsFromFixtures,
     TResult? Function()? getQuestionSetFromFile,
     TResult? Function(QuestionSet questionSet)? saveQuestionSet,
@@ -158,6 +166,7 @@ class _$GetFromMemoryEventImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getQuestionSetsFromMemory,
+    TResult Function()? getAllQuestionSets,
     TResult Function()? getQuestionSetsFromFixtures,
     TResult Function()? getQuestionSetFromFile,
     TResult Function(QuestionSet questionSet)? saveQuestionSet,
@@ -174,6 +183,7 @@ class _$GetFromMemoryEventImpl
   TResult map<TResult extends Object?>({
     required TResult Function(GetFromMemoryEvent value)
         getQuestionSetsFromMemory,
+    required TResult Function(GetAllEvent value) getAllQuestionSets,
     required TResult Function(GetFromFixturesEvent value)
         getQuestionSetsFromFixtures,
     required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
@@ -186,6 +196,7 @@ class _$GetFromMemoryEventImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult? Function(GetAllEvent value)? getAllQuestionSets,
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
@@ -197,6 +208,7 @@ class _$GetFromMemoryEventImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult Function(GetAllEvent value)? getAllQuestionSets,
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
@@ -211,6 +223,135 @@ class _$GetFromMemoryEventImpl
 
 abstract class GetFromMemoryEvent implements TkiQuestionSetEvent {
   const factory GetFromMemoryEvent() = _$GetFromMemoryEventImpl;
+}
+
+/// @nodoc
+abstract class _$$GetAllEventImplCopyWith<$Res> {
+  factory _$$GetAllEventImplCopyWith(
+          _$GetAllEventImpl value, $Res Function(_$GetAllEventImpl) then) =
+      __$$GetAllEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetAllEventImplCopyWithImpl<$Res>
+    extends _$TkiQuestionSetEventCopyWithImpl<$Res, _$GetAllEventImpl>
+    implements _$$GetAllEventImplCopyWith<$Res> {
+  __$$GetAllEventImplCopyWithImpl(
+      _$GetAllEventImpl _value, $Res Function(_$GetAllEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetAllEventImpl with DiagnosticableTreeMixin implements GetAllEvent {
+  const _$GetAllEventImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TkiQuestionSetEvent.getAllQuestionSets()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'TkiQuestionSetEvent.getAllQuestionSets'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetAllEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getQuestionSetsFromMemory,
+    required TResult Function() getAllQuestionSets,
+    required TResult Function() getQuestionSetsFromFixtures,
+    required TResult Function() getQuestionSetFromFile,
+    required TResult Function(QuestionSet questionSet) saveQuestionSet,
+  }) {
+    return getAllQuestionSets();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getQuestionSetsFromMemory,
+    TResult? Function()? getAllQuestionSets,
+    TResult? Function()? getQuestionSetsFromFixtures,
+    TResult? Function()? getQuestionSetFromFile,
+    TResult? Function(QuestionSet questionSet)? saveQuestionSet,
+  }) {
+    return getAllQuestionSets?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getQuestionSetsFromMemory,
+    TResult Function()? getAllQuestionSets,
+    TResult Function()? getQuestionSetsFromFixtures,
+    TResult Function()? getQuestionSetFromFile,
+    TResult Function(QuestionSet questionSet)? saveQuestionSet,
+    required TResult orElse(),
+  }) {
+    if (getAllQuestionSets != null) {
+      return getAllQuestionSets();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetFromMemoryEvent value)
+        getQuestionSetsFromMemory,
+    required TResult Function(GetAllEvent value) getAllQuestionSets,
+    required TResult Function(GetFromFixturesEvent value)
+        getQuestionSetsFromFixtures,
+    required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
+    required TResult Function(_SaveQuestionSetEvent value) saveQuestionSet,
+  }) {
+    return getAllQuestionSets(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult? Function(GetAllEvent value)? getAllQuestionSets,
+    TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
+    TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
+    TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+  }) {
+    return getAllQuestionSets?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult Function(GetAllEvent value)? getAllQuestionSets,
+    TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
+    TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
+    TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    required TResult orElse(),
+  }) {
+    if (getAllQuestionSets != null) {
+      return getAllQuestionSets(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetAllEvent implements TkiQuestionSetEvent {
+  const factory GetAllEvent() = _$GetAllEventImpl;
 }
 
 /// @nodoc
@@ -262,6 +403,7 @@ class _$GetFromFixturesEventImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getQuestionSetsFromMemory,
+    required TResult Function() getAllQuestionSets,
     required TResult Function() getQuestionSetsFromFixtures,
     required TResult Function() getQuestionSetFromFile,
     required TResult Function(QuestionSet questionSet) saveQuestionSet,
@@ -273,6 +415,7 @@ class _$GetFromFixturesEventImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getQuestionSetsFromMemory,
+    TResult? Function()? getAllQuestionSets,
     TResult? Function()? getQuestionSetsFromFixtures,
     TResult? Function()? getQuestionSetFromFile,
     TResult? Function(QuestionSet questionSet)? saveQuestionSet,
@@ -284,6 +427,7 @@ class _$GetFromFixturesEventImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getQuestionSetsFromMemory,
+    TResult Function()? getAllQuestionSets,
     TResult Function()? getQuestionSetsFromFixtures,
     TResult Function()? getQuestionSetFromFile,
     TResult Function(QuestionSet questionSet)? saveQuestionSet,
@@ -300,6 +444,7 @@ class _$GetFromFixturesEventImpl
   TResult map<TResult extends Object?>({
     required TResult Function(GetFromMemoryEvent value)
         getQuestionSetsFromMemory,
+    required TResult Function(GetAllEvent value) getAllQuestionSets,
     required TResult Function(GetFromFixturesEvent value)
         getQuestionSetsFromFixtures,
     required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
@@ -312,6 +457,7 @@ class _$GetFromFixturesEventImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult? Function(GetAllEvent value)? getAllQuestionSets,
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
@@ -323,6 +469,7 @@ class _$GetFromFixturesEventImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult Function(GetAllEvent value)? getAllQuestionSets,
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
@@ -387,6 +534,7 @@ class _$GetFromFileEventImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getQuestionSetsFromMemory,
+    required TResult Function() getAllQuestionSets,
     required TResult Function() getQuestionSetsFromFixtures,
     required TResult Function() getQuestionSetFromFile,
     required TResult Function(QuestionSet questionSet) saveQuestionSet,
@@ -398,6 +546,7 @@ class _$GetFromFileEventImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getQuestionSetsFromMemory,
+    TResult? Function()? getAllQuestionSets,
     TResult? Function()? getQuestionSetsFromFixtures,
     TResult? Function()? getQuestionSetFromFile,
     TResult? Function(QuestionSet questionSet)? saveQuestionSet,
@@ -409,6 +558,7 @@ class _$GetFromFileEventImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getQuestionSetsFromMemory,
+    TResult Function()? getAllQuestionSets,
     TResult Function()? getQuestionSetsFromFixtures,
     TResult Function()? getQuestionSetFromFile,
     TResult Function(QuestionSet questionSet)? saveQuestionSet,
@@ -425,6 +575,7 @@ class _$GetFromFileEventImpl
   TResult map<TResult extends Object?>({
     required TResult Function(GetFromMemoryEvent value)
         getQuestionSetsFromMemory,
+    required TResult Function(GetAllEvent value) getAllQuestionSets,
     required TResult Function(GetFromFixturesEvent value)
         getQuestionSetsFromFixtures,
     required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
@@ -437,6 +588,7 @@ class _$GetFromFileEventImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult? Function(GetAllEvent value)? getAllQuestionSets,
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
@@ -448,6 +600,7 @@ class _$GetFromFileEventImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult Function(GetAllEvent value)? getAllQuestionSets,
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
@@ -552,6 +705,7 @@ class _$SaveQuestionSetEventImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getQuestionSetsFromMemory,
+    required TResult Function() getAllQuestionSets,
     required TResult Function() getQuestionSetsFromFixtures,
     required TResult Function() getQuestionSetFromFile,
     required TResult Function(QuestionSet questionSet) saveQuestionSet,
@@ -563,6 +717,7 @@ class _$SaveQuestionSetEventImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getQuestionSetsFromMemory,
+    TResult? Function()? getAllQuestionSets,
     TResult? Function()? getQuestionSetsFromFixtures,
     TResult? Function()? getQuestionSetFromFile,
     TResult? Function(QuestionSet questionSet)? saveQuestionSet,
@@ -574,6 +729,7 @@ class _$SaveQuestionSetEventImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getQuestionSetsFromMemory,
+    TResult Function()? getAllQuestionSets,
     TResult Function()? getQuestionSetsFromFixtures,
     TResult Function()? getQuestionSetFromFile,
     TResult Function(QuestionSet questionSet)? saveQuestionSet,
@@ -590,6 +746,7 @@ class _$SaveQuestionSetEventImpl
   TResult map<TResult extends Object?>({
     required TResult Function(GetFromMemoryEvent value)
         getQuestionSetsFromMemory,
+    required TResult Function(GetAllEvent value) getAllQuestionSets,
     required TResult Function(GetFromFixturesEvent value)
         getQuestionSetsFromFixtures,
     required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
@@ -602,6 +759,7 @@ class _$SaveQuestionSetEventImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult? Function(GetAllEvent value)? getAllQuestionSets,
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
@@ -613,6 +771,7 @@ class _$SaveQuestionSetEventImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult Function(GetAllEvent value)? getAllQuestionSets,
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,

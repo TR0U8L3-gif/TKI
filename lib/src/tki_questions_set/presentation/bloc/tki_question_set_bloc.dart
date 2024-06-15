@@ -29,6 +29,7 @@ class TkiQuestionSetBloc
         _getQuestionSetsFromMemory = getQuestionSetsFromMemory,
         _saveQuestionSet = saveQuestionSet,
         super(const InitialState()) {
+    on<GetAllEvent>(_getAllHandler<GetAllEvent>);
     on<GetFromFixturesEvent>(_fixtureHandler<GetFromFixturesEvent>);
     on<GetFromMemoryEvent>(_memoryHandler<GetFromMemoryEvent>);
     on<GetFromFileEvent>(_fileHandler<GetFromFileEvent>);
@@ -42,6 +43,44 @@ class TkiQuestionSetBloc
   final List<QuestionSet> _questionSetsLocal = [];
   final List<QuestionSet> _questionSetsRemote = [];
 
+  FutureOr<void> _getAllHandler<E>(
+    E event,
+    Emitter<TkiQuestionSetState> emit,
+  ) async {
+    _emitLoadingState(
+      emitter: emit,
+      isLoadingLocal: true,
+      isLoadingRemote: true,
+    );
+    final result = await _getQuestionSetsFromFixtures(NoParams());
+    result.fold(
+      (failure) {
+        _emitErrorState(
+          emitter: emit,
+          failure: failure,
+        );
+      },
+      (questionSets) => _emitLoadedState(
+        emitter: emit,
+        questionSetsLocal: questionSets,
+        isLoadingRemote: true,
+      ),
+    );
+    final result2 = await _getQuestionSetsFromMemory(NoParams());
+    result2.fold(
+      (failure) {
+        _emitErrorState(
+          emitter: emit,
+          failure: failure,
+        );
+      },
+      (questionSets) => _emitLoadedState(
+        emitter: emit,
+        questionSetsRemote: questionSets,
+      ),
+    );
+  }
+
   FutureOr<void> _fixtureHandler<E>(
     E event,
     Emitter<TkiQuestionSetState> emit,
@@ -49,7 +88,6 @@ class TkiQuestionSetBloc
     _emitLoadingState(
       emitter: emit,
       isLoadingLocal: true,
-      isLoadingRemote: false,
     );
     final result = await _getQuestionSetsFromFixtures(NoParams());
     result.fold(
@@ -72,7 +110,6 @@ class TkiQuestionSetBloc
   ) async {
     _emitLoadingState(
       emitter: emit,
-      isLoadingLocal: false,
       isLoadingRemote: true,
     );
     final result = await _getQuestionSetsFromMemory(NoParams());
@@ -94,7 +131,6 @@ class TkiQuestionSetBloc
       E event, Emitter<TkiQuestionSetState> emit) async {
     _emitLoadingState(
       emitter: emit,
-      isLoadingLocal: false,
       isLoadingRemote: true,
     );
     final result = await _getQuestionSetFromFile(NoParams());
@@ -135,13 +171,27 @@ class TkiQuestionSetBloc
 
   void _emitLoadingState({
     required Emitter<TkiQuestionSetState> emitter,
-    bool isLoadingLocal = true,
-    bool isLoadingRemote = true,
+    bool isLoadingLocal = false,
+    bool isLoadingRemote = false,
   }) {
+    var loadingLocal = isLoadingLocal;
+    var loadingRemote = isLoadingRemote;
+    
+
+    if(state is IdleState) {
+      if(!isLoadingLocal){
+        loadingLocal = (state as IdleState).isLoadingLocal;
+      }
+      if(!isLoadingRemote){
+        loadingRemote = (state as IdleState).isLoadingRemote;
+      }
+    }
+
+
     emitter(
       IdleState(
-        isLoadingLocal: isLoadingLocal,
-        isLoadingRemote: isLoadingRemote,
+        isLoadingLocal: loadingLocal,
+        isLoadingRemote: loadingRemote,
         questionSetsLocal: _questionSetsLocal,
         questionSetsRemote: _questionSetsRemote,
       ),
@@ -152,23 +202,25 @@ class TkiQuestionSetBloc
     required Emitter<TkiQuestionSetState> emitter,
     List<QuestionSet>? questionSetsLocal,
     List<QuestionSet>? questionSetsRemote,
+    bool isLoadingLocal = false,
+    bool isLoadingRemote = false,
   }) {
     if (questionSetsLocal != null) {
       _questionSetsLocal.clear();
-      _questionSetsLocal.addAll(questionSetsLocal);
+      _questionSetsLocal.addAll(List.from(questionSetsLocal));
     }
 
     if (questionSetsRemote != null) {
       _questionSetsRemote.clear();
-      _questionSetsRemote.addAll(questionSetsRemote);
+      _questionSetsRemote.addAll(List.from(questionSetsRemote));
     }
 
     emitter(
       IdleState(
-        isLoadingLocal: false,
-        isLoadingRemote: false,
-        questionSetsLocal: questionSetsLocal ?? _questionSetsLocal,
-        questionSetsRemote: questionSetsRemote ?? _questionSetsRemote,
+        isLoadingLocal: isLoadingLocal,
+        isLoadingRemote: isLoadingRemote,
+        questionSetsLocal: _questionSetsLocal,
+        questionSetsRemote: _questionSetsRemote,
       ),
     );
   }

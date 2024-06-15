@@ -24,8 +24,7 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider(
       create: (_) => locator<TkiQuestionSetBloc>()
-        ..add(const GetFromFixturesEvent())
-        ..add(const GetFromMemoryEvent()),
+        ..add(const GetAllEvent()),
       child: this,
     );
   }
@@ -45,6 +44,9 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
       ),
       body: BlocConsumer<TkiQuestionSetBloc, TkiQuestionSetState>(
         listener: (_, state) => state.whenOrNull(
+          idle: (isLoadingLocal, isLoadingRemote, questionSetsLocal, questionSetsRemote) {
+            print('idle: $isLoadingLocal, $isLoadingRemote, ${questionSetsLocal.length}, ${questionSetsRemote.length}');
+          },
           error: (state, failure) => MessengerManager().showToastFromCode(
             context,
             failure.message,
