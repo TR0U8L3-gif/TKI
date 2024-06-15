@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tki_app/core/utils/error/failures.dart';
@@ -8,6 +9,8 @@ import 'package:tki_app/core/utils/use_case/use_case.dart';
 import 'package:tki_app/src/tki_questions_set/data/models/question_set.dart';
 import 'package:tki_app/src/tki_questions_set/domain/use_cases/get_question_sets_from_fixture.dart';
 import 'package:tki_app/src/tki_questions_set/domain/use_cases/get_question_set_from_file.dart';
+import 'package:tki_app/src/tki_questions_set/domain/use_cases/get_question_sets_from_memory.dart';
+import 'package:tki_app/src/tki_questions_set/domain/use_cases/save_question_set.dart';
 
 part 'tki_question_set_event.dart';
 part 'tki_question_set_state.dart';
@@ -19,16 +22,23 @@ class TkiQuestionSetBloc
   TkiQuestionSetBloc({
     required GetQuestionSetsFromFixtures getQuestionSetsFromFixtures,
     required GetQuestionSetFromFile getQuestionSetFromFile,
+    required GetQuestionSetsFromMemory getQuestionSetsFromMemory,
+    required SaveQuestionSet saveQuestionSet,
   })  : _getQuestionSetsFromFixtures = getQuestionSetsFromFixtures,
         _getQuestionSetFromFile = getQuestionSetFromFile,
+        _getQuestionSetsFromMemory = getQuestionSetsFromMemory,
+        _saveQuestionSet = saveQuestionSet,
         super(const InitialState()) {
     on<GetFromFixturesEvent>(_fixtureHandler<GetFromFixturesEvent>);
-    on<GetFromDeviceEvent>(_deviceHandler<GetFromDeviceEvent>);
+    on<GetFromMemoryEvent>(_memoryHandler<GetFromMemoryEvent>);
     on<GetFromFileEvent>(_fileHandler<GetFromFileEvent>);
+    on<_SaveQuestionSetEvent>(_saveHandler<_SaveQuestionSetEvent>);
   }
 
   final GetQuestionSetsFromFixtures _getQuestionSetsFromFixtures;
   final GetQuestionSetFromFile _getQuestionSetFromFile;
+  final GetQuestionSetsFromMemory _getQuestionSetsFromMemory;
+  final SaveQuestionSet _saveQuestionSet;
   final List<QuestionSet> _questionSetsLocal = [];
   final List<QuestionSet> _questionSetsRemote = [];
 
@@ -56,8 +66,29 @@ class TkiQuestionSetBloc
     );
   }
 
-  FutureOr<void> _deviceHandler<E>(
-      E event, Emitter<TkiQuestionSetState> emit) {}
+  FutureOr<void> _memoryHandler<E>(
+    E event,
+    Emitter<TkiQuestionSetState> emit,
+  ) async {
+    _emitLoadingState(
+      emitter: emit,
+      isLoadingLocal: false,
+      isLoadingRemote: true,
+    );
+    final result = await _getQuestionSetsFromMemory(NoParams());
+    result.fold(
+      (failure) {
+        _emitErrorState(
+          emitter: emit,
+          failure: failure,
+        );
+      },
+      (questionSets) => _emitLoadedState(
+        emitter: emit,
+        questionSetsRemote: questionSets,
+      ),
+    );
+  }
 
   FutureOr<void> _fileHandler<E>(
       E event, Emitter<TkiQuestionSetState> emit) async {
@@ -74,11 +105,32 @@ class TkiQuestionSetBloc
           failure: failure,
         );
       },
-      (questionSet) => _emitLoadedState(
-        emitter: emit,
-        questionSetsRemote: List.from(_questionSetsRemote)..add(questionSet),
-      ),
+      (questionSet) {
+        _emitLoadedState(
+          emitter: emit,
+          questionSetsRemote: List.from(_questionSetsRemote)..add(questionSet),
+        );
+        add(_SaveQuestionSetEvent(questionSet));
+      },
     );
+  }
+
+  FutureOr<void> _saveHandler<E>(
+    E event,
+    Emitter<TkiQuestionSetState> emit,
+  ) async {
+    final questionSet = (event as _SaveQuestionSetEvent).questionSet;
+    final isSaved = await _saveQuestionSet(SaveQuestionSetParams(questionSet: questionSet));
+    isSaved.fold(
+      (failure) {
+        _emitErrorState(
+          emitter: emit,
+          failure: failure,
+        );
+      },
+      (_) => null,
+    );
+    _emitLoadedState(emitter: emit);
   }
 
   void _emitLoadingState({

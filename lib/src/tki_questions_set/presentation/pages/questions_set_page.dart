@@ -25,7 +25,7 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
     return BlocProvider(
       create: (_) => locator<TkiQuestionSetBloc>()
         ..add(const GetFromFixturesEvent())
-        ..add(const GetFromDeviceEvent()),
+        ..add(const GetFromMemoryEvent()),
       child: this,
     );
   }

@@ -18,47 +18,53 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$TkiQuestionSetEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getQuestionSetsFromMemory,
     required TResult Function() getQuestionSetsFromFixtures,
-    required TResult Function() getQuestionSetsFromDevice,
     required TResult Function() getQuestionSetFromFile,
+    required TResult Function(QuestionSet questionSet) saveQuestionSet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getQuestionSetsFromMemory,
     TResult? Function()? getQuestionSetsFromFixtures,
-    TResult? Function()? getQuestionSetsFromDevice,
     TResult? Function()? getQuestionSetFromFile,
+    TResult? Function(QuestionSet questionSet)? saveQuestionSet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getQuestionSetsFromMemory,
     TResult Function()? getQuestionSetsFromFixtures,
-    TResult Function()? getQuestionSetsFromDevice,
     TResult Function()? getQuestionSetFromFile,
+    TResult Function(QuestionSet questionSet)? saveQuestionSet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(GetFromMemoryEvent value)
+        getQuestionSetsFromMemory,
     required TResult Function(GetFromFixturesEvent value)
         getQuestionSetsFromFixtures,
-    required TResult Function(GetFromDeviceEvent value)
-        getQuestionSetsFromDevice,
     required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
+    required TResult Function(_SaveQuestionSetEvent value) saveQuestionSet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
-    TResult? Function(GetFromDeviceEvent value)? getQuestionSetsFromDevice,
     TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
+    TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
-    TResult Function(GetFromDeviceEvent value)? getQuestionSetsFromDevice,
     TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
+    TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -83,6 +89,131 @@ class _$TkiQuestionSetEventCopyWithImpl<$Res, $Val extends TkiQuestionSetEvent>
 }
 
 /// @nodoc
+abstract class _$$GetFromMemoryEventImplCopyWith<$Res> {
+  factory _$$GetFromMemoryEventImplCopyWith(_$GetFromMemoryEventImpl value,
+          $Res Function(_$GetFromMemoryEventImpl) then) =
+      __$$GetFromMemoryEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetFromMemoryEventImplCopyWithImpl<$Res>
+    extends _$TkiQuestionSetEventCopyWithImpl<$Res, _$GetFromMemoryEventImpl>
+    implements _$$GetFromMemoryEventImplCopyWith<$Res> {
+  __$$GetFromMemoryEventImplCopyWithImpl(_$GetFromMemoryEventImpl _value,
+      $Res Function(_$GetFromMemoryEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetFromMemoryEventImpl
+    with DiagnosticableTreeMixin
+    implements GetFromMemoryEvent {
+  const _$GetFromMemoryEventImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TkiQuestionSetEvent.getQuestionSetsFromMemory()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty(
+        'type', 'TkiQuestionSetEvent.getQuestionSetsFromMemory'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetFromMemoryEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getQuestionSetsFromMemory,
+    required TResult Function() getQuestionSetsFromFixtures,
+    required TResult Function() getQuestionSetFromFile,
+    required TResult Function(QuestionSet questionSet) saveQuestionSet,
+  }) {
+    return getQuestionSetsFromMemory();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getQuestionSetsFromMemory,
+    TResult? Function()? getQuestionSetsFromFixtures,
+    TResult? Function()? getQuestionSetFromFile,
+    TResult? Function(QuestionSet questionSet)? saveQuestionSet,
+  }) {
+    return getQuestionSetsFromMemory?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getQuestionSetsFromMemory,
+    TResult Function()? getQuestionSetsFromFixtures,
+    TResult Function()? getQuestionSetFromFile,
+    TResult Function(QuestionSet questionSet)? saveQuestionSet,
+    required TResult orElse(),
+  }) {
+    if (getQuestionSetsFromMemory != null) {
+      return getQuestionSetsFromMemory();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetFromMemoryEvent value)
+        getQuestionSetsFromMemory,
+    required TResult Function(GetFromFixturesEvent value)
+        getQuestionSetsFromFixtures,
+    required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
+    required TResult Function(_SaveQuestionSetEvent value) saveQuestionSet,
+  }) {
+    return getQuestionSetsFromMemory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
+    TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
+    TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+  }) {
+    return getQuestionSetsFromMemory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
+    TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
+    TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    required TResult orElse(),
+  }) {
+    if (getQuestionSetsFromMemory != null) {
+      return getQuestionSetsFromMemory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetFromMemoryEvent implements TkiQuestionSetEvent {
+  const factory GetFromMemoryEvent() = _$GetFromMemoryEventImpl;
+}
+
+/// @nodoc
 abstract class _$$GetFromFixturesEventImplCopyWith<$Res> {
   factory _$$GetFromFixturesEventImplCopyWith(_$GetFromFixturesEventImpl value,
           $Res Function(_$GetFromFixturesEventImpl) then) =
@@ -100,12 +231,21 @@ class __$$GetFromFixturesEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetFromFixturesEventImpl implements GetFromFixturesEvent {
+class _$GetFromFixturesEventImpl
+    with DiagnosticableTreeMixin
+    implements GetFromFixturesEvent {
   const _$GetFromFixturesEventImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'TkiQuestionSetEvent.getQuestionSetsFromFixtures()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty(
+        'type', 'TkiQuestionSetEvent.getQuestionSetsFromFixtures'));
   }
 
   @override
@@ -121,9 +261,10 @@ class _$GetFromFixturesEventImpl implements GetFromFixturesEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getQuestionSetsFromMemory,
     required TResult Function() getQuestionSetsFromFixtures,
-    required TResult Function() getQuestionSetsFromDevice,
     required TResult Function() getQuestionSetFromFile,
+    required TResult Function(QuestionSet questionSet) saveQuestionSet,
   }) {
     return getQuestionSetsFromFixtures();
   }
@@ -131,9 +272,10 @@ class _$GetFromFixturesEventImpl implements GetFromFixturesEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getQuestionSetsFromMemory,
     TResult? Function()? getQuestionSetsFromFixtures,
-    TResult? Function()? getQuestionSetsFromDevice,
     TResult? Function()? getQuestionSetFromFile,
+    TResult? Function(QuestionSet questionSet)? saveQuestionSet,
   }) {
     return getQuestionSetsFromFixtures?.call();
   }
@@ -141,9 +283,10 @@ class _$GetFromFixturesEventImpl implements GetFromFixturesEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getQuestionSetsFromMemory,
     TResult Function()? getQuestionSetsFromFixtures,
-    TResult Function()? getQuestionSetsFromDevice,
     TResult Function()? getQuestionSetFromFile,
+    TResult Function(QuestionSet questionSet)? saveQuestionSet,
     required TResult orElse(),
   }) {
     if (getQuestionSetsFromFixtures != null) {
@@ -155,11 +298,12 @@ class _$GetFromFixturesEventImpl implements GetFromFixturesEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(GetFromMemoryEvent value)
+        getQuestionSetsFromMemory,
     required TResult Function(GetFromFixturesEvent value)
         getQuestionSetsFromFixtures,
-    required TResult Function(GetFromDeviceEvent value)
-        getQuestionSetsFromDevice,
     required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
+    required TResult Function(_SaveQuestionSetEvent value) saveQuestionSet,
   }) {
     return getQuestionSetsFromFixtures(this);
   }
@@ -167,9 +311,10 @@ class _$GetFromFixturesEventImpl implements GetFromFixturesEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
-    TResult? Function(GetFromDeviceEvent value)? getQuestionSetsFromDevice,
     TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
+    TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
   }) {
     return getQuestionSetsFromFixtures?.call(this);
   }
@@ -177,9 +322,10 @@ class _$GetFromFixturesEventImpl implements GetFromFixturesEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
-    TResult Function(GetFromDeviceEvent value)? getQuestionSetsFromDevice,
     TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
+    TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
     required TResult orElse(),
   }) {
     if (getQuestionSetsFromFixtures != null) {
@@ -191,116 +337,6 @@ class _$GetFromFixturesEventImpl implements GetFromFixturesEvent {
 
 abstract class GetFromFixturesEvent implements TkiQuestionSetEvent {
   const factory GetFromFixturesEvent() = _$GetFromFixturesEventImpl;
-}
-
-/// @nodoc
-abstract class _$$GetFromDeviceEventImplCopyWith<$Res> {
-  factory _$$GetFromDeviceEventImplCopyWith(_$GetFromDeviceEventImpl value,
-          $Res Function(_$GetFromDeviceEventImpl) then) =
-      __$$GetFromDeviceEventImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$GetFromDeviceEventImplCopyWithImpl<$Res>
-    extends _$TkiQuestionSetEventCopyWithImpl<$Res, _$GetFromDeviceEventImpl>
-    implements _$$GetFromDeviceEventImplCopyWith<$Res> {
-  __$$GetFromDeviceEventImplCopyWithImpl(_$GetFromDeviceEventImpl _value,
-      $Res Function(_$GetFromDeviceEventImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$GetFromDeviceEventImpl implements GetFromDeviceEvent {
-  const _$GetFromDeviceEventImpl();
-
-  @override
-  String toString() {
-    return 'TkiQuestionSetEvent.getQuestionSetsFromDevice()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GetFromDeviceEventImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getQuestionSetsFromFixtures,
-    required TResult Function() getQuestionSetsFromDevice,
-    required TResult Function() getQuestionSetFromFile,
-  }) {
-    return getQuestionSetsFromDevice();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getQuestionSetsFromFixtures,
-    TResult? Function()? getQuestionSetsFromDevice,
-    TResult? Function()? getQuestionSetFromFile,
-  }) {
-    return getQuestionSetsFromDevice?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getQuestionSetsFromFixtures,
-    TResult Function()? getQuestionSetsFromDevice,
-    TResult Function()? getQuestionSetFromFile,
-    required TResult orElse(),
-  }) {
-    if (getQuestionSetsFromDevice != null) {
-      return getQuestionSetsFromDevice();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetFromFixturesEvent value)
-        getQuestionSetsFromFixtures,
-    required TResult Function(GetFromDeviceEvent value)
-        getQuestionSetsFromDevice,
-    required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
-  }) {
-    return getQuestionSetsFromDevice(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
-    TResult? Function(GetFromDeviceEvent value)? getQuestionSetsFromDevice,
-    TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
-  }) {
-    return getQuestionSetsFromDevice?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
-    TResult Function(GetFromDeviceEvent value)? getQuestionSetsFromDevice,
-    TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
-    required TResult orElse(),
-  }) {
-    if (getQuestionSetsFromDevice != null) {
-      return getQuestionSetsFromDevice(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetFromDeviceEvent implements TkiQuestionSetEvent {
-  const factory GetFromDeviceEvent() = _$GetFromDeviceEventImpl;
 }
 
 /// @nodoc
@@ -321,12 +357,21 @@ class __$$GetFromFileEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetFromFileEventImpl implements GetFromFileEvent {
+class _$GetFromFileEventImpl
+    with DiagnosticableTreeMixin
+    implements GetFromFileEvent {
   const _$GetFromFileEventImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'TkiQuestionSetEvent.getQuestionSetFromFile()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty(
+        'type', 'TkiQuestionSetEvent.getQuestionSetFromFile'));
   }
 
   @override
@@ -341,9 +386,10 @@ class _$GetFromFileEventImpl implements GetFromFileEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() getQuestionSetsFromMemory,
     required TResult Function() getQuestionSetsFromFixtures,
-    required TResult Function() getQuestionSetsFromDevice,
     required TResult Function() getQuestionSetFromFile,
+    required TResult Function(QuestionSet questionSet) saveQuestionSet,
   }) {
     return getQuestionSetFromFile();
   }
@@ -351,9 +397,10 @@ class _$GetFromFileEventImpl implements GetFromFileEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getQuestionSetsFromMemory,
     TResult? Function()? getQuestionSetsFromFixtures,
-    TResult? Function()? getQuestionSetsFromDevice,
     TResult? Function()? getQuestionSetFromFile,
+    TResult? Function(QuestionSet questionSet)? saveQuestionSet,
   }) {
     return getQuestionSetFromFile?.call();
   }
@@ -361,9 +408,10 @@ class _$GetFromFileEventImpl implements GetFromFileEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getQuestionSetsFromMemory,
     TResult Function()? getQuestionSetsFromFixtures,
-    TResult Function()? getQuestionSetsFromDevice,
     TResult Function()? getQuestionSetFromFile,
+    TResult Function(QuestionSet questionSet)? saveQuestionSet,
     required TResult orElse(),
   }) {
     if (getQuestionSetFromFile != null) {
@@ -375,11 +423,12 @@ class _$GetFromFileEventImpl implements GetFromFileEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(GetFromMemoryEvent value)
+        getQuestionSetsFromMemory,
     required TResult Function(GetFromFixturesEvent value)
         getQuestionSetsFromFixtures,
-    required TResult Function(GetFromDeviceEvent value)
-        getQuestionSetsFromDevice,
     required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
+    required TResult Function(_SaveQuestionSetEvent value) saveQuestionSet,
   }) {
     return getQuestionSetFromFile(this);
   }
@@ -387,9 +436,10 @@ class _$GetFromFileEventImpl implements GetFromFileEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
-    TResult? Function(GetFromDeviceEvent value)? getQuestionSetsFromDevice,
     TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
+    TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
   }) {
     return getQuestionSetFromFile?.call(this);
   }
@@ -397,9 +447,10 @@ class _$GetFromFileEventImpl implements GetFromFileEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
-    TResult Function(GetFromDeviceEvent value)? getQuestionSetsFromDevice,
     TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
+    TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
     required TResult orElse(),
   }) {
     if (getQuestionSetFromFile != null) {
@@ -411,6 +462,177 @@ class _$GetFromFileEventImpl implements GetFromFileEvent {
 
 abstract class GetFromFileEvent implements TkiQuestionSetEvent {
   const factory GetFromFileEvent() = _$GetFromFileEventImpl;
+}
+
+/// @nodoc
+abstract class _$$SaveQuestionSetEventImplCopyWith<$Res> {
+  factory _$$SaveQuestionSetEventImplCopyWith(_$SaveQuestionSetEventImpl value,
+          $Res Function(_$SaveQuestionSetEventImpl) then) =
+      __$$SaveQuestionSetEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({QuestionSet questionSet});
+
+  $QuestionSetCopyWith<$Res> get questionSet;
+}
+
+/// @nodoc
+class __$$SaveQuestionSetEventImplCopyWithImpl<$Res>
+    extends _$TkiQuestionSetEventCopyWithImpl<$Res, _$SaveQuestionSetEventImpl>
+    implements _$$SaveQuestionSetEventImplCopyWith<$Res> {
+  __$$SaveQuestionSetEventImplCopyWithImpl(_$SaveQuestionSetEventImpl _value,
+      $Res Function(_$SaveQuestionSetEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? questionSet = null,
+  }) {
+    return _then(_$SaveQuestionSetEventImpl(
+      null == questionSet
+          ? _value.questionSet
+          : questionSet // ignore: cast_nullable_to_non_nullable
+              as QuestionSet,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $QuestionSetCopyWith<$Res> get questionSet {
+    return $QuestionSetCopyWith<$Res>(_value.questionSet, (value) {
+      return _then(_value.copyWith(questionSet: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$SaveQuestionSetEventImpl
+    with DiagnosticableTreeMixin
+    implements _SaveQuestionSetEvent {
+  const _$SaveQuestionSetEventImpl(this.questionSet);
+
+  @override
+  final QuestionSet questionSet;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TkiQuestionSetEvent.saveQuestionSet(questionSet: $questionSet)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'TkiQuestionSetEvent.saveQuestionSet'))
+      ..add(DiagnosticsProperty('questionSet', questionSet));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SaveQuestionSetEventImpl &&
+            (identical(other.questionSet, questionSet) ||
+                other.questionSet == questionSet));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, questionSet);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SaveQuestionSetEventImplCopyWith<_$SaveQuestionSetEventImpl>
+      get copyWith =>
+          __$$SaveQuestionSetEventImplCopyWithImpl<_$SaveQuestionSetEventImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getQuestionSetsFromMemory,
+    required TResult Function() getQuestionSetsFromFixtures,
+    required TResult Function() getQuestionSetFromFile,
+    required TResult Function(QuestionSet questionSet) saveQuestionSet,
+  }) {
+    return saveQuestionSet(questionSet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getQuestionSetsFromMemory,
+    TResult? Function()? getQuestionSetsFromFixtures,
+    TResult? Function()? getQuestionSetFromFile,
+    TResult? Function(QuestionSet questionSet)? saveQuestionSet,
+  }) {
+    return saveQuestionSet?.call(questionSet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getQuestionSetsFromMemory,
+    TResult Function()? getQuestionSetsFromFixtures,
+    TResult Function()? getQuestionSetFromFile,
+    TResult Function(QuestionSet questionSet)? saveQuestionSet,
+    required TResult orElse(),
+  }) {
+    if (saveQuestionSet != null) {
+      return saveQuestionSet(questionSet);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetFromMemoryEvent value)
+        getQuestionSetsFromMemory,
+    required TResult Function(GetFromFixturesEvent value)
+        getQuestionSetsFromFixtures,
+    required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
+    required TResult Function(_SaveQuestionSetEvent value) saveQuestionSet,
+  }) {
+    return saveQuestionSet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
+    TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
+    TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+  }) {
+    return saveQuestionSet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
+    TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
+    TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    required TResult orElse(),
+  }) {
+    if (saveQuestionSet != null) {
+      return saveQuestionSet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SaveQuestionSetEvent implements TkiQuestionSetEvent {
+  const factory _SaveQuestionSetEvent(final QuestionSet questionSet) =
+      _$SaveQuestionSetEventImpl;
+
+  QuestionSet get questionSet;
+  @JsonKey(ignore: true)
+  _$$SaveQuestionSetEventImplCopyWith<_$SaveQuestionSetEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -512,12 +734,18 @@ class __$$InitialStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialStateImpl implements InitialState {
+class _$InitialStateImpl with DiagnosticableTreeMixin implements InitialState {
   const _$InitialStateImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'TkiQuestionSetState.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'TkiQuestionSetState.initial'));
   }
 
   @override
@@ -669,7 +897,7 @@ class __$$IdleStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$IdleStateImpl implements IdleState {
+class _$IdleStateImpl with DiagnosticableTreeMixin implements IdleState {
   const _$IdleStateImpl(
       {required this.isLoadingLocal,
       required this.isLoadingRemote,
@@ -701,8 +929,19 @@ class _$IdleStateImpl implements IdleState {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'TkiQuestionSetState.idle(isLoadingLocal: $isLoadingLocal, isLoadingRemote: $isLoadingRemote, questionSetsLocal: $questionSetsLocal, questionSetsRemote: $questionSetsRemote)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'TkiQuestionSetState.idle'))
+      ..add(DiagnosticsProperty('isLoadingLocal', isLoadingLocal))
+      ..add(DiagnosticsProperty('isLoadingRemote', isLoadingRemote))
+      ..add(DiagnosticsProperty('questionSetsLocal', questionSetsLocal))
+      ..add(DiagnosticsProperty('questionSetsRemote', questionSetsRemote));
   }
 
   @override
@@ -885,7 +1124,7 @@ class __$$ErrorStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorStateImpl implements ErrorState {
+class _$ErrorStateImpl with DiagnosticableTreeMixin implements ErrorState {
   const _$ErrorStateImpl({required this.previousState, required this.failure});
 
   @override
@@ -894,8 +1133,17 @@ class _$ErrorStateImpl implements ErrorState {
   final Failure failure;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'TkiQuestionSetState.error(previousState: $previousState, failure: $failure)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'TkiQuestionSetState.error'))
+      ..add(DiagnosticsProperty('previousState', previousState))
+      ..add(DiagnosticsProperty('failure', failure));
   }
 
   @override
