@@ -33,12 +33,12 @@ class TkiQuestionSetBloc
         _saveQuestionSet = saveQuestionSet,
         _deleteQuestionSet = deleteQuestionSet,
         super(const InitialState()) {
-    on<GetAllEvent>(_getAllHandler<GetAllEvent>);
-    on<GetFromFixturesEvent>(_fixtureHandler<GetFromFixturesEvent>);
-    on<GetFromMemoryEvent>(_memoryHandler<GetFromMemoryEvent>);
-    on<GetFromFileEvent>(_fileHandler<GetFromFileEvent>);
-    on<_SaveQuestionSetEvent>(_saveHandler<_SaveQuestionSetEvent>);
-    on<DeleteQuestionSetEvent>(_deleteHandler<DeleteQuestionSetEvent>);
+    on<GetAllEvent>(_getAllHandler);
+    on<GetFromFixturesEvent>(_fixtureHandler);
+    on<GetFromMemoryEvent>(_memoryHandler);
+    on<GetFromFileEvent>(_fileHandler);
+    on<_SaveQuestionSetEvent>(_saveHandler);
+    on<DeleteQuestionSetEvent>(_deleteHandler);
   }
 
   final GetQuestionSetsFromFixtures _getQuestionSetsFromFixtures;
@@ -49,8 +49,8 @@ class TkiQuestionSetBloc
   final List<QuestionSet> _questionSetsLocal = [];
   final List<QuestionSet> _questionSetsRemote = [];
 
-  FutureOr<void> _getAllHandler<E>(
-    E event,
+  FutureOr<void> _getAllHandler(
+    GetAllEvent event,
     Emitter<TkiQuestionSetState> emit,
   ) async {
     _emitLoadingState(
@@ -87,8 +87,8 @@ class TkiQuestionSetBloc
     );
   }
 
-  FutureOr<void> _fixtureHandler<E>(
-    E event,
+  FutureOr<void> _fixtureHandler(
+    GetFromFixturesEvent event,
     Emitter<TkiQuestionSetState> emit,
   ) async {
     _emitLoadingState(
@@ -110,8 +110,8 @@ class TkiQuestionSetBloc
     );
   }
 
-  FutureOr<void> _memoryHandler<E>(
-    E event,
+  FutureOr<void> _memoryHandler(
+    GetFromMemoryEvent event,
     Emitter<TkiQuestionSetState> emit,
   ) async {
     _emitLoadingState(
@@ -133,8 +133,10 @@ class TkiQuestionSetBloc
     );
   }
 
-  FutureOr<void> _fileHandler<E>(
-      E event, Emitter<TkiQuestionSetState> emit) async {
+  FutureOr<void> _fileHandler(
+    GetFromFileEvent event,
+    Emitter<TkiQuestionSetState> emit,
+  ) async {
     _emitLoadingState(
       emitter: emit,
       isLoadingRemote: true,
@@ -157,12 +159,13 @@ class TkiQuestionSetBloc
     );
   }
 
-  FutureOr<void> _saveHandler<E>(
-    E event,
+  FutureOr<void> _saveHandler(
+    _SaveQuestionSetEvent event,
     Emitter<TkiQuestionSetState> emit,
   ) async {
-    final questionSet = (event as _SaveQuestionSetEvent).questionSet;
-    final isSaved = await _saveQuestionSet(SaveQuestionSetParams(questionSet: questionSet));
+    final questionSet = event.questionSet;
+    final isSaved =
+        await _saveQuestionSet(SaveQuestionSetParams(questionSet: questionSet));
     isSaved.fold(
       (failure) {
         _emitErrorState(
@@ -178,13 +181,14 @@ class TkiQuestionSetBloc
     _emitLoadedState(emitter: emit);
   }
 
-  FutureOr<void> _deleteHandler<E>(
-    E event,
+  FutureOr<void> _deleteHandler(
+    DeleteQuestionSetEvent event,
     Emitter<TkiQuestionSetState> emit,
   ) async {
-    final index = (event as DeleteQuestionSetEvent).index;
-    final questionSet = (event as DeleteQuestionSetEvent).questionSet;
-    final isDeleted = await _deleteQuestionSet(DeleteQuestionSetParams(index: index, questionSet: questionSet));
+    final index = event.index;
+    final questionSet = event.questionSet;
+    final isDeleted = await _deleteQuestionSet(
+        DeleteQuestionSetParams(index: index, questionSet: questionSet));
     isDeleted.fold(
       (failure) {
         _emitErrorState(
@@ -192,10 +196,13 @@ class TkiQuestionSetBloc
           failure: failure,
         );
       },
-      (success) => _emitSuccessState(
-        emitter: emit,
-        success: success,
-      ),
+      (success) {
+        _questionSetsRemote.removeAt(index);
+        _emitSuccessState(
+          emitter: emit,
+          success: success,
+        );
+      },
     );
     _emitLoadedState(emitter: emit);
   }
@@ -207,17 +214,15 @@ class TkiQuestionSetBloc
   }) {
     var loadingLocal = isLoadingLocal;
     var loadingRemote = isLoadingRemote;
-    
 
-    if(state is IdleState) {
-      if(!isLoadingLocal){
+    if (state is IdleState) {
+      if (!isLoadingLocal) {
         loadingLocal = (state as IdleState).isLoadingLocal;
       }
-      if(!isLoadingRemote){
+      if (!isLoadingRemote) {
         loadingRemote = (state as IdleState).isLoadingRemote;
       }
     }
-
 
     emitter(
       IdleState(

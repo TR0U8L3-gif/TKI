@@ -92,7 +92,12 @@ class QuestionSetsRemoteDataSourceImpl implements QuestionSetsRemoteDataSource {
 
       final predictedQuestionSet = questionSets.elementAt(index);
       if (predictedQuestionSet != questionSetJsonString) {
-        questionSets.removeWhere((element) => element == questionSetJsonString);
+        throw const CacheException(
+          message: 'Failed to delete Question Set',
+          description:
+              'The question set you are trying to delete does not match the one in the memory',
+          statusCode: 404,
+        );
       } else {
         questionSets.removeAt(index);
       }

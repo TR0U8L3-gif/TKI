@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:tki_app/config/assets/app_colors.dart';
 import 'package:tki_app/config/assets/app_size.dart';
-import 'package:tki_app/config/routes/app_router.gr.dart';
 import 'package:tki_app/core/common/widgets/app_scaffold.dart';
 import 'package:tki_app/core/common/widgets/app_text.dart';
 import 'package:tki_app/core/extensions/l10n_extension.dart';

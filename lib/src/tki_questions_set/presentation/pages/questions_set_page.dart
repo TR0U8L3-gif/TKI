@@ -28,7 +28,7 @@ class QuestionsSetPage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           padding: const EdgeInsets.all(AppSize.m),
-          onPressed: () => context.router.pushNamed(HomePage.routeName),
+          onPressed: () => context.router.maybePop(),
         ),
         actions: [
           IconButton(
