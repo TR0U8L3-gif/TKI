@@ -54,7 +54,10 @@ class MessengerToastWidget extends HookWidget {
               onStart?.call();
               isTaped.value = true;
               await _dialogBuilder(
-                  context: context, type: type, message: message, description: description);
+                  context: context,
+                  type: type,
+                  message: message,
+                  description: description);
               onEnd?.call();
             }
           },
@@ -150,12 +153,31 @@ class MessengerToastWidget extends HookWidget {
             ],
           ),
           content: Padding(
-            padding: const EdgeInsets.only(bottom: AppSize.s),
-            child: Text('$message\n$description',
-                style: const TextStyle(
-                  color: AppColors.grey50,
-                  fontSize: AppSize.ml,
-                )),
+            padding: const EdgeInsets.only(bottom: AppSize.s4),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  message,
+                  style: const TextStyle(
+                    color: AppColors.grey50,
+                    fontSize: AppSize.ml,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                if (description.isNotEmpty) ...[
+                  const SizedBox(height: AppSize.m),
+                  Text(
+                    description,
+                    style: const TextStyle(
+                      color: AppColors.grey50,
+                      fontSize: AppSize.ml,
+                    ),
+                  ),
+                ],
+              ],
+            ),
           ),
         );
       },
