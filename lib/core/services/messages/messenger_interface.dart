@@ -3,7 +3,8 @@ part of 'messenger.dart';
 abstract class MessengerInterface {
   void showInfoToast(
     BuildContext context,
-    String message, {
+    String message,
+    String description, {
     MessengerToastLength toastLength = MessengerToastLength.short,
     bool showDefaultLogo = true,
     Widget? logo,
@@ -13,7 +14,8 @@ abstract class MessengerInterface {
 
   void showSuccessToast(
     BuildContext context,
-    String message, {
+    String message, 
+    String description, {
     MessengerToastLength toastLength = MessengerToastLength.short,
     bool showDefaultLogo = true,
     Widget? logo,
@@ -23,7 +25,8 @@ abstract class MessengerInterface {
 
   void showErrorToast(
     BuildContext context,
-    String message, {
+    String message, 
+    String description, {
     MessengerToastLength toastLength = MessengerToastLength.short,
     bool showDefaultLogo = true,
     Widget? logo,
@@ -33,7 +36,8 @@ abstract class MessengerInterface {
 
   void showWarningToast(
     BuildContext context,
-    String message, {
+    String message,
+    String description, {
     MessengerToastLength toastLength = MessengerToastLength.short,
     bool showDefaultLogo = true,
     Widget? logo,

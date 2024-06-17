@@ -45,5 +45,9 @@
   "tkiQuestionsSetRemote": "Preguntas externas",
   "noContent": "Sin contenido",
   "questionSet": "Conjunto de preguntas",
-  "question": "Pregunta"
+  "question": "Pregunta",
+  "deleteQuestionSet": "Eliminar conjunto de preguntas",
+  "deleteQuestionSetConfirmation": "¿Está seguro de que desea eliminar este conjunto de preguntas: \"{questionSet}\" ?",
+  "yes": "Sí",
+  "no": "No"
 }

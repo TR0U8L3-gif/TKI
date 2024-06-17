@@ -2,56 +2,60 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tki_app/config/assets/app_size.dart';
-import 'package:tki_app/config/locator/injection.dart';
 import 'package:tki_app/core/common/widgets/app_scaffold.dart';
 import 'package:tki_app/core/common/widgets/app_text.dart';
 import 'package:tki_app/core/extensions/context_extension.dart';
 import 'package:tki_app/core/extensions/l10n_extension.dart';
 import 'package:tki_app/core/extensions/num_extension.dart';
 import 'package:tki_app/core/services/messages/messenger.dart';
+import 'package:tki_app/src/home/presentation/pages/home_page.dart';
 import 'package:tki_app/src/tki_questions_set/data/models/question_set.dart';
 import 'package:tki_app/src/tki_questions_set/presentation/bloc/tki_question_set_bloc.dart';
 import 'package:tki_app/src/tki_questions_set/presentation/widgets/question_set_list_tile.dart';
 import 'package:tki_app/src/tki_questions_set/presentation/widgets/question_set_list_tile_shimmer.dart';
 
 @RoutePage()
-class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
+class QuestionsSetPage extends StatelessWidget {
   const QuestionsSetPage({super.key});
 
-  static const String routeName = '/questions-set';
-
-  @override
-  Widget wrappedRoute(BuildContext context) {
-    return BlocProvider(
-      create: (_) => locator<TkiQuestionSetBloc>()
-        ..add(const GetAllEvent()),
-      child: this,
-    );
-  }
+  static const String routeName = '/list';
 
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
       appBar: AppBar(
         title: Text(context.l10n.tkiQuestionsSet),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          padding: const EdgeInsets.all(AppSize.m),
+          onPressed: () => context.router.pushNamed(HomePage.routeName),
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
             padding: const EdgeInsets.all(AppSize.m),
-            onPressed: () => context.read<TkiQuestionSetBloc>().add(const GetFromFileEvent()),
+            onPressed: () => context
+                .read<TkiQuestionSetBloc>()
+                .add(const GetFromFileEvent()),
           ),
         ],
       ),
       body: BlocConsumer<TkiQuestionSetBloc, TkiQuestionSetState>(
         listener: (_, state) => state.whenOrNull(
-          idle: (isLoadingLocal, isLoadingRemote, questionSetsLocal, questionSetsRemote) {
-            print('idle: $isLoadingLocal, $isLoadingRemote, ${questionSetsLocal.length}, ${questionSetsRemote.length}');
-          },
           error: (state, failure) => MessengerManager().showToastFromCode(
             context,
             failure.message,
+            failure.description,
             failure.statusCode,
             toastLength: MessengerToastLength.long,
+          ),
+          success: (previousState, success) =>
+              MessengerManager().showToastFromCode(
+            context,
+            success.message,
+            success.description,
+            success.statusCode,
+            toastLength: MessengerToastLength.short,
           ),
         ),
         builder: (_, state) => state.when(
@@ -76,6 +80,12 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
             questionSetsRemote,
           ),
           error: (state, failure) => _idleScreen(
+              context,
+              state.isLoadingLocal,
+              state.isLoadingRemote,
+              state.questionSetsLocal,
+              state.questionSetsRemote),
+          success: (state, success) => _idleScreen(
               context,
               state.isLoadingLocal,
               state.isLoadingRemote,
@@ -110,6 +120,7 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
               context: context,
               questionSets: questionSetsLocal,
               isLoading: isLoadingLocal,
+              isRemote: false,
             ),
             SliverToBoxAdapter(
               child: _textSpacer(
@@ -122,6 +133,7 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
               context: context,
               questionSets: questionSetsRemote,
               isLoading: isLoadingRemote,
+              isRemote: true,
             ),
           ],
         ),
@@ -133,6 +145,7 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
     required BuildContext context,
     required List<QuestionSet> questionSets,
     required bool isLoading,
+    required bool isRemote,
   }) {
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: AppSize.m),
@@ -152,6 +165,8 @@ class QuestionsSetPage extends StatelessWidget implements AutoRouteWrapper {
                       final questionSet = questionSets[index];
                       return QuestionSetListTile(
                         questionSet: questionSet,
+                        isRemote: isRemote,
+                        index: index,
                       );
                     },
                     childCount: questionSets.length,

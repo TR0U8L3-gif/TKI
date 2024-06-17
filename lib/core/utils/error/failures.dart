@@ -10,30 +10,36 @@ class Failure with _$Failure {
   @Assert('statusCode is int || statusCode is String')
   const factory Failure.serverFailure({
     required String message,
+    required String description,
     required dynamic statusCode,
   }) = ServerFailure;
 
   @Assert('statusCode is int || statusCode is String')
   const factory Failure.cacheFailure({
     required String message,
+    required String description,
     required dynamic statusCode,
   }) = CacheFailure;
 
+  @Assert('statusCode is int || statusCode is String')
   const factory Failure.unknownFailure({
     required String message,
+    required String description,
     required dynamic statusCode,
   }) = UnknownFailure;
 
   static Failure fromException(AppException exception) {
     return exception.when(
-      serverException: (message, statusCode) =>
-          Failure.serverFailure(message: message, statusCode: statusCode, ),
-      cacheException: (message, statusCode) =>
-          Failure.cacheFailure(message: message, statusCode: statusCode,),
+      serverException: (message, description, statusCode) =>
+          Failure.serverFailure(message: message, description: description, statusCode: statusCode, ),
+      cacheException: (message, description, statusCode) =>
+          Failure.cacheFailure(message: message, description: description, statusCode: statusCode,),
+      unknownException: (message, description, statusCode) =>
+          Failure.unknownFailure(message: message, description: description, statusCode: statusCode,),
     );
   }
 
-  String get errorMessage =>
-      '${statusCode is String ? statusCode : 'Error[$statusCode]'}: $message';
+  String get failureMessage =>
+      '${statusCode is String ? statusCode : 'Failure[$statusCode]'}: $message';
   
 }

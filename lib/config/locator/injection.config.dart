@@ -22,6 +22,8 @@ import '../../src/tki_questions_set/data/repositories/question_sets_repository_i
     as _i10;
 import '../../src/tki_questions_set/domain/repositories/question_sets_repository.dart'
     as _i9;
+import '../../src/tki_questions_set/domain/use_cases/delete_question_set.dart'
+    as _i15;
 import '../../src/tki_questions_set/domain/use_cases/get_question_set_from_file.dart'
     as _i13;
 import '../../src/tki_questions_set/domain/use_cases/get_question_sets_from_fixture.dart'
@@ -31,7 +33,7 @@ import '../../src/tki_questions_set/domain/use_cases/get_question_sets_from_memo
 import '../../src/tki_questions_set/domain/use_cases/save_question_set.dart'
     as _i14;
 import '../../src/tki_questions_set/presentation/bloc/tki_question_set_bloc.dart'
-    as _i15;
+    as _i16;
 import '../routes/app_router.dart' as _i4;
 
 extension GetItInjectableX on _i1.GetIt {
@@ -72,11 +74,14 @@ extension GetItInjectableX on _i1.GetIt {
             repository: gh<_i9.QuestionSetsRepository>()));
     gh.lazySingleton<_i14.SaveQuestionSet>(() =>
         _i14.SaveQuestionSet(repository: gh<_i9.QuestionSetsRepository>()));
-    gh.factory<_i15.TkiQuestionSetBloc>(() => _i15.TkiQuestionSetBloc(
+    gh.lazySingleton<_i15.DeleteQuestionSet>(() =>
+        _i15.DeleteQuestionSet(repository: gh<_i9.QuestionSetsRepository>()));
+    gh.factory<_i16.TkiQuestionSetBloc>(() => _i16.TkiQuestionSetBloc(
           getQuestionSetsFromFixtures: gh<_i11.GetQuestionSetsFromFixtures>(),
           getQuestionSetFromFile: gh<_i13.GetQuestionSetFromFile>(),
           getQuestionSetsFromMemory: gh<_i12.GetQuestionSetsFromMemory>(),
           saveQuestionSet: gh<_i14.SaveQuestionSet>(),
+          deleteQuestionSet: gh<_i15.DeleteQuestionSet>(),
         ));
     return this;
   }

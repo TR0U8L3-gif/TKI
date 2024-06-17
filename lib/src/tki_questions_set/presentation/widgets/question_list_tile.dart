@@ -53,7 +53,7 @@ class QuestionListTile extends StatelessWidget {
                         ),
                     children: [
                       TextSpan(
-                        text: "${showType? firstType.toUpperCase(): "A"}: ",
+                        text: "${showType? firstType.toUpperCase(): "X"}: ",
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -80,7 +80,7 @@ class QuestionListTile extends StatelessWidget {
                         ),
                     children: [
                       TextSpan(
-                        text: "${showType? secondType.toUpperCase(): "B"}: ",
+                        text: "${showType? secondType.toUpperCase(): "Y"}: ",
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),

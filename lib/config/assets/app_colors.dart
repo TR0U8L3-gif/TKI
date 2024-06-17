@@ -3,6 +3,9 @@ import 'package:tki_app/config/assets/app_size.dart';
 import 'package:tki_app/core/extensions/num_extension.dart';
 
 class AppColors {
+  static const Color greenLight = Color(0xFF69F0AE);
+  static const Color greenDark = Color(0xFF1B5E20);
+  static const Color green = Color(0xFF4CAF50);
   static const Color yellowLight = Color(0xFFfcd07d);
   static const Color yellowDark = Color(0xFF895e0b);
   static const Color yellow = Color(0xFFfaaa15);

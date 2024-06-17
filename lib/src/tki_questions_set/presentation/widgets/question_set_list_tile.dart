@@ -14,16 +14,22 @@ import 'package:tki_app/core/utils/error/errors.dart';
 import 'package:tki_app/src/tki_questions_set/data/models/question_set.dart';
 
 class QuestionSetListTile extends StatelessWidget {
-  const QuestionSetListTile({super.key, required this.questionSet});
+  const QuestionSetListTile(
+      {super.key,
+      required this.questionSet,
+      required this.isRemote,
+      required this.index});
   final QuestionSet questionSet;
+  final bool isRemote;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(AppSize.s),
       child: GestureDetector(
-        onTap: () =>
-            context.router.push(QuestionSetRoute(questionSet: questionSet)),
+        onTap: () => context.router.push(QuestionSetRoute(
+            questionSet: questionSet, isRemote: isRemote, index: index)),
         child: Container(
             width: double.infinity,
             height: AppSize.xxxl96,
@@ -51,13 +57,14 @@ class QuestionSetListTile extends StatelessWidget {
                                 child: CachedNetworkImage(
                                   imageUrl: questionSet.imageUrl!,
                                   fit: BoxFit.cover,
-                                  errorListener: (error) => MessengerManager()
-                                      .showErrorToast(
-                                          context,
-                                          questionSetImageLoadErrorMessage(
-                                              questionSet, error),
-                                          toastLength:
-                                              MessengerToastLength.short),
+                                  errorListener: (error) {
+                                    final text = questionSetImageLoadError(
+                                        questionSet, error);
+                                    return MessengerManager().showErrorToast(
+                                        context, text.message, text.description,
+                                        toastLength:
+                                            MessengerToastLength.short);
+                                  },
                                   errorWidget: (_, __, ___) => const Icon(
                                       Icons.broken_image_outlined,
                                       color: AppColors.grey800,

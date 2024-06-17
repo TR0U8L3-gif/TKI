@@ -7,18 +7,19 @@ import 'package:tki_app/src/tki_questions_set/data/models/question_set.dart';
 import 'package:tki_app/src/tki_questions_set/domain/repositories/question_sets_repository.dart';
 
 @lazySingleton
-class SaveQuestionSet extends UseCase<Success,SaveQuestionSetParams> {
-  SaveQuestionSet({required QuestionSetsRepository repository}) : _repository = repository;
+class DeleteQuestionSet extends UseCase<Success,DeleteQuestionSetParams> {
+  DeleteQuestionSet({required QuestionSetsRepository repository}) : _repository = repository;
   final QuestionSetsRepository _repository;
-
+  
   @override
-  Future<Either<Failure, Success>> call(SaveQuestionSetParams params) {
-    return _repository.saveQuestionSet(params.questionSet);
+  Future<Either<Failure, Success>> call(DeleteQuestionSetParams params) {
+    return _repository.deleteQuestionSet(params.index, params.questionSet);
   }
   
 }
 
-class SaveQuestionSetParams {
-  SaveQuestionSetParams({required this.questionSet});
+class DeleteQuestionSetParams {
+  DeleteQuestionSetParams({ required this.index, required this.questionSet});
+  final int index;
   final QuestionSet questionSet;
 }

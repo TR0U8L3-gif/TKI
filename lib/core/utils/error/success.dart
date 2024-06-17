@@ -1,32 +1,34 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'exceptions.freezed.dart';
+part 'success.freezed.dart';
 
 @freezed
-class AppException with _$AppException{
-  const AppException._();
+class Success with _$Success {
 
-  @Implements<Exception>()
+  const Success._();
+
   @Assert('statusCode is int || statusCode is String')
-  const factory AppException.serverException({
+  const factory Success.serverSuccess({
     required String message,
     required String description,
     required dynamic statusCode,
-  }) = ServerException;
+  }) = ServerSuccess;
 
-  @Implements<Exception>()
   @Assert('statusCode is int || statusCode is String')
-  const factory AppException.cacheException({
+  const factory Success.cacheSuccess({
     required String message,
     required String description,
     required dynamic statusCode,
-  }) = CacheException;
+  }) = CacheSuccess;
 
-  @Implements<Exception>()
   @Assert('statusCode is int || statusCode is String')
-  const factory AppException.unknownException({
+  const factory Success.unknownSuccess({
     required String message,
     required String description,
     required dynamic statusCode,
-  }) = UnknownException;
+  }) = UnknownSuccess;
+
+  String get successMessage =>
+      '${statusCode is String ? statusCode : 'Success[$statusCode]'}: $message';
+  
 }

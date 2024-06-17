@@ -8,6 +8,7 @@ class MessengerToastWidget extends HookWidget {
   const MessengerToastWidget({
     super.key,
     required this.message,
+    required this.description,
     required this.logo,
     required this.showDefaultLogo,
     required this.type,
@@ -17,6 +18,9 @@ class MessengerToastWidget extends HookWidget {
 
   /// toast message
   final String message;
+
+  /// toast description
+  final String description;
 
   /// toast type
   final ToastType type;
@@ -50,13 +54,14 @@ class MessengerToastWidget extends HookWidget {
               onStart?.call();
               isTaped.value = true;
               await _dialogBuilder(
-                  context: context, type: type, message: message);
+                  context: context, type: type, message: message, description: description);
               onEnd?.call();
             }
           },
           child: Container(
             constraints: BoxConstraints(
-              maxWidth: (context.width * AppSize.xxxl80.fraction).smaller(AppSize.deviceSmall),
+              maxWidth: (context.width * AppSize.xxxl80.fraction)
+                  .smaller(AppSize.deviceSmall),
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppSize.l),
@@ -117,10 +122,12 @@ class MessengerToastWidget extends HookWidget {
     );
   }
 
-  Future<void> _dialogBuilder(
-      {required BuildContext context,
-      required ToastType type,
-      required String message}) {
+  Future<void> _dialogBuilder({
+    required BuildContext context,
+    required ToastType type,
+    required String message,
+    required String description,
+  }) {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
@@ -144,7 +151,7 @@ class MessengerToastWidget extends HookWidget {
           ),
           content: Padding(
             padding: const EdgeInsets.only(bottom: AppSize.s),
-            child: Text(message,
+            child: Text('$message\n$description',
                 style: const TextStyle(
                   color: AppColors.grey50,
                   fontSize: AppSize.ml,
@@ -156,7 +163,7 @@ class MessengerToastWidget extends HookWidget {
   }
 
   Widget _text() => Text(
-        _getToastHeader(message).replaceNewLines,
+        message.replaceNewLines,
         maxLines: 1,
         softWrap: true,
         overflow: TextOverflow.ellipsis,
@@ -190,9 +197,5 @@ class MessengerToastWidget extends HookWidget {
       case ToastType.success:
         return 'Success';
     }
-  }
-
-  String _getToastHeader(String message){
-    return message.split('\n\n').first;
   }
 }

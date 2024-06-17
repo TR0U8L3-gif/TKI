@@ -5,8 +5,10 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tki_app/core/utils/error/failures.dart';
+import 'package:tki_app/core/utils/error/success.dart';
 import 'package:tki_app/core/utils/use_case/use_case.dart';
 import 'package:tki_app/src/tki_questions_set/data/models/question_set.dart';
+import 'package:tki_app/src/tki_questions_set/domain/use_cases/delete_question_set.dart';
 import 'package:tki_app/src/tki_questions_set/domain/use_cases/get_question_sets_from_fixture.dart';
 import 'package:tki_app/src/tki_questions_set/domain/use_cases/get_question_set_from_file.dart';
 import 'package:tki_app/src/tki_questions_set/domain/use_cases/get_question_sets_from_memory.dart';
@@ -24,22 +26,26 @@ class TkiQuestionSetBloc
     required GetQuestionSetFromFile getQuestionSetFromFile,
     required GetQuestionSetsFromMemory getQuestionSetsFromMemory,
     required SaveQuestionSet saveQuestionSet,
+    required DeleteQuestionSet deleteQuestionSet,
   })  : _getQuestionSetsFromFixtures = getQuestionSetsFromFixtures,
         _getQuestionSetFromFile = getQuestionSetFromFile,
         _getQuestionSetsFromMemory = getQuestionSetsFromMemory,
         _saveQuestionSet = saveQuestionSet,
+        _deleteQuestionSet = deleteQuestionSet,
         super(const InitialState()) {
     on<GetAllEvent>(_getAllHandler<GetAllEvent>);
     on<GetFromFixturesEvent>(_fixtureHandler<GetFromFixturesEvent>);
     on<GetFromMemoryEvent>(_memoryHandler<GetFromMemoryEvent>);
     on<GetFromFileEvent>(_fileHandler<GetFromFileEvent>);
     on<_SaveQuestionSetEvent>(_saveHandler<_SaveQuestionSetEvent>);
+    on<DeleteQuestionSetEvent>(_deleteHandler<DeleteQuestionSetEvent>);
   }
 
   final GetQuestionSetsFromFixtures _getQuestionSetsFromFixtures;
   final GetQuestionSetFromFile _getQuestionSetFromFile;
   final GetQuestionSetsFromMemory _getQuestionSetsFromMemory;
   final SaveQuestionSet _saveQuestionSet;
+  final DeleteQuestionSet _deleteQuestionSet;
   final List<QuestionSet> _questionSetsLocal = [];
   final List<QuestionSet> _questionSetsRemote = [];
 
@@ -164,7 +170,32 @@ class TkiQuestionSetBloc
           failure: failure,
         );
       },
-      (_) => null,
+      (success) => _emitSuccessState(
+        emitter: emit,
+        success: success,
+      ),
+    );
+    _emitLoadedState(emitter: emit);
+  }
+
+  FutureOr<void> _deleteHandler<E>(
+    E event,
+    Emitter<TkiQuestionSetState> emit,
+  ) async {
+    final index = (event as DeleteQuestionSetEvent).index;
+    final questionSet = (event as DeleteQuestionSetEvent).questionSet;
+    final isDeleted = await _deleteQuestionSet(DeleteQuestionSetParams(index: index, questionSet: questionSet));
+    isDeleted.fold(
+      (failure) {
+        _emitErrorState(
+          emitter: emit,
+          failure: failure,
+        );
+      },
+      (success) => _emitSuccessState(
+        emitter: emit,
+        success: success,
+      ),
     );
     _emitLoadedState(emitter: emit);
   }
@@ -243,6 +274,28 @@ class TkiQuestionSetBloc
         previousState: (previousState as IdleState)
             .copyWith(isLoadingLocal: false, isLoadingRemote: false),
         failure: failure,
+      ),
+    );
+  }
+
+  void _emitSuccessState({
+    required Emitter<TkiQuestionSetState> emitter,
+    required Success success,
+  }) {
+    final previousState = state is IdleState
+        ? state
+        : IdleState(
+            isLoadingLocal: false,
+            isLoadingRemote: false,
+            questionSetsLocal: _questionSetsLocal,
+            questionSetsRemote: _questionSetsRemote,
+          );
+
+    emitter(
+      SuccessState(
+        previousState: (previousState as IdleState)
+            .copyWith(isLoadingLocal: false, isLoadingRemote: false),
+        success: success,
       ),
     );
   }

@@ -31,9 +31,17 @@ class QuestionSetsLocalDataSourceImpl implements QuestionSetsLocalDataSource {
       }
       return result;
     } on CacheException catch (e) {
-      throw CacheException(message: e.message, statusCode: e.statusCode);
+      throw CacheException(
+        message: 'Failed to load Question Sets from fixtures',
+        description: e.message,
+        statusCode: e.statusCode,
+      );
     } catch (e) {
-      rethrow;
+      throw UnknownException(
+        message: 'Failed to load Question Sets from fixtures',
+        description: e.toString(),
+        statusCode: 500,
+      );
     }
   }
 
@@ -48,19 +56,30 @@ class QuestionSetsLocalDataSourceImpl implements QuestionSetsLocalDataSource {
         final object = json.decode(questionSetJson);
         final questionSet = QuestionSet.fromJson(object);
         return questionSet;
-      } on FormatException catch (e) {
+      } on FormatException {
         throw const CacheException(
-            message:
-                'Selected file is in wrong format\n\nCannot convert a file into a QuestionSet object. Please check the validity of the file. The file should be in .json format and have the following parameters: “language”, “title”, “imageUrl”, “questions”. \nOn the other hand, each question should have the following parameters: “firstType” , “firstQuestion” , “secondType”, “secondQuestion”.',
-            statusCode: 300);
+          message: 'Selected file is in wrong format',
+          description:
+              'Cannot convert a file into a QuestionSet object. Please check the validity of the file. The file should be in .json format and have the following parameters: “language”, “title”, “imageUrl”, “questions”. \nOn the other hand, each question should have the following parameters: “firstType” , “firstQuestion” , “secondType”, “secondQuestion”.',
+          statusCode: 300,
+        );
       } on FileSystemException catch (e) {
-        throw CacheException(message: e.message, statusCode: 400);
+        throw CacheException(
+          message: 'Failed to load Question Set from File',
+          description: e.message,
+          statusCode: 400,
+        );
       } catch (e) {
-        rethrow;
+        throw UnknownException(
+          message: 'Failed to load Question Set from File',
+          description: e.toString(),
+          statusCode: 500,
+        );
       }
     } else {
       throw const CacheException(
         message: 'No file selected',
+        description: 'Please select a file to load a Question Set',
         statusCode: 100,
       );
     }

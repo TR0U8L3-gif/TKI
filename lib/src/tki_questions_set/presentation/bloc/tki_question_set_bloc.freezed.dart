@@ -23,6 +23,8 @@ mixin _$TkiQuestionSetEvent {
     required TResult Function() getQuestionSetsFromFixtures,
     required TResult Function() getQuestionSetFromFile,
     required TResult Function(QuestionSet questionSet) saveQuestionSet,
+    required TResult Function(int index, QuestionSet questionSet)
+        deleteQuestionSet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +34,7 @@ mixin _$TkiQuestionSetEvent {
     TResult? Function()? getQuestionSetsFromFixtures,
     TResult? Function()? getQuestionSetFromFile,
     TResult? Function(QuestionSet questionSet)? saveQuestionSet,
+    TResult? Function(int index, QuestionSet questionSet)? deleteQuestionSet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +44,7 @@ mixin _$TkiQuestionSetEvent {
     TResult Function()? getQuestionSetsFromFixtures,
     TResult Function()? getQuestionSetFromFile,
     TResult Function(QuestionSet questionSet)? saveQuestionSet,
+    TResult Function(int index, QuestionSet questionSet)? deleteQuestionSet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +57,7 @@ mixin _$TkiQuestionSetEvent {
         getQuestionSetsFromFixtures,
     required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
     required TResult Function(_SaveQuestionSetEvent value) saveQuestionSet,
+    required TResult Function(DeleteQuestionSetEvent value) deleteQuestionSet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +67,7 @@ mixin _$TkiQuestionSetEvent {
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    TResult? Function(DeleteQuestionSetEvent value)? deleteQuestionSet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +77,7 @@ mixin _$TkiQuestionSetEvent {
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    TResult Function(DeleteQuestionSetEvent value)? deleteQuestionSet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -146,6 +153,8 @@ class _$GetFromMemoryEventImpl
     required TResult Function() getQuestionSetsFromFixtures,
     required TResult Function() getQuestionSetFromFile,
     required TResult Function(QuestionSet questionSet) saveQuestionSet,
+    required TResult Function(int index, QuestionSet questionSet)
+        deleteQuestionSet,
   }) {
     return getQuestionSetsFromMemory();
   }
@@ -158,6 +167,7 @@ class _$GetFromMemoryEventImpl
     TResult? Function()? getQuestionSetsFromFixtures,
     TResult? Function()? getQuestionSetFromFile,
     TResult? Function(QuestionSet questionSet)? saveQuestionSet,
+    TResult? Function(int index, QuestionSet questionSet)? deleteQuestionSet,
   }) {
     return getQuestionSetsFromMemory?.call();
   }
@@ -170,6 +180,7 @@ class _$GetFromMemoryEventImpl
     TResult Function()? getQuestionSetsFromFixtures,
     TResult Function()? getQuestionSetFromFile,
     TResult Function(QuestionSet questionSet)? saveQuestionSet,
+    TResult Function(int index, QuestionSet questionSet)? deleteQuestionSet,
     required TResult orElse(),
   }) {
     if (getQuestionSetsFromMemory != null) {
@@ -188,6 +199,7 @@ class _$GetFromMemoryEventImpl
         getQuestionSetsFromFixtures,
     required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
     required TResult Function(_SaveQuestionSetEvent value) saveQuestionSet,
+    required TResult Function(DeleteQuestionSetEvent value) deleteQuestionSet,
   }) {
     return getQuestionSetsFromMemory(this);
   }
@@ -200,6 +212,7 @@ class _$GetFromMemoryEventImpl
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    TResult? Function(DeleteQuestionSetEvent value)? deleteQuestionSet,
   }) {
     return getQuestionSetsFromMemory?.call(this);
   }
@@ -212,6 +225,7 @@ class _$GetFromMemoryEventImpl
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    TResult Function(DeleteQuestionSetEvent value)? deleteQuestionSet,
     required TResult orElse(),
   }) {
     if (getQuestionSetsFromMemory != null) {
@@ -275,6 +289,8 @@ class _$GetAllEventImpl with DiagnosticableTreeMixin implements GetAllEvent {
     required TResult Function() getQuestionSetsFromFixtures,
     required TResult Function() getQuestionSetFromFile,
     required TResult Function(QuestionSet questionSet) saveQuestionSet,
+    required TResult Function(int index, QuestionSet questionSet)
+        deleteQuestionSet,
   }) {
     return getAllQuestionSets();
   }
@@ -287,6 +303,7 @@ class _$GetAllEventImpl with DiagnosticableTreeMixin implements GetAllEvent {
     TResult? Function()? getQuestionSetsFromFixtures,
     TResult? Function()? getQuestionSetFromFile,
     TResult? Function(QuestionSet questionSet)? saveQuestionSet,
+    TResult? Function(int index, QuestionSet questionSet)? deleteQuestionSet,
   }) {
     return getAllQuestionSets?.call();
   }
@@ -299,6 +316,7 @@ class _$GetAllEventImpl with DiagnosticableTreeMixin implements GetAllEvent {
     TResult Function()? getQuestionSetsFromFixtures,
     TResult Function()? getQuestionSetFromFile,
     TResult Function(QuestionSet questionSet)? saveQuestionSet,
+    TResult Function(int index, QuestionSet questionSet)? deleteQuestionSet,
     required TResult orElse(),
   }) {
     if (getAllQuestionSets != null) {
@@ -317,6 +335,7 @@ class _$GetAllEventImpl with DiagnosticableTreeMixin implements GetAllEvent {
         getQuestionSetsFromFixtures,
     required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
     required TResult Function(_SaveQuestionSetEvent value) saveQuestionSet,
+    required TResult Function(DeleteQuestionSetEvent value) deleteQuestionSet,
   }) {
     return getAllQuestionSets(this);
   }
@@ -329,6 +348,7 @@ class _$GetAllEventImpl with DiagnosticableTreeMixin implements GetAllEvent {
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    TResult? Function(DeleteQuestionSetEvent value)? deleteQuestionSet,
   }) {
     return getAllQuestionSets?.call(this);
   }
@@ -341,6 +361,7 @@ class _$GetAllEventImpl with DiagnosticableTreeMixin implements GetAllEvent {
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    TResult Function(DeleteQuestionSetEvent value)? deleteQuestionSet,
     required TResult orElse(),
   }) {
     if (getAllQuestionSets != null) {
@@ -407,6 +428,8 @@ class _$GetFromFixturesEventImpl
     required TResult Function() getQuestionSetsFromFixtures,
     required TResult Function() getQuestionSetFromFile,
     required TResult Function(QuestionSet questionSet) saveQuestionSet,
+    required TResult Function(int index, QuestionSet questionSet)
+        deleteQuestionSet,
   }) {
     return getQuestionSetsFromFixtures();
   }
@@ -419,6 +442,7 @@ class _$GetFromFixturesEventImpl
     TResult? Function()? getQuestionSetsFromFixtures,
     TResult? Function()? getQuestionSetFromFile,
     TResult? Function(QuestionSet questionSet)? saveQuestionSet,
+    TResult? Function(int index, QuestionSet questionSet)? deleteQuestionSet,
   }) {
     return getQuestionSetsFromFixtures?.call();
   }
@@ -431,6 +455,7 @@ class _$GetFromFixturesEventImpl
     TResult Function()? getQuestionSetsFromFixtures,
     TResult Function()? getQuestionSetFromFile,
     TResult Function(QuestionSet questionSet)? saveQuestionSet,
+    TResult Function(int index, QuestionSet questionSet)? deleteQuestionSet,
     required TResult orElse(),
   }) {
     if (getQuestionSetsFromFixtures != null) {
@@ -449,6 +474,7 @@ class _$GetFromFixturesEventImpl
         getQuestionSetsFromFixtures,
     required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
     required TResult Function(_SaveQuestionSetEvent value) saveQuestionSet,
+    required TResult Function(DeleteQuestionSetEvent value) deleteQuestionSet,
   }) {
     return getQuestionSetsFromFixtures(this);
   }
@@ -461,6 +487,7 @@ class _$GetFromFixturesEventImpl
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    TResult? Function(DeleteQuestionSetEvent value)? deleteQuestionSet,
   }) {
     return getQuestionSetsFromFixtures?.call(this);
   }
@@ -473,6 +500,7 @@ class _$GetFromFixturesEventImpl
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    TResult Function(DeleteQuestionSetEvent value)? deleteQuestionSet,
     required TResult orElse(),
   }) {
     if (getQuestionSetsFromFixtures != null) {
@@ -538,6 +566,8 @@ class _$GetFromFileEventImpl
     required TResult Function() getQuestionSetsFromFixtures,
     required TResult Function() getQuestionSetFromFile,
     required TResult Function(QuestionSet questionSet) saveQuestionSet,
+    required TResult Function(int index, QuestionSet questionSet)
+        deleteQuestionSet,
   }) {
     return getQuestionSetFromFile();
   }
@@ -550,6 +580,7 @@ class _$GetFromFileEventImpl
     TResult? Function()? getQuestionSetsFromFixtures,
     TResult? Function()? getQuestionSetFromFile,
     TResult? Function(QuestionSet questionSet)? saveQuestionSet,
+    TResult? Function(int index, QuestionSet questionSet)? deleteQuestionSet,
   }) {
     return getQuestionSetFromFile?.call();
   }
@@ -562,6 +593,7 @@ class _$GetFromFileEventImpl
     TResult Function()? getQuestionSetsFromFixtures,
     TResult Function()? getQuestionSetFromFile,
     TResult Function(QuestionSet questionSet)? saveQuestionSet,
+    TResult Function(int index, QuestionSet questionSet)? deleteQuestionSet,
     required TResult orElse(),
   }) {
     if (getQuestionSetFromFile != null) {
@@ -580,6 +612,7 @@ class _$GetFromFileEventImpl
         getQuestionSetsFromFixtures,
     required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
     required TResult Function(_SaveQuestionSetEvent value) saveQuestionSet,
+    required TResult Function(DeleteQuestionSetEvent value) deleteQuestionSet,
   }) {
     return getQuestionSetFromFile(this);
   }
@@ -592,6 +625,7 @@ class _$GetFromFileEventImpl
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    TResult? Function(DeleteQuestionSetEvent value)? deleteQuestionSet,
   }) {
     return getQuestionSetFromFile?.call(this);
   }
@@ -604,6 +638,7 @@ class _$GetFromFileEventImpl
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    TResult Function(DeleteQuestionSetEvent value)? deleteQuestionSet,
     required TResult orElse(),
   }) {
     if (getQuestionSetFromFile != null) {
@@ -709,6 +744,8 @@ class _$SaveQuestionSetEventImpl
     required TResult Function() getQuestionSetsFromFixtures,
     required TResult Function() getQuestionSetFromFile,
     required TResult Function(QuestionSet questionSet) saveQuestionSet,
+    required TResult Function(int index, QuestionSet questionSet)
+        deleteQuestionSet,
   }) {
     return saveQuestionSet(questionSet);
   }
@@ -721,6 +758,7 @@ class _$SaveQuestionSetEventImpl
     TResult? Function()? getQuestionSetsFromFixtures,
     TResult? Function()? getQuestionSetFromFile,
     TResult? Function(QuestionSet questionSet)? saveQuestionSet,
+    TResult? Function(int index, QuestionSet questionSet)? deleteQuestionSet,
   }) {
     return saveQuestionSet?.call(questionSet);
   }
@@ -733,6 +771,7 @@ class _$SaveQuestionSetEventImpl
     TResult Function()? getQuestionSetsFromFixtures,
     TResult Function()? getQuestionSetFromFile,
     TResult Function(QuestionSet questionSet)? saveQuestionSet,
+    TResult Function(int index, QuestionSet questionSet)? deleteQuestionSet,
     required TResult orElse(),
   }) {
     if (saveQuestionSet != null) {
@@ -751,6 +790,7 @@ class _$SaveQuestionSetEventImpl
         getQuestionSetsFromFixtures,
     required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
     required TResult Function(_SaveQuestionSetEvent value) saveQuestionSet,
+    required TResult Function(DeleteQuestionSetEvent value) deleteQuestionSet,
   }) {
     return saveQuestionSet(this);
   }
@@ -763,6 +803,7 @@ class _$SaveQuestionSetEventImpl
     TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    TResult? Function(DeleteQuestionSetEvent value)? deleteQuestionSet,
   }) {
     return saveQuestionSet?.call(this);
   }
@@ -775,6 +816,7 @@ class _$SaveQuestionSetEventImpl
     TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
     TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
     TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    TResult Function(DeleteQuestionSetEvent value)? deleteQuestionSet,
     required TResult orElse(),
   }) {
     if (saveQuestionSet != null) {
@@ -795,6 +837,204 @@ abstract class _SaveQuestionSetEvent implements TkiQuestionSetEvent {
 }
 
 /// @nodoc
+abstract class _$$DeleteQuestionSetEventImplCopyWith<$Res> {
+  factory _$$DeleteQuestionSetEventImplCopyWith(
+          _$DeleteQuestionSetEventImpl value,
+          $Res Function(_$DeleteQuestionSetEventImpl) then) =
+      __$$DeleteQuestionSetEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index, QuestionSet questionSet});
+
+  $QuestionSetCopyWith<$Res> get questionSet;
+}
+
+/// @nodoc
+class __$$DeleteQuestionSetEventImplCopyWithImpl<$Res>
+    extends _$TkiQuestionSetEventCopyWithImpl<$Res,
+        _$DeleteQuestionSetEventImpl>
+    implements _$$DeleteQuestionSetEventImplCopyWith<$Res> {
+  __$$DeleteQuestionSetEventImplCopyWithImpl(
+      _$DeleteQuestionSetEventImpl _value,
+      $Res Function(_$DeleteQuestionSetEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+    Object? questionSet = null,
+  }) {
+    return _then(_$DeleteQuestionSetEventImpl(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == questionSet
+          ? _value.questionSet
+          : questionSet // ignore: cast_nullable_to_non_nullable
+              as QuestionSet,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $QuestionSetCopyWith<$Res> get questionSet {
+    return $QuestionSetCopyWith<$Res>(_value.questionSet, (value) {
+      return _then(_value.copyWith(questionSet: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$DeleteQuestionSetEventImpl
+    with DiagnosticableTreeMixin
+    implements DeleteQuestionSetEvent {
+  const _$DeleteQuestionSetEventImpl(this.index, this.questionSet);
+
+  @override
+  final int index;
+  @override
+  final QuestionSet questionSet;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TkiQuestionSetEvent.deleteQuestionSet(index: $index, questionSet: $questionSet)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'TkiQuestionSetEvent.deleteQuestionSet'))
+      ..add(DiagnosticsProperty('index', index))
+      ..add(DiagnosticsProperty('questionSet', questionSet));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteQuestionSetEventImpl &&
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.questionSet, questionSet) ||
+                other.questionSet == questionSet));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index, questionSet);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteQuestionSetEventImplCopyWith<_$DeleteQuestionSetEventImpl>
+      get copyWith => __$$DeleteQuestionSetEventImplCopyWithImpl<
+          _$DeleteQuestionSetEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getQuestionSetsFromMemory,
+    required TResult Function() getAllQuestionSets,
+    required TResult Function() getQuestionSetsFromFixtures,
+    required TResult Function() getQuestionSetFromFile,
+    required TResult Function(QuestionSet questionSet) saveQuestionSet,
+    required TResult Function(int index, QuestionSet questionSet)
+        deleteQuestionSet,
+  }) {
+    return deleteQuestionSet(index, questionSet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getQuestionSetsFromMemory,
+    TResult? Function()? getAllQuestionSets,
+    TResult? Function()? getQuestionSetsFromFixtures,
+    TResult? Function()? getQuestionSetFromFile,
+    TResult? Function(QuestionSet questionSet)? saveQuestionSet,
+    TResult? Function(int index, QuestionSet questionSet)? deleteQuestionSet,
+  }) {
+    return deleteQuestionSet?.call(index, questionSet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getQuestionSetsFromMemory,
+    TResult Function()? getAllQuestionSets,
+    TResult Function()? getQuestionSetsFromFixtures,
+    TResult Function()? getQuestionSetFromFile,
+    TResult Function(QuestionSet questionSet)? saveQuestionSet,
+    TResult Function(int index, QuestionSet questionSet)? deleteQuestionSet,
+    required TResult orElse(),
+  }) {
+    if (deleteQuestionSet != null) {
+      return deleteQuestionSet(index, questionSet);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetFromMemoryEvent value)
+        getQuestionSetsFromMemory,
+    required TResult Function(GetAllEvent value) getAllQuestionSets,
+    required TResult Function(GetFromFixturesEvent value)
+        getQuestionSetsFromFixtures,
+    required TResult Function(GetFromFileEvent value) getQuestionSetFromFile,
+    required TResult Function(_SaveQuestionSetEvent value) saveQuestionSet,
+    required TResult Function(DeleteQuestionSetEvent value) deleteQuestionSet,
+  }) {
+    return deleteQuestionSet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult? Function(GetAllEvent value)? getAllQuestionSets,
+    TResult? Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
+    TResult? Function(GetFromFileEvent value)? getQuestionSetFromFile,
+    TResult? Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    TResult? Function(DeleteQuestionSetEvent value)? deleteQuestionSet,
+  }) {
+    return deleteQuestionSet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetFromMemoryEvent value)? getQuestionSetsFromMemory,
+    TResult Function(GetAllEvent value)? getAllQuestionSets,
+    TResult Function(GetFromFixturesEvent value)? getQuestionSetsFromFixtures,
+    TResult Function(GetFromFileEvent value)? getQuestionSetFromFile,
+    TResult Function(_SaveQuestionSetEvent value)? saveQuestionSet,
+    TResult Function(DeleteQuestionSetEvent value)? deleteQuestionSet,
+    required TResult orElse(),
+  }) {
+    if (deleteQuestionSet != null) {
+      return deleteQuestionSet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteQuestionSetEvent implements TkiQuestionSetEvent {
+  const factory DeleteQuestionSetEvent(
+          final int index, final QuestionSet questionSet) =
+      _$DeleteQuestionSetEventImpl;
+
+  int get index;
+  QuestionSet get questionSet;
+  @JsonKey(ignore: true)
+  _$$DeleteQuestionSetEventImplCopyWith<_$DeleteQuestionSetEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$TkiQuestionSetState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -806,6 +1046,7 @@ mixin _$TkiQuestionSetState {
             List<QuestionSet> questionSetsRemote)
         idle,
     required TResult Function(IdleState previousState, Failure failure) error,
+    required TResult Function(IdleState previousState, Success success) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -818,6 +1059,7 @@ mixin _$TkiQuestionSetState {
             List<QuestionSet> questionSetsRemote)?
         idle,
     TResult? Function(IdleState previousState, Failure failure)? error,
+    TResult? Function(IdleState previousState, Success success)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -830,6 +1072,7 @@ mixin _$TkiQuestionSetState {
             List<QuestionSet> questionSetsRemote)?
         idle,
     TResult Function(IdleState previousState, Failure failure)? error,
+    TResult Function(IdleState previousState, Success success)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -838,6 +1081,7 @@ mixin _$TkiQuestionSetState {
     required TResult Function(InitialState value) initial,
     required TResult Function(IdleState value) idle,
     required TResult Function(ErrorState value) error,
+    required TResult Function(SuccessState value) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -845,6 +1089,7 @@ mixin _$TkiQuestionSetState {
     TResult? Function(InitialState value)? initial,
     TResult? Function(IdleState value)? idle,
     TResult? Function(ErrorState value)? error,
+    TResult? Function(SuccessState value)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -852,6 +1097,7 @@ mixin _$TkiQuestionSetState {
     TResult Function(InitialState value)? initial,
     TResult Function(IdleState value)? idle,
     TResult Function(ErrorState value)? error,
+    TResult Function(SuccessState value)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -927,6 +1173,7 @@ class _$InitialStateImpl with DiagnosticableTreeMixin implements InitialState {
             List<QuestionSet> questionSetsRemote)
         idle,
     required TResult Function(IdleState previousState, Failure failure) error,
+    required TResult Function(IdleState previousState, Success success) success,
   }) {
     return initial();
   }
@@ -942,6 +1189,7 @@ class _$InitialStateImpl with DiagnosticableTreeMixin implements InitialState {
             List<QuestionSet> questionSetsRemote)?
         idle,
     TResult? Function(IdleState previousState, Failure failure)? error,
+    TResult? Function(IdleState previousState, Success success)? success,
   }) {
     return initial?.call();
   }
@@ -957,6 +1205,7 @@ class _$InitialStateImpl with DiagnosticableTreeMixin implements InitialState {
             List<QuestionSet> questionSetsRemote)?
         idle,
     TResult Function(IdleState previousState, Failure failure)? error,
+    TResult Function(IdleState previousState, Success success)? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -971,6 +1220,7 @@ class _$InitialStateImpl with DiagnosticableTreeMixin implements InitialState {
     required TResult Function(InitialState value) initial,
     required TResult Function(IdleState value) idle,
     required TResult Function(ErrorState value) error,
+    required TResult Function(SuccessState value) success,
   }) {
     return initial(this);
   }
@@ -981,6 +1231,7 @@ class _$InitialStateImpl with DiagnosticableTreeMixin implements InitialState {
     TResult? Function(InitialState value)? initial,
     TResult? Function(IdleState value)? idle,
     TResult? Function(ErrorState value)? error,
+    TResult? Function(SuccessState value)? success,
   }) {
     return initial?.call(this);
   }
@@ -991,6 +1242,7 @@ class _$InitialStateImpl with DiagnosticableTreeMixin implements InitialState {
     TResult Function(InitialState value)? initial,
     TResult Function(IdleState value)? idle,
     TResult Function(ErrorState value)? error,
+    TResult Function(SuccessState value)? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1143,6 +1395,7 @@ class _$IdleStateImpl with DiagnosticableTreeMixin implements IdleState {
             List<QuestionSet> questionSetsRemote)
         idle,
     required TResult Function(IdleState previousState, Failure failure) error,
+    required TResult Function(IdleState previousState, Success success) success,
   }) {
     return idle(
         isLoadingLocal, isLoadingRemote, questionSetsLocal, questionSetsRemote);
@@ -1159,6 +1412,7 @@ class _$IdleStateImpl with DiagnosticableTreeMixin implements IdleState {
             List<QuestionSet> questionSetsRemote)?
         idle,
     TResult? Function(IdleState previousState, Failure failure)? error,
+    TResult? Function(IdleState previousState, Success success)? success,
   }) {
     return idle?.call(
         isLoadingLocal, isLoadingRemote, questionSetsLocal, questionSetsRemote);
@@ -1175,6 +1429,7 @@ class _$IdleStateImpl with DiagnosticableTreeMixin implements IdleState {
             List<QuestionSet> questionSetsRemote)?
         idle,
     TResult Function(IdleState previousState, Failure failure)? error,
+    TResult Function(IdleState previousState, Success success)? success,
     required TResult orElse(),
   }) {
     if (idle != null) {
@@ -1190,6 +1445,7 @@ class _$IdleStateImpl with DiagnosticableTreeMixin implements IdleState {
     required TResult Function(InitialState value) initial,
     required TResult Function(IdleState value) idle,
     required TResult Function(ErrorState value) error,
+    required TResult Function(SuccessState value) success,
   }) {
     return idle(this);
   }
@@ -1200,6 +1456,7 @@ class _$IdleStateImpl with DiagnosticableTreeMixin implements IdleState {
     TResult? Function(InitialState value)? initial,
     TResult? Function(IdleState value)? idle,
     TResult? Function(ErrorState value)? error,
+    TResult? Function(SuccessState value)? success,
   }) {
     return idle?.call(this);
   }
@@ -1210,6 +1467,7 @@ class _$IdleStateImpl with DiagnosticableTreeMixin implements IdleState {
     TResult Function(InitialState value)? initial,
     TResult Function(IdleState value)? idle,
     TResult Function(ErrorState value)? error,
+    TResult Function(SuccessState value)? success,
     required TResult orElse(),
   }) {
     if (idle != null) {
@@ -1336,6 +1594,7 @@ class _$ErrorStateImpl with DiagnosticableTreeMixin implements ErrorState {
             List<QuestionSet> questionSetsRemote)
         idle,
     required TResult Function(IdleState previousState, Failure failure) error,
+    required TResult Function(IdleState previousState, Success success) success,
   }) {
     return error(previousState, failure);
   }
@@ -1351,6 +1610,7 @@ class _$ErrorStateImpl with DiagnosticableTreeMixin implements ErrorState {
             List<QuestionSet> questionSetsRemote)?
         idle,
     TResult? Function(IdleState previousState, Failure failure)? error,
+    TResult? Function(IdleState previousState, Success success)? success,
   }) {
     return error?.call(previousState, failure);
   }
@@ -1366,6 +1626,7 @@ class _$ErrorStateImpl with DiagnosticableTreeMixin implements ErrorState {
             List<QuestionSet> questionSetsRemote)?
         idle,
     TResult Function(IdleState previousState, Failure failure)? error,
+    TResult Function(IdleState previousState, Success success)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1380,6 +1641,7 @@ class _$ErrorStateImpl with DiagnosticableTreeMixin implements ErrorState {
     required TResult Function(InitialState value) initial,
     required TResult Function(IdleState value) idle,
     required TResult Function(ErrorState value) error,
+    required TResult Function(SuccessState value) success,
   }) {
     return error(this);
   }
@@ -1390,6 +1652,7 @@ class _$ErrorStateImpl with DiagnosticableTreeMixin implements ErrorState {
     TResult? Function(InitialState value)? initial,
     TResult? Function(IdleState value)? idle,
     TResult? Function(ErrorState value)? error,
+    TResult? Function(SuccessState value)? success,
   }) {
     return error?.call(this);
   }
@@ -1400,6 +1663,7 @@ class _$ErrorStateImpl with DiagnosticableTreeMixin implements ErrorState {
     TResult Function(InitialState value)? initial,
     TResult Function(IdleState value)? idle,
     TResult Function(ErrorState value)? error,
+    TResult Function(SuccessState value)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1418,5 +1682,198 @@ abstract class ErrorState implements TkiQuestionSetState {
   Failure get failure;
   @JsonKey(ignore: true)
   _$$ErrorStateImplCopyWith<_$ErrorStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SuccessStateImplCopyWith<$Res> {
+  factory _$$SuccessStateImplCopyWith(
+          _$SuccessStateImpl value, $Res Function(_$SuccessStateImpl) then) =
+      __$$SuccessStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({IdleState previousState, Success success});
+
+  $SuccessCopyWith<$Res> get success;
+}
+
+/// @nodoc
+class __$$SuccessStateImplCopyWithImpl<$Res>
+    extends _$TkiQuestionSetStateCopyWithImpl<$Res, _$SuccessStateImpl>
+    implements _$$SuccessStateImplCopyWith<$Res> {
+  __$$SuccessStateImplCopyWithImpl(
+      _$SuccessStateImpl _value, $Res Function(_$SuccessStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? previousState = freezed,
+    Object? success = null,
+  }) {
+    return _then(_$SuccessStateImpl(
+      previousState: freezed == previousState
+          ? _value.previousState
+          : previousState // ignore: cast_nullable_to_non_nullable
+              as IdleState,
+      success: null == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as Success,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SuccessCopyWith<$Res> get success {
+    return $SuccessCopyWith<$Res>(_value.success, (value) {
+      return _then(_value.copyWith(success: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$SuccessStateImpl with DiagnosticableTreeMixin implements SuccessState {
+  const _$SuccessStateImpl(
+      {required this.previousState, required this.success});
+
+  @override
+  final IdleState previousState;
+  @override
+  final Success success;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TkiQuestionSetState.success(previousState: $previousState, success: $success)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'TkiQuestionSetState.success'))
+      ..add(DiagnosticsProperty('previousState', previousState))
+      ..add(DiagnosticsProperty('success', success));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessStateImpl &&
+            const DeepCollectionEquality()
+                .equals(other.previousState, previousState) &&
+            (identical(other.success, success) || other.success == success));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(previousState), success);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessStateImplCopyWith<_$SuccessStateImpl> get copyWith =>
+      __$$SuccessStateImplCopyWithImpl<_$SuccessStateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(
+            bool isLoadingLocal,
+            bool isLoadingRemote,
+            List<QuestionSet> questionSetsLocal,
+            List<QuestionSet> questionSetsRemote)
+        idle,
+    required TResult Function(IdleState previousState, Failure failure) error,
+    required TResult Function(IdleState previousState, Success success) success,
+  }) {
+    return success(previousState, this.success);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(
+            bool isLoadingLocal,
+            bool isLoadingRemote,
+            List<QuestionSet> questionSetsLocal,
+            List<QuestionSet> questionSetsRemote)?
+        idle,
+    TResult? Function(IdleState previousState, Failure failure)? error,
+    TResult? Function(IdleState previousState, Success success)? success,
+  }) {
+    return success?.call(previousState, this.success);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(
+            bool isLoadingLocal,
+            bool isLoadingRemote,
+            List<QuestionSet> questionSetsLocal,
+            List<QuestionSet> questionSetsRemote)?
+        idle,
+    TResult Function(IdleState previousState, Failure failure)? error,
+    TResult Function(IdleState previousState, Success success)? success,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(previousState, this.success);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialState value) initial,
+    required TResult Function(IdleState value) idle,
+    required TResult Function(ErrorState value) error,
+    required TResult Function(SuccessState value) success,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitialState value)? initial,
+    TResult? Function(IdleState value)? idle,
+    TResult? Function(ErrorState value)? error,
+    TResult? Function(SuccessState value)? success,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialState value)? initial,
+    TResult Function(IdleState value)? idle,
+    TResult Function(ErrorState value)? error,
+    TResult Function(SuccessState value)? success,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SuccessState implements TkiQuestionSetState {
+  const factory SuccessState(
+      {required final IdleState previousState,
+      required final Success success}) = _$SuccessStateImpl;
+
+  IdleState get previousState;
+  Success get success;
+  @JsonKey(ignore: true)
+  _$$SuccessStateImplCopyWith<_$SuccessStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

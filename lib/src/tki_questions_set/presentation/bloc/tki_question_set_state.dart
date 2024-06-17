@@ -15,4 +15,10 @@ class TkiQuestionSetState with _$TkiQuestionSetState {
     required IdleState previousState,
     required Failure failure,
   }) = ErrorState;
+  const factory TkiQuestionSetState.success({
+    required IdleState previousState,
+    required Success success,
+  }) = SuccessState;
+
+
 }

@@ -5,7 +5,8 @@ class MessengerToast extends MessengerInterface {
   /// This feature allows you to create a custom one.
   static Future<void> showToast(
     BuildContext context,
-    String message, {
+    String message, 
+    String description, {
     Duration toastDuration =
         const Duration(milliseconds: AppSize.durationExtraLarge),
     Duration fadeDuration = const Duration(milliseconds: AppSize.durationSmall),
@@ -27,6 +28,7 @@ class MessengerToast extends MessengerInterface {
       ..showToast(
         child: MessengerToastWidget(
           message: message,
+          description: description,
           logo: logo,
           showDefaultLogo: showDefaultLogo,
           type: type,
@@ -43,7 +45,8 @@ class MessengerToast extends MessengerInterface {
   @override
   void showInfoToast(
     BuildContext context,
-    String message, {
+    String message, 
+    String description, {
     MessengerToastLength toastLength = MessengerToastLength.short,
     bool showDefaultLogo = true,
     Widget? logo,
@@ -53,6 +56,7 @@ class MessengerToast extends MessengerInterface {
       showToast(
         context,
         message,
+        description,
         toastDuration: getToastDuration(toastLength),
         showDefaultLogo: showDefaultLogo,
         logo: logo,
@@ -63,7 +67,8 @@ class MessengerToast extends MessengerInterface {
   @override
   void showSuccessToast(
     BuildContext context,
-    String message, {
+    String message, 
+    String description, {
     MessengerToastLength toastLength = MessengerToastLength.short,
     bool showDefaultLogo = true,
     Widget? logo,
@@ -73,6 +78,7 @@ class MessengerToast extends MessengerInterface {
       showToast(
         context,
         message,
+        description,
         type: ToastType.success,
         toastDuration: getToastDuration(toastLength),
         showDefaultLogo: showDefaultLogo,
@@ -84,7 +90,8 @@ class MessengerToast extends MessengerInterface {
   @override
   void showErrorToast(
     BuildContext context,
-    String message, {
+    String message, 
+    String description, {
     MessengerToastLength toastLength = MessengerToastLength.short,
     bool showDefaultLogo = true,
     Widget? logo,
@@ -94,6 +101,7 @@ class MessengerToast extends MessengerInterface {
       showToast(
         context,
         message,
+        description,
         type: ToastType.error,
         toastDuration: getToastDuration(toastLength),
         showDefaultLogo: showDefaultLogo,
@@ -105,7 +113,8 @@ class MessengerToast extends MessengerInterface {
   @override
   void showWarningToast(
     BuildContext context,
-    String message, {
+    String message, 
+    String description, {
     MessengerToastLength toastLength = MessengerToastLength.short,
     bool showDefaultLogo = true,
     Widget? logo,
@@ -115,6 +124,7 @@ class MessengerToast extends MessengerInterface {
       showToast(
         context,
         message,
+        description,
         type: ToastType.warning,
         toastDuration: getToastDuration(toastLength),
         showDefaultLogo: showDefaultLogo,

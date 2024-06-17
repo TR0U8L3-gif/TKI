@@ -5,10 +5,14 @@ class MessengerManager extends MessengerInterface {
     required MessengerInterface messenger,
     required List<ShowToast> queue,
     required StreamController<ShowToastEvent> streamController,
+    bool showSameToastMultipleTimes = false,
+    int showSameToastDelay = 20000,
   })  : _queue = queue,
         _streamController = streamController,
         _messenger = messenger,
-        _isStopped = false {
+        _isStopped = false,
+        _showSameToastMultipleTimes = showSameToastMultipleTimes,
+        _showSameToastDelay = showSameToastDelay {
     _init();
   }
 
@@ -24,6 +28,8 @@ class MessengerManager extends MessengerInterface {
   final MessengerInterface _messenger;
   final List<ShowToast> _queue;
   final StreamController<ShowToastEvent> _streamController;
+  final bool _showSameToastMultipleTimes;
+  final int _showSameToastDelay;
   final _history = <({int hex, int date})>[];
   final _historyData = <int, ({String message, String type})>{};
   final _userReaction = 600;
@@ -70,6 +76,7 @@ class MessengerManager extends MessengerInterface {
         _messenger.showInfoToast(
           toast.context,
           toast.message,
+          toast.description,
           toastLength: toast.toastLength,
           showDefaultLogo: toast.showDefaultLogo,
           logo: toast.logo,
@@ -81,6 +88,7 @@ class MessengerManager extends MessengerInterface {
         _messenger.showSuccessToast(
           toast.context,
           toast.message,
+          toast.description,
           toastLength: toast.toastLength,
           showDefaultLogo: toast.showDefaultLogo,
           logo: toast.logo,
@@ -92,6 +100,7 @@ class MessengerManager extends MessengerInterface {
         _messenger.showWarningToast(
           toast.context,
           toast.message,
+          toast.description,
           toastLength: toast.toastLength,
           showDefaultLogo: toast.showDefaultLogo,
           logo: toast.logo,
@@ -103,6 +112,7 @@ class MessengerManager extends MessengerInterface {
         _messenger.showErrorToast(
           toast.context,
           toast.message,
+          toast.description,
           toastLength: toast.toastLength,
           showDefaultLogo: toast.showDefaultLogo,
           logo: toast.logo,
@@ -114,7 +124,24 @@ class MessengerManager extends MessengerInterface {
   }
 
   void addToast(ShowToast toast) {
-    _streamController.add(ShowToastEventAdd(toast));
+    if (_showSameToastMultipleTimes) {
+      _streamController.add(ShowToastEventAdd(toast));
+      return;
+    }
+    final key = Object.hash(toast.message, toast.type);
+    if (_historyData.containsKey(key)) {
+      final data = _historyData[key];
+      if (data != null) {
+        final time = DateTime.now().millisecondsSinceEpoch;
+        final lastDate =
+            _history.where((element) => element.hex == key).toList().last.date;
+        if (time - lastDate > _showSameToastDelay) {
+          _streamController.add(ShowToastEventAdd(toast));
+        }
+      }
+    } else {
+      _streamController.add(ShowToastEventAdd(toast));
+    }
   }
 
   void stopToasts() {
@@ -139,7 +166,7 @@ class MessengerManager extends MessengerInterface {
   }
 
   @override
-  void showErrorToast(BuildContext context, String message,
+  void showErrorToast(BuildContext context, String message, String description,
       {MessengerToastLength toastLength = MessengerToastLength.short,
       bool showDefaultLogo = true,
       Widget? logo,
@@ -148,6 +175,7 @@ class MessengerManager extends MessengerInterface {
     addToast(ShowToast(
       context,
       message,
+      description,
       type: ToastType.error,
       toastLength: toastLength,
       showDefaultLogo: showDefaultLogo,
@@ -158,7 +186,7 @@ class MessengerManager extends MessengerInterface {
   }
 
   @override
-  void showInfoToast(BuildContext context, String message,
+  void showInfoToast(BuildContext context, String message, String description,
       {MessengerToastLength toastLength = MessengerToastLength.short,
       bool showDefaultLogo = true,
       Widget? logo,
@@ -167,6 +195,7 @@ class MessengerManager extends MessengerInterface {
     addToast(ShowToast(
       context,
       message,
+      description,
       type: ToastType.info,
       toastLength: toastLength,
       showDefaultLogo: showDefaultLogo,
@@ -177,7 +206,8 @@ class MessengerManager extends MessengerInterface {
   }
 
   @override
-  void showSuccessToast(BuildContext context, String message,
+  void showSuccessToast(
+      BuildContext context, String message, String description,
       {MessengerToastLength toastLength = MessengerToastLength.short,
       bool showDefaultLogo = true,
       Widget? logo,
@@ -186,6 +216,7 @@ class MessengerManager extends MessengerInterface {
     addToast(ShowToast(
       context,
       message,
+      description,
       type: ToastType.success,
       toastLength: toastLength,
       showDefaultLogo: showDefaultLogo,
@@ -196,7 +227,8 @@ class MessengerManager extends MessengerInterface {
   }
 
   @override
-  void showWarningToast(BuildContext context, String message,
+  void showWarningToast(
+      BuildContext context, String message, String description,
       {MessengerToastLength toastLength = MessengerToastLength.short,
       bool showDefaultLogo = true,
       Widget? logo,
@@ -205,6 +237,7 @@ class MessengerManager extends MessengerInterface {
     addToast(ShowToast(
       context,
       message,
+      description,
       type: ToastType.warning,
       toastLength: toastLength,
       showDefaultLogo: showDefaultLogo,
@@ -214,8 +247,8 @@ class MessengerManager extends MessengerInterface {
     ));
   }
 
-  void showToastFromCode(
-      BuildContext context, String message, dynamic statusCode,
+  void showToastFromCode(BuildContext context, String message,
+      String description, dynamic statusCode,
       {MessengerToastLength toastLength = MessengerToastLength.short,
       bool showDefaultLogo = true,
       Widget? logo,
@@ -238,6 +271,7 @@ class MessengerManager extends MessengerInterface {
     addToast(ShowToast(
       context,
       message,
+      description,
       type: type,
       toastLength: toastLength,
       showDefaultLogo: showDefaultLogo,
@@ -294,7 +328,8 @@ class ToastHistory {
 class ShowToast {
   const ShowToast(
     this.context,
-    this.message, {
+    this.message,
+    this.description, {
     this.type = ToastType.info,
     this.toastLength = MessengerToastLength.short,
     this.showDefaultLogo = true,
@@ -305,6 +340,7 @@ class ShowToast {
 
   final BuildContext context;
   final String message;
+  final String description;
   final ToastType type;
   final MessengerToastLength toastLength;
   final bool showDefaultLogo;

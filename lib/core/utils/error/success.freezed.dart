@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'exceptions.dart';
+part of 'success.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$AppException {
+mixin _$Success {
   String get message => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   dynamic get statusCode => throw _privateConstructorUsedError;
@@ -23,77 +23,75 @@ mixin _$AppException {
   TResult when<TResult extends Object?>({
     required TResult Function(
             String message, String description, dynamic statusCode)
-        serverException,
+        serverSuccess,
     required TResult Function(
             String message, String description, dynamic statusCode)
-        cacheException,
+        cacheSuccess,
     required TResult Function(
             String message, String description, dynamic statusCode)
-        unknownException,
+        unknownSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message, String description, dynamic statusCode)?
-        serverException,
+        serverSuccess,
     TResult? Function(String message, String description, dynamic statusCode)?
-        cacheException,
+        cacheSuccess,
     TResult? Function(String message, String description, dynamic statusCode)?
-        unknownException,
+        unknownSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message, String description, dynamic statusCode)?
-        serverException,
+        serverSuccess,
     TResult Function(String message, String description, dynamic statusCode)?
-        cacheException,
+        cacheSuccess,
     TResult Function(String message, String description, dynamic statusCode)?
-        unknownException,
+        unknownSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ServerException value) serverException,
-    required TResult Function(CacheException value) cacheException,
-    required TResult Function(UnknownException value) unknownException,
+    required TResult Function(ServerSuccess value) serverSuccess,
+    required TResult Function(CacheSuccess value) cacheSuccess,
+    required TResult Function(UnknownSuccess value) unknownSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ServerException value)? serverException,
-    TResult? Function(CacheException value)? cacheException,
-    TResult? Function(UnknownException value)? unknownException,
+    TResult? Function(ServerSuccess value)? serverSuccess,
+    TResult? Function(CacheSuccess value)? cacheSuccess,
+    TResult? Function(UnknownSuccess value)? unknownSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerException value)? serverException,
-    TResult Function(CacheException value)? cacheException,
-    TResult Function(UnknownException value)? unknownException,
+    TResult Function(ServerSuccess value)? serverSuccess,
+    TResult Function(CacheSuccess value)? cacheSuccess,
+    TResult Function(UnknownSuccess value)? unknownSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AppExceptionCopyWith<AppException> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SuccessCopyWith<Success> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AppExceptionCopyWith<$Res> {
-  factory $AppExceptionCopyWith(
-          AppException value, $Res Function(AppException) then) =
-      _$AppExceptionCopyWithImpl<$Res, AppException>;
+abstract class $SuccessCopyWith<$Res> {
+  factory $SuccessCopyWith(Success value, $Res Function(Success) then) =
+      _$SuccessCopyWithImpl<$Res, Success>;
   @useResult
   $Res call({String message, String description, dynamic statusCode});
 }
 
 /// @nodoc
-class _$AppExceptionCopyWithImpl<$Res, $Val extends AppException>
-    implements $AppExceptionCopyWith<$Res> {
-  _$AppExceptionCopyWithImpl(this._value, this._then);
+class _$SuccessCopyWithImpl<$Res, $Val extends Success>
+    implements $SuccessCopyWith<$Res> {
+  _$SuccessCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -125,22 +123,22 @@ class _$AppExceptionCopyWithImpl<$Res, $Val extends AppException>
 }
 
 /// @nodoc
-abstract class _$$ServerExceptionImplCopyWith<$Res>
-    implements $AppExceptionCopyWith<$Res> {
-  factory _$$ServerExceptionImplCopyWith(_$ServerExceptionImpl value,
-          $Res Function(_$ServerExceptionImpl) then) =
-      __$$ServerExceptionImplCopyWithImpl<$Res>;
+abstract class _$$ServerSuccessImplCopyWith<$Res>
+    implements $SuccessCopyWith<$Res> {
+  factory _$$ServerSuccessImplCopyWith(
+          _$ServerSuccessImpl value, $Res Function(_$ServerSuccessImpl) then) =
+      __$$ServerSuccessImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String message, String description, dynamic statusCode});
 }
 
 /// @nodoc
-class __$$ServerExceptionImplCopyWithImpl<$Res>
-    extends _$AppExceptionCopyWithImpl<$Res, _$ServerExceptionImpl>
-    implements _$$ServerExceptionImplCopyWith<$Res> {
-  __$$ServerExceptionImplCopyWithImpl(
-      _$ServerExceptionImpl _value, $Res Function(_$ServerExceptionImpl) _then)
+class __$$ServerSuccessImplCopyWithImpl<$Res>
+    extends _$SuccessCopyWithImpl<$Res, _$ServerSuccessImpl>
+    implements _$$ServerSuccessImplCopyWith<$Res> {
+  __$$ServerSuccessImplCopyWithImpl(
+      _$ServerSuccessImpl _value, $Res Function(_$ServerSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -150,7 +148,7 @@ class __$$ServerExceptionImplCopyWithImpl<$Res>
     Object? description = null,
     Object? statusCode = freezed,
   }) {
-    return _then(_$ServerExceptionImpl(
+    return _then(_$ServerSuccessImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -169,8 +167,8 @@ class __$$ServerExceptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ServerExceptionImpl extends ServerException {
-  const _$ServerExceptionImpl(
+class _$ServerSuccessImpl extends ServerSuccess {
+  const _$ServerSuccessImpl(
       {required this.message,
       required this.description,
       required this.statusCode})
@@ -186,14 +184,14 @@ class _$ServerExceptionImpl extends ServerException {
 
   @override
   String toString() {
-    return 'AppException.serverException(message: $message, description: $description, statusCode: $statusCode)';
+    return 'Success.serverSuccess(message: $message, description: $description, statusCode: $statusCode)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ServerExceptionImpl &&
+            other is _$ServerSuccessImpl &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -208,52 +206,51 @@ class _$ServerExceptionImpl extends ServerException {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ServerExceptionImplCopyWith<_$ServerExceptionImpl> get copyWith =>
-      __$$ServerExceptionImplCopyWithImpl<_$ServerExceptionImpl>(
-          this, _$identity);
+  _$$ServerSuccessImplCopyWith<_$ServerSuccessImpl> get copyWith =>
+      __$$ServerSuccessImplCopyWithImpl<_$ServerSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
             String message, String description, dynamic statusCode)
-        serverException,
+        serverSuccess,
     required TResult Function(
             String message, String description, dynamic statusCode)
-        cacheException,
+        cacheSuccess,
     required TResult Function(
             String message, String description, dynamic statusCode)
-        unknownException,
+        unknownSuccess,
   }) {
-    return serverException(message, description, statusCode);
+    return serverSuccess(message, description, statusCode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message, String description, dynamic statusCode)?
-        serverException,
+        serverSuccess,
     TResult? Function(String message, String description, dynamic statusCode)?
-        cacheException,
+        cacheSuccess,
     TResult? Function(String message, String description, dynamic statusCode)?
-        unknownException,
+        unknownSuccess,
   }) {
-    return serverException?.call(message, description, statusCode);
+    return serverSuccess?.call(message, description, statusCode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message, String description, dynamic statusCode)?
-        serverException,
+        serverSuccess,
     TResult Function(String message, String description, dynamic statusCode)?
-        cacheException,
+        cacheSuccess,
     TResult Function(String message, String description, dynamic statusCode)?
-        unknownException,
+        unknownSuccess,
     required TResult orElse(),
   }) {
-    if (serverException != null) {
-      return serverException(message, description, statusCode);
+    if (serverSuccess != null) {
+      return serverSuccess(message, description, statusCode);
     }
     return orElse();
   }
@@ -261,44 +258,44 @@ class _$ServerExceptionImpl extends ServerException {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ServerException value) serverException,
-    required TResult Function(CacheException value) cacheException,
-    required TResult Function(UnknownException value) unknownException,
+    required TResult Function(ServerSuccess value) serverSuccess,
+    required TResult Function(CacheSuccess value) cacheSuccess,
+    required TResult Function(UnknownSuccess value) unknownSuccess,
   }) {
-    return serverException(this);
+    return serverSuccess(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ServerException value)? serverException,
-    TResult? Function(CacheException value)? cacheException,
-    TResult? Function(UnknownException value)? unknownException,
+    TResult? Function(ServerSuccess value)? serverSuccess,
+    TResult? Function(CacheSuccess value)? cacheSuccess,
+    TResult? Function(UnknownSuccess value)? unknownSuccess,
   }) {
-    return serverException?.call(this);
+    return serverSuccess?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerException value)? serverException,
-    TResult Function(CacheException value)? cacheException,
-    TResult Function(UnknownException value)? unknownException,
+    TResult Function(ServerSuccess value)? serverSuccess,
+    TResult Function(CacheSuccess value)? cacheSuccess,
+    TResult Function(UnknownSuccess value)? unknownSuccess,
     required TResult orElse(),
   }) {
-    if (serverException != null) {
-      return serverException(this);
+    if (serverSuccess != null) {
+      return serverSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class ServerException extends AppException implements Exception {
-  const factory ServerException(
+abstract class ServerSuccess extends Success {
+  const factory ServerSuccess(
       {required final String message,
       required final String description,
-      required final dynamic statusCode}) = _$ServerExceptionImpl;
-  const ServerException._() : super._();
+      required final dynamic statusCode}) = _$ServerSuccessImpl;
+  const ServerSuccess._() : super._();
 
   @override
   String get message;
@@ -308,27 +305,27 @@ abstract class ServerException extends AppException implements Exception {
   dynamic get statusCode;
   @override
   @JsonKey(ignore: true)
-  _$$ServerExceptionImplCopyWith<_$ServerExceptionImpl> get copyWith =>
+  _$$ServerSuccessImplCopyWith<_$ServerSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CacheExceptionImplCopyWith<$Res>
-    implements $AppExceptionCopyWith<$Res> {
-  factory _$$CacheExceptionImplCopyWith(_$CacheExceptionImpl value,
-          $Res Function(_$CacheExceptionImpl) then) =
-      __$$CacheExceptionImplCopyWithImpl<$Res>;
+abstract class _$$CacheSuccessImplCopyWith<$Res>
+    implements $SuccessCopyWith<$Res> {
+  factory _$$CacheSuccessImplCopyWith(
+          _$CacheSuccessImpl value, $Res Function(_$CacheSuccessImpl) then) =
+      __$$CacheSuccessImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String message, String description, dynamic statusCode});
 }
 
 /// @nodoc
-class __$$CacheExceptionImplCopyWithImpl<$Res>
-    extends _$AppExceptionCopyWithImpl<$Res, _$CacheExceptionImpl>
-    implements _$$CacheExceptionImplCopyWith<$Res> {
-  __$$CacheExceptionImplCopyWithImpl(
-      _$CacheExceptionImpl _value, $Res Function(_$CacheExceptionImpl) _then)
+class __$$CacheSuccessImplCopyWithImpl<$Res>
+    extends _$SuccessCopyWithImpl<$Res, _$CacheSuccessImpl>
+    implements _$$CacheSuccessImplCopyWith<$Res> {
+  __$$CacheSuccessImplCopyWithImpl(
+      _$CacheSuccessImpl _value, $Res Function(_$CacheSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -338,7 +335,7 @@ class __$$CacheExceptionImplCopyWithImpl<$Res>
     Object? description = null,
     Object? statusCode = freezed,
   }) {
-    return _then(_$CacheExceptionImpl(
+    return _then(_$CacheSuccessImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -357,8 +354,8 @@ class __$$CacheExceptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CacheExceptionImpl extends CacheException {
-  const _$CacheExceptionImpl(
+class _$CacheSuccessImpl extends CacheSuccess {
+  const _$CacheSuccessImpl(
       {required this.message,
       required this.description,
       required this.statusCode})
@@ -374,14 +371,14 @@ class _$CacheExceptionImpl extends CacheException {
 
   @override
   String toString() {
-    return 'AppException.cacheException(message: $message, description: $description, statusCode: $statusCode)';
+    return 'Success.cacheSuccess(message: $message, description: $description, statusCode: $statusCode)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CacheExceptionImpl &&
+            other is _$CacheSuccessImpl &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -396,52 +393,51 @@ class _$CacheExceptionImpl extends CacheException {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CacheExceptionImplCopyWith<_$CacheExceptionImpl> get copyWith =>
-      __$$CacheExceptionImplCopyWithImpl<_$CacheExceptionImpl>(
-          this, _$identity);
+  _$$CacheSuccessImplCopyWith<_$CacheSuccessImpl> get copyWith =>
+      __$$CacheSuccessImplCopyWithImpl<_$CacheSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
             String message, String description, dynamic statusCode)
-        serverException,
+        serverSuccess,
     required TResult Function(
             String message, String description, dynamic statusCode)
-        cacheException,
+        cacheSuccess,
     required TResult Function(
             String message, String description, dynamic statusCode)
-        unknownException,
+        unknownSuccess,
   }) {
-    return cacheException(message, description, statusCode);
+    return cacheSuccess(message, description, statusCode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message, String description, dynamic statusCode)?
-        serverException,
+        serverSuccess,
     TResult? Function(String message, String description, dynamic statusCode)?
-        cacheException,
+        cacheSuccess,
     TResult? Function(String message, String description, dynamic statusCode)?
-        unknownException,
+        unknownSuccess,
   }) {
-    return cacheException?.call(message, description, statusCode);
+    return cacheSuccess?.call(message, description, statusCode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message, String description, dynamic statusCode)?
-        serverException,
+        serverSuccess,
     TResult Function(String message, String description, dynamic statusCode)?
-        cacheException,
+        cacheSuccess,
     TResult Function(String message, String description, dynamic statusCode)?
-        unknownException,
+        unknownSuccess,
     required TResult orElse(),
   }) {
-    if (cacheException != null) {
-      return cacheException(message, description, statusCode);
+    if (cacheSuccess != null) {
+      return cacheSuccess(message, description, statusCode);
     }
     return orElse();
   }
@@ -449,44 +445,44 @@ class _$CacheExceptionImpl extends CacheException {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ServerException value) serverException,
-    required TResult Function(CacheException value) cacheException,
-    required TResult Function(UnknownException value) unknownException,
+    required TResult Function(ServerSuccess value) serverSuccess,
+    required TResult Function(CacheSuccess value) cacheSuccess,
+    required TResult Function(UnknownSuccess value) unknownSuccess,
   }) {
-    return cacheException(this);
+    return cacheSuccess(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ServerException value)? serverException,
-    TResult? Function(CacheException value)? cacheException,
-    TResult? Function(UnknownException value)? unknownException,
+    TResult? Function(ServerSuccess value)? serverSuccess,
+    TResult? Function(CacheSuccess value)? cacheSuccess,
+    TResult? Function(UnknownSuccess value)? unknownSuccess,
   }) {
-    return cacheException?.call(this);
+    return cacheSuccess?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerException value)? serverException,
-    TResult Function(CacheException value)? cacheException,
-    TResult Function(UnknownException value)? unknownException,
+    TResult Function(ServerSuccess value)? serverSuccess,
+    TResult Function(CacheSuccess value)? cacheSuccess,
+    TResult Function(UnknownSuccess value)? unknownSuccess,
     required TResult orElse(),
   }) {
-    if (cacheException != null) {
-      return cacheException(this);
+    if (cacheSuccess != null) {
+      return cacheSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class CacheException extends AppException implements Exception {
-  const factory CacheException(
+abstract class CacheSuccess extends Success {
+  const factory CacheSuccess(
       {required final String message,
       required final String description,
-      required final dynamic statusCode}) = _$CacheExceptionImpl;
-  const CacheException._() : super._();
+      required final dynamic statusCode}) = _$CacheSuccessImpl;
+  const CacheSuccess._() : super._();
 
   @override
   String get message;
@@ -496,27 +492,27 @@ abstract class CacheException extends AppException implements Exception {
   dynamic get statusCode;
   @override
   @JsonKey(ignore: true)
-  _$$CacheExceptionImplCopyWith<_$CacheExceptionImpl> get copyWith =>
+  _$$CacheSuccessImplCopyWith<_$CacheSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UnknownExceptionImplCopyWith<$Res>
-    implements $AppExceptionCopyWith<$Res> {
-  factory _$$UnknownExceptionImplCopyWith(_$UnknownExceptionImpl value,
-          $Res Function(_$UnknownExceptionImpl) then) =
-      __$$UnknownExceptionImplCopyWithImpl<$Res>;
+abstract class _$$UnknownSuccessImplCopyWith<$Res>
+    implements $SuccessCopyWith<$Res> {
+  factory _$$UnknownSuccessImplCopyWith(_$UnknownSuccessImpl value,
+          $Res Function(_$UnknownSuccessImpl) then) =
+      __$$UnknownSuccessImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String message, String description, dynamic statusCode});
 }
 
 /// @nodoc
-class __$$UnknownExceptionImplCopyWithImpl<$Res>
-    extends _$AppExceptionCopyWithImpl<$Res, _$UnknownExceptionImpl>
-    implements _$$UnknownExceptionImplCopyWith<$Res> {
-  __$$UnknownExceptionImplCopyWithImpl(_$UnknownExceptionImpl _value,
-      $Res Function(_$UnknownExceptionImpl) _then)
+class __$$UnknownSuccessImplCopyWithImpl<$Res>
+    extends _$SuccessCopyWithImpl<$Res, _$UnknownSuccessImpl>
+    implements _$$UnknownSuccessImplCopyWith<$Res> {
+  __$$UnknownSuccessImplCopyWithImpl(
+      _$UnknownSuccessImpl _value, $Res Function(_$UnknownSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -526,7 +522,7 @@ class __$$UnknownExceptionImplCopyWithImpl<$Res>
     Object? description = null,
     Object? statusCode = freezed,
   }) {
-    return _then(_$UnknownExceptionImpl(
+    return _then(_$UnknownSuccessImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -545,8 +541,8 @@ class __$$UnknownExceptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UnknownExceptionImpl extends UnknownException {
-  const _$UnknownExceptionImpl(
+class _$UnknownSuccessImpl extends UnknownSuccess {
+  const _$UnknownSuccessImpl(
       {required this.message,
       required this.description,
       required this.statusCode})
@@ -562,14 +558,14 @@ class _$UnknownExceptionImpl extends UnknownException {
 
   @override
   String toString() {
-    return 'AppException.unknownException(message: $message, description: $description, statusCode: $statusCode)';
+    return 'Success.unknownSuccess(message: $message, description: $description, statusCode: $statusCode)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UnknownExceptionImpl &&
+            other is _$UnknownSuccessImpl &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -584,8 +580,8 @@ class _$UnknownExceptionImpl extends UnknownException {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UnknownExceptionImplCopyWith<_$UnknownExceptionImpl> get copyWith =>
-      __$$UnknownExceptionImplCopyWithImpl<_$UnknownExceptionImpl>(
+  _$$UnknownSuccessImplCopyWith<_$UnknownSuccessImpl> get copyWith =>
+      __$$UnknownSuccessImplCopyWithImpl<_$UnknownSuccessImpl>(
           this, _$identity);
 
   @override
@@ -593,43 +589,43 @@ class _$UnknownExceptionImpl extends UnknownException {
   TResult when<TResult extends Object?>({
     required TResult Function(
             String message, String description, dynamic statusCode)
-        serverException,
+        serverSuccess,
     required TResult Function(
             String message, String description, dynamic statusCode)
-        cacheException,
+        cacheSuccess,
     required TResult Function(
             String message, String description, dynamic statusCode)
-        unknownException,
+        unknownSuccess,
   }) {
-    return unknownException(message, description, statusCode);
+    return unknownSuccess(message, description, statusCode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message, String description, dynamic statusCode)?
-        serverException,
+        serverSuccess,
     TResult? Function(String message, String description, dynamic statusCode)?
-        cacheException,
+        cacheSuccess,
     TResult? Function(String message, String description, dynamic statusCode)?
-        unknownException,
+        unknownSuccess,
   }) {
-    return unknownException?.call(message, description, statusCode);
+    return unknownSuccess?.call(message, description, statusCode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message, String description, dynamic statusCode)?
-        serverException,
+        serverSuccess,
     TResult Function(String message, String description, dynamic statusCode)?
-        cacheException,
+        cacheSuccess,
     TResult Function(String message, String description, dynamic statusCode)?
-        unknownException,
+        unknownSuccess,
     required TResult orElse(),
   }) {
-    if (unknownException != null) {
-      return unknownException(message, description, statusCode);
+    if (unknownSuccess != null) {
+      return unknownSuccess(message, description, statusCode);
     }
     return orElse();
   }
@@ -637,44 +633,44 @@ class _$UnknownExceptionImpl extends UnknownException {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ServerException value) serverException,
-    required TResult Function(CacheException value) cacheException,
-    required TResult Function(UnknownException value) unknownException,
+    required TResult Function(ServerSuccess value) serverSuccess,
+    required TResult Function(CacheSuccess value) cacheSuccess,
+    required TResult Function(UnknownSuccess value) unknownSuccess,
   }) {
-    return unknownException(this);
+    return unknownSuccess(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ServerException value)? serverException,
-    TResult? Function(CacheException value)? cacheException,
-    TResult? Function(UnknownException value)? unknownException,
+    TResult? Function(ServerSuccess value)? serverSuccess,
+    TResult? Function(CacheSuccess value)? cacheSuccess,
+    TResult? Function(UnknownSuccess value)? unknownSuccess,
   }) {
-    return unknownException?.call(this);
+    return unknownSuccess?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerException value)? serverException,
-    TResult Function(CacheException value)? cacheException,
-    TResult Function(UnknownException value)? unknownException,
+    TResult Function(ServerSuccess value)? serverSuccess,
+    TResult Function(CacheSuccess value)? cacheSuccess,
+    TResult Function(UnknownSuccess value)? unknownSuccess,
     required TResult orElse(),
   }) {
-    if (unknownException != null) {
-      return unknownException(this);
+    if (unknownSuccess != null) {
+      return unknownSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class UnknownException extends AppException implements Exception {
-  const factory UnknownException(
+abstract class UnknownSuccess extends Success {
+  const factory UnknownSuccess(
       {required final String message,
       required final String description,
-      required final dynamic statusCode}) = _$UnknownExceptionImpl;
-  const UnknownException._() : super._();
+      required final dynamic statusCode}) = _$UnknownSuccessImpl;
+  const UnknownSuccess._() : super._();
 
   @override
   String get message;
@@ -684,6 +680,6 @@ abstract class UnknownException extends AppException implements Exception {
   dynamic get statusCode;
   @override
   @JsonKey(ignore: true)
-  _$$UnknownExceptionImplCopyWith<_$UnknownExceptionImpl> get copyWith =>
+  _$$UnknownSuccessImplCopyWith<_$UnknownSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

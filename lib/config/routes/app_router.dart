@@ -4,7 +4,10 @@ import 'package:tki_app/config/routes/app_router.gr.dart';
 import 'package:tki_app/src/home/presentation/pages/home_page.dart';
 import 'package:tki_app/src/interpretation_report/presentation/pages/interpretation_report_page.dart';
 import 'package:tki_app/src/language/presentation/pages/languages_page.dart';
+import 'package:tki_app/src/tki_questions_set/presentation/pages/question_set_page.dart';
 import 'package:tki_app/src/tki_questions_set/presentation/pages/questions_set_page.dart';
+
+import '../../src/tki_questions_set/presentation/pages/question_sets_navigation_page.dart';
 
 @singleton
 @AutoRouterConfig()
@@ -25,12 +28,19 @@ class AppRouter extends $AppRouter {
           path: InterpretationReportPage.routeName,
         ),
         AutoRoute(
-          page: QuestionsSetRoute.page,
-          path: QuestionsSetPage.routeName,
-        ),
-        AutoRoute(
-          page: QuestionSetRoute.page,
-        ),
+            page: QuestionSetsNavigationRoute.page,
+            path: QuestionSetsNavigationPage.routeName,
+            children: [
+              AutoRoute(
+                initial: true,
+                page: QuestionsSetRoute.page,
+                path: getTabName(QuestionsSetPage.routeName),
+              ),
+              AutoRoute(
+                page: QuestionSetRoute.page,
+                path: getTabName(QuestionSetPage.routeName),
+              ),
+            ]),
       ];
 
   String getTabName(String routeName) {

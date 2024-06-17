@@ -11,4 +11,8 @@ extension StringExtension on String {
     return '${substring(0, length)}...';
   }
 
+  /// Capitalizes the first letter of the string
+  String capitalize(String s) {
+    return s[0].toUpperCase() + s.substring(1);
+  }
 }

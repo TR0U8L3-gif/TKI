@@ -17,27 +17,39 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Failure {
   String get message => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
   dynamic get statusCode => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message, dynamic statusCode) serverFailure,
-    required TResult Function(String message, dynamic statusCode) cacheFailure,
-    required TResult Function(String message, dynamic statusCode)
+    required TResult Function(
+            String message, String description, dynamic statusCode)
+        serverFailure,
+    required TResult Function(
+            String message, String description, dynamic statusCode)
+        cacheFailure,
+    required TResult Function(
+            String message, String description, dynamic statusCode)
         unknownFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message, dynamic statusCode)? serverFailure,
-    TResult? Function(String message, dynamic statusCode)? cacheFailure,
-    TResult? Function(String message, dynamic statusCode)? unknownFailure,
+    TResult? Function(String message, String description, dynamic statusCode)?
+        serverFailure,
+    TResult? Function(String message, String description, dynamic statusCode)?
+        cacheFailure,
+    TResult? Function(String message, String description, dynamic statusCode)?
+        unknownFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message, dynamic statusCode)? serverFailure,
-    TResult Function(String message, dynamic statusCode)? cacheFailure,
-    TResult Function(String message, dynamic statusCode)? unknownFailure,
+    TResult Function(String message, String description, dynamic statusCode)?
+        serverFailure,
+    TResult Function(String message, String description, dynamic statusCode)?
+        cacheFailure,
+    TResult Function(String message, String description, dynamic statusCode)?
+        unknownFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -73,7 +85,7 @@ abstract class $FailureCopyWith<$Res> {
   factory $FailureCopyWith(Failure value, $Res Function(Failure) then) =
       _$FailureCopyWithImpl<$Res, Failure>;
   @useResult
-  $Res call({String message, dynamic statusCode});
+  $Res call({String message, String description, dynamic statusCode});
 }
 
 /// @nodoc
@@ -90,12 +102,17 @@ class _$FailureCopyWithImpl<$Res, $Val extends Failure>
   @override
   $Res call({
     Object? message = null,
+    Object? description = null,
     Object? statusCode = freezed,
   }) {
     return _then(_value.copyWith(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       statusCode: freezed == statusCode
           ? _value.statusCode
@@ -113,7 +130,7 @@ abstract class _$$ServerFailureImplCopyWith<$Res>
       __$$ServerFailureImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String message, dynamic statusCode});
+  $Res call({String message, String description, dynamic statusCode});
 }
 
 /// @nodoc
@@ -128,12 +145,17 @@ class __$$ServerFailureImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? message = null,
+    Object? description = null,
     Object? statusCode = freezed,
   }) {
     return _then(_$ServerFailureImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       statusCode: freezed == statusCode
           ? _value.statusCode
@@ -146,18 +168,23 @@ class __$$ServerFailureImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ServerFailureImpl extends ServerFailure {
-  const _$ServerFailureImpl({required this.message, required this.statusCode})
+  const _$ServerFailureImpl(
+      {required this.message,
+      required this.description,
+      required this.statusCode})
       : assert(statusCode is int || statusCode is String),
         super._();
 
   @override
   final String message;
   @override
+  final String description;
+  @override
   final dynamic statusCode;
 
   @override
   String toString() {
-    return 'Failure.serverFailure(message: $message, statusCode: $statusCode)';
+    return 'Failure.serverFailure(message: $message, description: $description, statusCode: $statusCode)';
   }
 
   @override
@@ -166,13 +193,15 @@ class _$ServerFailureImpl extends ServerFailure {
         (other.runtimeType == runtimeType &&
             other is _$ServerFailureImpl &&
             (identical(other.message, message) || other.message == message) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, message, const DeepCollectionEquality().hash(statusCode));
+  int get hashCode => Object.hash(runtimeType, message, description,
+      const DeepCollectionEquality().hash(statusCode));
 
   @JsonKey(ignore: true)
   @override
@@ -183,34 +212,45 @@ class _$ServerFailureImpl extends ServerFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message, dynamic statusCode) serverFailure,
-    required TResult Function(String message, dynamic statusCode) cacheFailure,
-    required TResult Function(String message, dynamic statusCode)
+    required TResult Function(
+            String message, String description, dynamic statusCode)
+        serverFailure,
+    required TResult Function(
+            String message, String description, dynamic statusCode)
+        cacheFailure,
+    required TResult Function(
+            String message, String description, dynamic statusCode)
         unknownFailure,
   }) {
-    return serverFailure(message, statusCode);
+    return serverFailure(message, description, statusCode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message, dynamic statusCode)? serverFailure,
-    TResult? Function(String message, dynamic statusCode)? cacheFailure,
-    TResult? Function(String message, dynamic statusCode)? unknownFailure,
+    TResult? Function(String message, String description, dynamic statusCode)?
+        serverFailure,
+    TResult? Function(String message, String description, dynamic statusCode)?
+        cacheFailure,
+    TResult? Function(String message, String description, dynamic statusCode)?
+        unknownFailure,
   }) {
-    return serverFailure?.call(message, statusCode);
+    return serverFailure?.call(message, description, statusCode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message, dynamic statusCode)? serverFailure,
-    TResult Function(String message, dynamic statusCode)? cacheFailure,
-    TResult Function(String message, dynamic statusCode)? unknownFailure,
+    TResult Function(String message, String description, dynamic statusCode)?
+        serverFailure,
+    TResult Function(String message, String description, dynamic statusCode)?
+        cacheFailure,
+    TResult Function(String message, String description, dynamic statusCode)?
+        unknownFailure,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
-      return serverFailure(message, statusCode);
+      return serverFailure(message, description, statusCode);
     }
     return orElse();
   }
@@ -253,11 +293,14 @@ class _$ServerFailureImpl extends ServerFailure {
 abstract class ServerFailure extends Failure {
   const factory ServerFailure(
       {required final String message,
+      required final String description,
       required final dynamic statusCode}) = _$ServerFailureImpl;
   const ServerFailure._() : super._();
 
   @override
   String get message;
+  @override
+  String get description;
   @override
   dynamic get statusCode;
   @override
@@ -274,7 +317,7 @@ abstract class _$$CacheFailureImplCopyWith<$Res>
       __$$CacheFailureImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String message, dynamic statusCode});
+  $Res call({String message, String description, dynamic statusCode});
 }
 
 /// @nodoc
@@ -289,12 +332,17 @@ class __$$CacheFailureImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? message = null,
+    Object? description = null,
     Object? statusCode = freezed,
   }) {
     return _then(_$CacheFailureImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       statusCode: freezed == statusCode
           ? _value.statusCode
@@ -307,18 +355,23 @@ class __$$CacheFailureImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CacheFailureImpl extends CacheFailure {
-  const _$CacheFailureImpl({required this.message, required this.statusCode})
+  const _$CacheFailureImpl(
+      {required this.message,
+      required this.description,
+      required this.statusCode})
       : assert(statusCode is int || statusCode is String),
         super._();
 
   @override
   final String message;
   @override
+  final String description;
+  @override
   final dynamic statusCode;
 
   @override
   String toString() {
-    return 'Failure.cacheFailure(message: $message, statusCode: $statusCode)';
+    return 'Failure.cacheFailure(message: $message, description: $description, statusCode: $statusCode)';
   }
 
   @override
@@ -327,13 +380,15 @@ class _$CacheFailureImpl extends CacheFailure {
         (other.runtimeType == runtimeType &&
             other is _$CacheFailureImpl &&
             (identical(other.message, message) || other.message == message) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, message, const DeepCollectionEquality().hash(statusCode));
+  int get hashCode => Object.hash(runtimeType, message, description,
+      const DeepCollectionEquality().hash(statusCode));
 
   @JsonKey(ignore: true)
   @override
@@ -344,34 +399,45 @@ class _$CacheFailureImpl extends CacheFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message, dynamic statusCode) serverFailure,
-    required TResult Function(String message, dynamic statusCode) cacheFailure,
-    required TResult Function(String message, dynamic statusCode)
+    required TResult Function(
+            String message, String description, dynamic statusCode)
+        serverFailure,
+    required TResult Function(
+            String message, String description, dynamic statusCode)
+        cacheFailure,
+    required TResult Function(
+            String message, String description, dynamic statusCode)
         unknownFailure,
   }) {
-    return cacheFailure(message, statusCode);
+    return cacheFailure(message, description, statusCode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message, dynamic statusCode)? serverFailure,
-    TResult? Function(String message, dynamic statusCode)? cacheFailure,
-    TResult? Function(String message, dynamic statusCode)? unknownFailure,
+    TResult? Function(String message, String description, dynamic statusCode)?
+        serverFailure,
+    TResult? Function(String message, String description, dynamic statusCode)?
+        cacheFailure,
+    TResult? Function(String message, String description, dynamic statusCode)?
+        unknownFailure,
   }) {
-    return cacheFailure?.call(message, statusCode);
+    return cacheFailure?.call(message, description, statusCode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message, dynamic statusCode)? serverFailure,
-    TResult Function(String message, dynamic statusCode)? cacheFailure,
-    TResult Function(String message, dynamic statusCode)? unknownFailure,
+    TResult Function(String message, String description, dynamic statusCode)?
+        serverFailure,
+    TResult Function(String message, String description, dynamic statusCode)?
+        cacheFailure,
+    TResult Function(String message, String description, dynamic statusCode)?
+        unknownFailure,
     required TResult orElse(),
   }) {
     if (cacheFailure != null) {
-      return cacheFailure(message, statusCode);
+      return cacheFailure(message, description, statusCode);
     }
     return orElse();
   }
@@ -414,11 +480,14 @@ class _$CacheFailureImpl extends CacheFailure {
 abstract class CacheFailure extends Failure {
   const factory CacheFailure(
       {required final String message,
+      required final String description,
       required final dynamic statusCode}) = _$CacheFailureImpl;
   const CacheFailure._() : super._();
 
   @override
   String get message;
+  @override
+  String get description;
   @override
   dynamic get statusCode;
   @override
@@ -435,7 +504,7 @@ abstract class _$$UnknownFailureImplCopyWith<$Res>
       __$$UnknownFailureImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String message, dynamic statusCode});
+  $Res call({String message, String description, dynamic statusCode});
 }
 
 /// @nodoc
@@ -450,12 +519,17 @@ class __$$UnknownFailureImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? message = null,
+    Object? description = null,
     Object? statusCode = freezed,
   }) {
     return _then(_$UnknownFailureImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       statusCode: freezed == statusCode
           ? _value.statusCode
@@ -468,17 +542,23 @@ class __$$UnknownFailureImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UnknownFailureImpl extends UnknownFailure {
-  const _$UnknownFailureImpl({required this.message, required this.statusCode})
-      : super._();
+  const _$UnknownFailureImpl(
+      {required this.message,
+      required this.description,
+      required this.statusCode})
+      : assert(statusCode is int || statusCode is String),
+        super._();
 
   @override
   final String message;
+  @override
+  final String description;
   @override
   final dynamic statusCode;
 
   @override
   String toString() {
-    return 'Failure.unknownFailure(message: $message, statusCode: $statusCode)';
+    return 'Failure.unknownFailure(message: $message, description: $description, statusCode: $statusCode)';
   }
 
   @override
@@ -487,13 +567,15 @@ class _$UnknownFailureImpl extends UnknownFailure {
         (other.runtimeType == runtimeType &&
             other is _$UnknownFailureImpl &&
             (identical(other.message, message) || other.message == message) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, message, const DeepCollectionEquality().hash(statusCode));
+  int get hashCode => Object.hash(runtimeType, message, description,
+      const DeepCollectionEquality().hash(statusCode));
 
   @JsonKey(ignore: true)
   @override
@@ -505,34 +587,45 @@ class _$UnknownFailureImpl extends UnknownFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message, dynamic statusCode) serverFailure,
-    required TResult Function(String message, dynamic statusCode) cacheFailure,
-    required TResult Function(String message, dynamic statusCode)
+    required TResult Function(
+            String message, String description, dynamic statusCode)
+        serverFailure,
+    required TResult Function(
+            String message, String description, dynamic statusCode)
+        cacheFailure,
+    required TResult Function(
+            String message, String description, dynamic statusCode)
         unknownFailure,
   }) {
-    return unknownFailure(message, statusCode);
+    return unknownFailure(message, description, statusCode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message, dynamic statusCode)? serverFailure,
-    TResult? Function(String message, dynamic statusCode)? cacheFailure,
-    TResult? Function(String message, dynamic statusCode)? unknownFailure,
+    TResult? Function(String message, String description, dynamic statusCode)?
+        serverFailure,
+    TResult? Function(String message, String description, dynamic statusCode)?
+        cacheFailure,
+    TResult? Function(String message, String description, dynamic statusCode)?
+        unknownFailure,
   }) {
-    return unknownFailure?.call(message, statusCode);
+    return unknownFailure?.call(message, description, statusCode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message, dynamic statusCode)? serverFailure,
-    TResult Function(String message, dynamic statusCode)? cacheFailure,
-    TResult Function(String message, dynamic statusCode)? unknownFailure,
+    TResult Function(String message, String description, dynamic statusCode)?
+        serverFailure,
+    TResult Function(String message, String description, dynamic statusCode)?
+        cacheFailure,
+    TResult Function(String message, String description, dynamic statusCode)?
+        unknownFailure,
     required TResult orElse(),
   }) {
     if (unknownFailure != null) {
-      return unknownFailure(message, statusCode);
+      return unknownFailure(message, description, statusCode);
     }
     return orElse();
   }
@@ -575,11 +668,14 @@ class _$UnknownFailureImpl extends UnknownFailure {
 abstract class UnknownFailure extends Failure {
   const factory UnknownFailure(
       {required final String message,
+      required final String description,
       required final dynamic statusCode}) = _$UnknownFailureImpl;
   const UnknownFailure._() : super._();
 
   @override
   String get message;
+  @override
+  String get description;
   @override
   dynamic get statusCode;
   @override
