@@ -7,6 +7,7 @@ import 'package:tki_app/core/common/widgets/app_button.dart';
 import 'package:tki_app/core/common/widgets/app_scaffold.dart';
 import 'package:tki_app/core/extensions/context_extension.dart';
 import 'package:tki_app/core/extensions/l10n_extension.dart';
+import 'package:tki_app/src/assessment_history/presentation/pages/assessment_history_navigation_page.dart';
 import 'package:tki_app/src/interpretation_report/presentation/pages/interpretation_report_page.dart';
 import 'package:tki_app/src/language/presentation/pages/languages_page.dart';
 import 'package:tki_app/src/tki_questions_set/presentation/pages/question_sets_navigation_page.dart';
@@ -58,6 +59,8 @@ class HomePage extends StatelessWidget {
                       shadowColorOnPressed: AppColors.orangeDark,
                     ),
                     AppButton(
+                      onPressed: () => context.router
+                          .pushNamed(AssessmentHistoryNavigationPage.routeName),
                       text: context.l10n.assessmentHistory,
                       height: _height,
                       width: context.width * _widthFactor,

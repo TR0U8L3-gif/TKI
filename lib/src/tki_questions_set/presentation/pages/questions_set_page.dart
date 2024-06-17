@@ -17,7 +17,7 @@ import 'package:tki_app/src/tki_questions_set/presentation/widgets/question_set_
 class QuestionsSetPage extends StatelessWidget {
   const QuestionsSetPage({super.key});
 
-  static const String routeName = '/list';
+  static const String tabName = 'list';
 
   @override
   Widget build(BuildContext context) {

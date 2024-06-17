@@ -27,7 +27,7 @@ class QuestionSetPage extends HookWidget {
     required this.index,
   });
 
-  static const String routeName = '/set';
+  static const String tabName = 'set';
 
 
   final QuestionSet questionSet;

@@ -52,3 +52,8 @@ class HiveManager {
 class QuestionSetsHiveManager extends HiveManager {
   QuestionSetsHiveManager() : super(boxName: 'QuestionSets');
 }
+
+@injectable
+class AssessmentHistoryHiveManager extends HiveManager {
+  AssessmentHistoryHiveManager() : super(boxName: 'AssessmentHistory');
+}

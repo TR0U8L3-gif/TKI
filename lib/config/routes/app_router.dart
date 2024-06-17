@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tki_app/config/routes/app_router.gr.dart';
 import 'package:tki_app/src/assessment_history/presentation/pages/assessment_history_navigation_page.dart';
+import 'package:tki_app/src/assessment_history/presentation/pages/assessment_history_page.dart';
 import 'package:tki_app/src/home/presentation/pages/home_page.dart';
 import 'package:tki_app/src/interpretation_report/presentation/pages/interpretation_report_page.dart';
 import 'package:tki_app/src/language/presentation/pages/languages_page.dart';
@@ -36,18 +37,24 @@ class AppRouter extends $AppRouter {
             AutoRoute(
               initial: true,
               page: QuestionsSetRoute.page,
-              path: getTabName(QuestionsSetPage.routeName),
+              path: QuestionsSetPage.tabName,
             ),
             AutoRoute(
               page: QuestionSetRoute.page,
-              path: getTabName(QuestionSetPage.routeName),
+              path: QuestionSetPage.tabName,
             ),
           ],
         ),
         AutoRoute(
           page: AssessmentHistoryNavigationRoute.page,
           path: AssessmentHistoryNavigationPage.routeName,
-          children: [],
+          children: [
+            AutoRoute(
+              initial: true,
+              page: AssessmentHistoryRoute.page,
+              path: AssessmentHistoryPage.tabName,
+            ),
+          ],
         ),
         AutoRoute(
           page: TkiAssessmentNavigationRoute.page,
