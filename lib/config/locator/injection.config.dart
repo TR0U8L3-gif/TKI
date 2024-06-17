@@ -23,15 +23,15 @@ import '../../src/tki_questions_set/data/repositories/question_sets_repository_i
 import '../../src/tki_questions_set/domain/repositories/question_sets_repository.dart'
     as _i9;
 import '../../src/tki_questions_set/domain/use_cases/delete_question_set.dart'
-    as _i15;
-import '../../src/tki_questions_set/domain/use_cases/get_question_set_from_file.dart'
-    as _i13;
-import '../../src/tki_questions_set/domain/use_cases/get_question_sets_from_fixture.dart'
     as _i11;
-import '../../src/tki_questions_set/domain/use_cases/get_question_sets_from_memory.dart'
-    as _i12;
-import '../../src/tki_questions_set/domain/use_cases/save_question_set.dart'
+import '../../src/tki_questions_set/domain/use_cases/get_question_set_from_file.dart'
     as _i14;
+import '../../src/tki_questions_set/domain/use_cases/get_question_sets_from_fixture.dart'
+    as _i12;
+import '../../src/tki_questions_set/domain/use_cases/get_question_sets_from_memory.dart'
+    as _i13;
+import '../../src/tki_questions_set/domain/use_cases/save_question_set.dart'
+    as _i15;
 import '../../src/tki_questions_set/presentation/bloc/tki_question_set_bloc.dart'
     as _i16;
 import '../routes/app_router.dart' as _i4;
@@ -63,25 +63,25 @@ extension GetItInjectableX on _i1.GetIt {
               localDataSource: gh<_i8.QuestionSetsLocalDataSource>(),
               remoteDataSource: gh<_i7.QuestionSetsRemoteDataSource>(),
             ));
-    gh.lazySingleton<_i11.GetQuestionSetsFromFixtures>(() =>
-        _i11.GetQuestionSetsFromFixtures(
+    gh.lazySingleton<_i11.DeleteQuestionSet>(() =>
+        _i11.DeleteQuestionSet(repository: gh<_i9.QuestionSetsRepository>()));
+    gh.lazySingleton<_i12.GetQuestionSetsFromFixtures>(() =>
+        _i12.GetQuestionSetsFromFixtures(
             repository: gh<_i9.QuestionSetsRepository>()));
-    gh.lazySingleton<_i12.GetQuestionSetsFromMemory>(() =>
-        _i12.GetQuestionSetsFromMemory(
+    gh.lazySingleton<_i13.GetQuestionSetsFromMemory>(() =>
+        _i13.GetQuestionSetsFromMemory(
             repository: gh<_i9.QuestionSetsRepository>()));
-    gh.lazySingleton<_i13.GetQuestionSetFromFile>(() =>
-        _i13.GetQuestionSetFromFile(
+    gh.lazySingleton<_i14.GetQuestionSetFromFile>(() =>
+        _i14.GetQuestionSetFromFile(
             repository: gh<_i9.QuestionSetsRepository>()));
-    gh.lazySingleton<_i14.SaveQuestionSet>(() =>
-        _i14.SaveQuestionSet(repository: gh<_i9.QuestionSetsRepository>()));
-    gh.lazySingleton<_i15.DeleteQuestionSet>(() =>
-        _i15.DeleteQuestionSet(repository: gh<_i9.QuestionSetsRepository>()));
+    gh.lazySingleton<_i15.SaveQuestionSet>(() =>
+        _i15.SaveQuestionSet(repository: gh<_i9.QuestionSetsRepository>()));
     gh.factory<_i16.TkiQuestionSetBloc>(() => _i16.TkiQuestionSetBloc(
-          getQuestionSetsFromFixtures: gh<_i11.GetQuestionSetsFromFixtures>(),
-          getQuestionSetFromFile: gh<_i13.GetQuestionSetFromFile>(),
-          getQuestionSetsFromMemory: gh<_i12.GetQuestionSetsFromMemory>(),
-          saveQuestionSet: gh<_i14.SaveQuestionSet>(),
-          deleteQuestionSet: gh<_i15.DeleteQuestionSet>(),
+          getQuestionSetsFromFixtures: gh<_i12.GetQuestionSetsFromFixtures>(),
+          getQuestionSetFromFile: gh<_i14.GetQuestionSetFromFile>(),
+          getQuestionSetsFromMemory: gh<_i13.GetQuestionSetsFromMemory>(),
+          saveQuestionSet: gh<_i15.SaveQuestionSet>(),
+          deleteQuestionSet: gh<_i11.DeleteQuestionSet>(),
         ));
     return this;
   }

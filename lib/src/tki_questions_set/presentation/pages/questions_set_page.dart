@@ -8,7 +8,6 @@ import 'package:tki_app/core/extensions/context_extension.dart';
 import 'package:tki_app/core/extensions/l10n_extension.dart';
 import 'package:tki_app/core/extensions/num_extension.dart';
 import 'package:tki_app/core/services/messages/messenger.dart';
-import 'package:tki_app/src/home/presentation/pages/home_page.dart';
 import 'package:tki_app/src/tki_questions_set/data/models/question_set.dart';
 import 'package:tki_app/src/tki_questions_set/presentation/bloc/tki_question_set_bloc.dart';
 import 'package:tki_app/src/tki_questions_set/presentation/widgets/question_set_list_tile.dart';

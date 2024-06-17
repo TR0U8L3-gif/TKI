@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:tki_app/config/assets/app_colors.dart';
 import 'package:tki_app/config/assets/app_size.dart';
