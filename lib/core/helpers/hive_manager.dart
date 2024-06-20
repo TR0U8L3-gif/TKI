@@ -1,5 +1,9 @@
+import 'dart:async';
+
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
+
+const String hiveBoxName = 'tkiHiveStorage';
 
 class HiveManager {
   HiveManager({required String boxName}) : _boxName = boxName {
@@ -10,11 +14,11 @@ class HiveManager {
   static Box? _boxInstance;
 
   Future<Box> get box async {
-    return _boxInstance ??= await Hive.openBox(_boxName);
+    return _boxInstance ??= await Hive.openBox(hiveBoxName);
   }
 
   void _openBox() async {
-    _boxInstance = await Hive.openBox(_boxName);
+    _boxInstance = await Hive.openBox(hiveBoxName);
   }
 
   void dispose() {
@@ -24,24 +28,24 @@ class HiveManager {
 
   Future<T?> read<T>(String key) async {
     final box = await isBoxOpen();
-    return box.get(key) as T;
+    return box.get(_boxName + key) as T?;
   }
 
   void write<T>(String key, T value) async {
     final box = await isBoxOpen();
-    await box.put(key, value);
+    await box.put(_boxName + key, value);
   }
 
   void delete(String key) async {
     final box = await isBoxOpen();
-    await box.delete(key);
+    await box.delete(_boxName + key);
   }
 
   Future<Box> isBoxOpen() async {
     if (_boxInstance?.isOpen == true) {
       return _boxInstance!;
     } else {
-      final box = await Hive.openBox(_boxName);
+      final box = await Hive.openBox(hiveBoxName);
       _boxInstance = box;
       return box;
     }

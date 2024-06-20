@@ -14,7 +14,9 @@ class AssessmentHistoryNavigationPage extends StatelessWidget
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider(
-      create: (_) => locator<AssessmentHistoryBloc>(),
+      create: (_) =>
+          locator<AssessmentHistoryBloc>()
+            ..add(const GetFromMemoryEvent()),
       child: this,
     );
   }

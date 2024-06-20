@@ -49,5 +49,6 @@
   "deleteQuestionSet": "Usuń zestaw pytań",
   "deleteQuestionSetConfirmation": "Czy na pewno chcesz usunąć ten zestaw pytań: \"{questionSet}\" ?",
   "yes": "Tak",
-  "no": "Nie"
+  "no": "Nie",
+  "date": "Data"
 }

@@ -12,7 +12,7 @@ extension StringExtension on String {
   }
 
   /// Capitalizes the first letter of the string
-  String capitalize(String s) {
-    return s[0].toUpperCase() + s.substring(1);
+  String get capitalize {
+    return this[0].toUpperCase() + substring(1);
   }
 }
